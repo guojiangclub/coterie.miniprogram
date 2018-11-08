@@ -1,0 +1,8 @@
+@import "assets/css/reset.wxss";
+@import "assets/css/1px.wxss";
+@import "assets/css/font.wxss";
+@import "component/wxParse/wxParse.wxss";
+
+view{
+    box-sizing: border-box;
+ }
