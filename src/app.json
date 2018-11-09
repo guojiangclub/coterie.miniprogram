@@ -3,7 +3,10 @@
     "pages/index/index/index",
     "pages/index/search/main",
     "pages/index/setUp/main",
-    "pages/index/fillIn/main"
+    "pages/index/fillIn/main",
+    "pages/knowladge/join/main",
+    "pages/knowladge/detail/main"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

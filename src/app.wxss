@@ -6,3 +6,8 @@
 view{
     box-sizing: border-box;
  }
+.nowrap{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

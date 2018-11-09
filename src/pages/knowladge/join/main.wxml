@@ -1,0 +1,323 @@
+<view id="join">
+    <view class="top-bg">
+
+    </view>
+    <view class="knowladge-info block">
+        <view class="knowladge-avatar">
+            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+        </view>
+        <view class="title">
+            愿作鸳鸯不羡仙。
+        </view>
+        <view class="desc-box mx-1px-bottom">
+            <view class="desc">
+                <view class="text {{descAll ? 'all' : ''}}">
+                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
+                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
+                </view>
+                <view class="all-btn" bindtap="changeDesc">
+                    <block wx:if="{{!descAll}}">展开全部</block>
+                    <block wx:else>收起</block>
+                </view>
+            </view>
+        </view>
+        <view class="lord-box">
+            <view class="img">
+                <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            </view>
+            <view class="info">
+                <view class="name">
+                    圈主：水煮哈密瓜
+                </view>
+                <view class="time">
+                    创建于 2018-10-08
+                </view>
+            </view>
+        </view>
+        <view class="guest-box">
+            <view class="guest-title mx-1px-bottom">
+                <view class="text">
+                    嘉宾
+                </view>
+            </view>
+            <view class="guest-avatar {{guestAll ? 'all' : ''}}" >
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+            </view>
+            <view class="all-btn" bindtap="changeGuest">
+                <block wx:if="{{!guestAll}}">展开全部</block>
+                <block wx:else>收起</block>
+            </view>
+        </view>
+
+        <view class="info-box mx-1px-top">
+            <view class="info-item ">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    主题
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    成员
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    精华
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view class="text">
+                    问答
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="notice block">
+        <view class="title mx-1px-bottom">
+            <view class="text">
+                付费须知
+            </view>
+            <view class="price">
+                ￥ 999
+            </view>
+        </view>
+        <view class="tips">
+            ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。 星球福利 #项目实操训练-每三月一次# 以真实项目为需求，提供专业交互原型，以小组竞赛的形式完成从0到1的完整UE/UI设计，帮你积累经验、完善作品集。
+        </view>
+    </view>
+    <view class="preview block">
+        <view class="title mx-1px-bottom">
+            <view class="text">
+                部分主题预览
+            </view>
+        </view>
+
+        <view class="theme-item mx-1px-bottom">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="text">
+                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+            </view>
+           <view class="img">
+               <view class="item__list">
+                   <!--如果图片长度为1，显示一张-->
+                   <view class="img" bindtap="preImage">
+                       <image mode="widthFix" bindload="imgLoad"  src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                   </view>
+               </view>
+           </view>
+        </view>
+        <view class="theme-item mx-1px-bottom">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="text">
+                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+            </view>
+            <view class="img">
+                <view class="item__list more">
+                    <view class="list__li" bindtap="preImage">
+                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <span></span>
+                        </view>
+                    </view>
+                    <view class="list__li" bindtap="preImage">
+                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <span></span>
+                        </view>
+                    </view>
+                    <view class="list__li" bindtap="preImage">
+                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <span></span>
+                        </view>
+                    </view>
+                    <view class="list__li" bindtap="preImage">
+                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <span></span>
+                        </view>
+                    </view>
+                    <view class="list__li" bindtap="preImage">
+                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <span></span>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="theme-item mx-1px-bottom">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="text">
+                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+            </view>
+            <view class="word">
+                <view class="img">
+
+                </view>
+                <view class="text">
+                    天善智能https://edu.hellobi.com/
+                </view>
+            </view>
+        </view>
+        <view class="theme-item mx-1px-bottom">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="text">
+                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+            </view>
+            <view class="url">
+                www.ibran.cc
+            </view>
+        </view>
+        <view class="theme-item mx-1px-bottom">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="reply-box">
+                <view class="ask mx-1px-left">
+                    <view class="text">
+                        阳澄湖大闸蟹提问：分享一个专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                    </view>
+                </view>
+                <view class="reply">
+                    2011年9月，天善智能由3位从事商业智能工作的技术人员组织成立，每位成员都非常热爱商业智能技术，并且看好商业智能在中国发展的巨大潜力，从最初的3人发展至今，已经拥有15位成员。如今，天善智能已经成为中国最受欢迎，影响力最大的商业智能团队。
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="buy-btn">
+        $999 加入数据圈
+    </view>
+</view>

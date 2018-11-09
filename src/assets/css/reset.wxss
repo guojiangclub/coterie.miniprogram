@@ -2,7 +2,7 @@ page {
     margin: 0;
     padding: 0;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #F3F3F3;
     line-height: 1.6;
     /*-webkit-text-size-adjust: 100%;*/
