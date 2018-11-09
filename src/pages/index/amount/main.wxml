@@ -1,0 +1,20 @@
+<view id="amount">
+    <block>
+        <view class="set-amount">
+            <view class="title">设置金额</view>
+            <input type="text" />
+        </view>
+        <view class="select-mode">
+            <view class="title">选择服务模式</view>
+            <view class="item">
+                <checkbox-group>
+                    <label class="checkbox">
+                        <checkbox  color="#fff" /> 固定时长
+                    </label>
+                </checkbox-group>
+                <view class="text">有效期：用户的加入日期往后计算1年</view>
+            </view>
+        </view>
+        <view class="next-step">下一步</view>
+    </block>
+</view>
