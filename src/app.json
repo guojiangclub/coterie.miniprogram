@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index/index",
-    "pages/index/search/main"
+    "pages/index/search/main",
+    "pages/index/setUp/main",
+    "pages/index/fillIn/main"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,0 +1,17 @@
+<view id="setup">
+    <block>
+        <view class="explain">
+            包含时政、低俗、色情、暴力引诱等敏感或违禁内容的圈子、将会被封停圈子和账号
+        </view>
+        <view class="continue {{checked ? 'active':''}}">
+            继续
+        </view>
+        <view class="agreement">
+            <checkbox-group class="radio-group" bindchange="checkboxChange">
+                <label class="checkbox">
+                    <checkbox  color="#ffffff"/> 我已经阅读同意《圈主协议》
+                </label>
+            </checkbox-group>
+        </view>
+    </block>
+</view>
