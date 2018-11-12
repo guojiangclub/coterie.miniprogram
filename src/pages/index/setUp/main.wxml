@@ -7,7 +7,7 @@
             继续
         </view>
         <view class="agreement">
-            <checkbox-group class="radio-group" bindchange="checkboxChange">
+            <checkbox-group class="heckbox-group" bindchange="checkboxChange">
                 <label class="checkbox">
                     <checkbox  color="#ffffff"/> 我已经阅读同意《圈主协议》
                 </label>

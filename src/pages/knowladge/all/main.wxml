@@ -1,0 +1,152 @@
+<view id="all">
+    <view class="top-bg">
+
+    </view>
+    <view class="knowladge-info block">
+        <view class="knowladge-avatar">
+            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+        </view>
+        <view class="title">
+            愿作鸳鸯不羡仙。
+        </view>
+        <view class="desc-box mx-1px-bottom">
+            <view class="desc">
+                <view class="text {{descAll ? 'all' : ''}}">
+                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
+                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
+                </view>
+                <view class="all-btn" bindtap="changeDesc">
+                    <block wx:if="{{!descAll}}">展开全部</block>
+                    <block wx:else>收起</block>
+                </view>
+            </view>
+        </view>
+        <view class="lord-box">
+            <view class="img">
+                <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            </view>
+            <view class="info">
+                <view class="name">
+                    圈主：水煮哈密瓜
+                </view>
+                <view class="time">
+                    创建于 2018-10-08
+                </view>
+            </view>
+        </view>
+        <view class="guest-box">
+            <view class="guest-title mx-1px-bottom">
+                <view class="text">
+                    嘉宾
+                </view>
+            </view>
+            <view class="guest-avatar {{guestAll ? 'all' : ''}}" >
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+                <view class="item">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view>
+                        水煮哈密瓜
+                    </view>
+                </view>
+            </view>
+            <view class="all-btn" bindtap="changeGuest">
+                <block wx:if="{{!guestAll}}">展开全部</block>
+                <block wx:else>收起</block>
+            </view>
+        </view>
+
+        <view class="info-box mx-1px-top">
+            <view class="info-item ">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    主题
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    成员
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view  class="line mx-1px-right">
+                </view>
+                <view class="text">
+                    精华
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="num">
+                    1000
+                </view>
+                <view class="text">
+                    问答
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

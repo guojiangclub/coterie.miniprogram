@@ -1,0 +1,24 @@
+<view id="manList">
+    <view class="content">
+        <radio-group class="radio-group">
+            <label class="radio mx-1px-bottom">
+                <radio color="#fff"/>
+                <view class="info">
+                    <view class="avatar">
+                        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541766185984&di=3ee3c95ab237760292455e2c812dc49d&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn11%2F80%2Fw440h440%2F20180610%2Fbb5b-hcufqif1925849.jpg"></image>
+                    </view>
+                    黔在在
+                </view>
+            </label>
+            <label class="radio mx-1px-bottom">
+                <radio color="#fff"/>
+                <view class="info">
+                    <view class="avatar">
+                        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541766185984&di=3ee3c95ab237760292455e2c812dc49d&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn11%2F80%2Fw440h440%2F20180610%2Fbb5b-hcufqif1925849.jpg"></image>
+                    </view>
+                    黔在在
+                </view>
+            </label>
+        </radio-group>
+    </view>
+</view>

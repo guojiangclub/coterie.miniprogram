@@ -1,0 +1,39 @@
+<view id="post-news">
+    <block>
+        <view class="edit-content">
+            <view class="edit-describle">
+                <textarea name="" id="" placeholder="分享自己的观点" placeholder-class="textarea-placeholder"></textarea>
+            </view>
+            <view class="edit-link">
+                <span class="iconfont icon-lianjie"></span>
+                www.ibran.cc
+            </view>
+            <view class="imgs-box">
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+            </view>
+            <view class="edit-topic">
+                <view class="item">
+                    棒呀！
+                    <span class="iconfont icon-dashang"></span>
+                </view>
+                <view class="add-item">#添加话题</view>
+            </view>
+        </view>
+        <view class="add-content">
+            <view class="iconfont icon-shangchuantupian"></view>
+            <view class="iconfont icon-lianjie"></view>
+        </view>
+        <view class="publish-btn">发表</view>
+    </block>
+</view>

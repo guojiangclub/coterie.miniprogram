@@ -9,7 +9,12 @@
     "pages/knowladge/detail/main",
     "pages/knowladge/postQuestion/main",
     "pages/knowladge/manList/main",
-    "pages/knowladge/podtNews/main"
+    "pages/knowladge/postNews/main",
+    "pages/knowladge/setting/main",
+    "pages/knowladge/memberManage/main",
+    "pages/knowladge/moreSetting/main",
+    "pages/knowladge/all/main"
+
 
   ],
   "window": {

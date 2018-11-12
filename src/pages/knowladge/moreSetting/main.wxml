@@ -1,0 +1,17 @@
+<view id="more-setting">
+    <block>
+        <view class="avatar">
+            <view class="iconfont icon-shujuquantouxiang"></view>
+            <view class="title">数据圈头像</view>
+        </view>
+        <view class="name">
+            <view class="title">数据圈名称</view>
+            <input type="text" />
+        </view>
+        <view class="Introduction">
+            <view class="title">数据圈简介</view>
+            <textarea name="" id=""></textarea>
+        </view>
+        <view class="sure-btn">确定</view>
+    </block>
+</view>

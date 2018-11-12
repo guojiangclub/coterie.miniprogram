@@ -1,0 +1,39 @@
+<view id="setting">
+    <block>
+        <view class="header">
+            <view class="avatar">
+                <image src="http://img3.imgtn.bdimg.com/it/u=2162516368,2363747433&fm=26&gp=0.jpg"></image>
+            </view>
+        </view>
+        <view class="content">
+            <view class="container">
+                <view class="share">
+                    <span class="iconfont icon-fenxiang"></span>
+                    分项数据圈
+                </view>
+                <view class="nick-name">黔在在摆脱现状</view>
+                <view class="describle">
+                    好好生活，好好存钱，好好花钱，好好工作，每一天开开心心的啊哈哈哈哈
+                </view>
+                <view class="check-information">
+                    查看详细信息
+                </view>
+            </view>
+            <view class="business-card set-item">
+                <view class="title">我的名片</view>
+                <view class="name">qianzaizai</view>
+                <view class="iconfont icon-jiantou"></view>
+            </view>
+            <view class="data-set set-item">
+                <view class="title">数据圈设置</view>
+                <view class="iconfont icon-jiantou"></view>
+            </view>
+            <view class="drop-out set-item">退出圈子</view>
+            <view class="member-manage set-item">
+                <view class="title">成员管理</view>
+                <view class="iconfont icon-jiantou"></view>
+            </view>
+            <view class="disbanding set-item">解散圈子</view>
+        </view>
+    </block>
+</view>

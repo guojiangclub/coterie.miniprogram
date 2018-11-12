@@ -1,0 +1,81 @@
+@import "../../../assets/css/global";
+#question{
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    height: 50px;background-color: #ffffff;
+    padding:0 18px 0 15px;
+    color:#202020;
+    font-size: 14px;
+    .initiate{
+      color: #4A4A4A;
+      span{
+        color: #909090;
+        display: inline-block;
+        padding-left:8px;
+        font-size: 14px;
+      }
+    }
+  }
+  .content{
+    background-color: #ffffff;
+    textarea{
+      width: 100%;
+      padding:15px;
+      box-sizing: border-box;
+    }
+    .imgs-box{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0px 8px 15px 8px;
+      .item{
+        width:29%;
+        margin: 7px;
+        border-radius: 2px;
+        border: 1px solid rgba(0,0,0,0.15);
+        padding:8px;
+        .img-info{
+          width: 100%;
+          height: 0;
+          overflow: hidden;
+          margin: 0 auto;
+          padding-bottom: 100%;
+        }
+      }
+    }
+  }
+  .setting{
+    background-color: #ffffff;
+    .set-box{
+      margin-left: 15px;
+      padding:16px 0;
+      color:#909090;
+      font-size: 13px;
+      line-height: 18px;
+      checkbox .wx-checkbox-input{
+        border-radius: 100%;
+        background-color: #fff;
+        border: 1px solid #c1caca;
+        box-shadow: 0 1px 2px rgba(0,0,0,.05), inset 0 -15px 10px -12px rgba(0,0,0,.05);
+        height: 14px;
+        width: 14px;
+      }
+      checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+        border-radius: 100%;
+        background-color: @globalColor;
+        border: 3px solid @globalColor;
+      }
+    }
+
+  }
+  .upload{
+    padding:35px 0 0 15px;
+    .iconfont{
+      font-size: 24px;
+      color:#4A4A4A;
+    }
+  }
+
+}

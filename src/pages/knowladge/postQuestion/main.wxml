@@ -1,0 +1,42 @@
+<view id="question">
+    <block>
+        <view class="header mx-1px-bottom">
+            <view class="title">向TA发起提问</view>
+            <view class="initiate">
+                黔在在
+                <span class="iconfont icon-jiantou"></span>
+            </view>
+        </view>
+        <view class="content">
+            <textarea name="" id="" placeholder="选择公开后，将公开显示在星球内">
+
+            </textarea>
+            <view class="imgs-box">
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="img-info" style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541761386480&di=4653547e199f09e55297efbed3240893&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2753484440%2C2537400016%26fm%3D214%26gp%3D0.jpg');background-position: center;background-repeat: no-repeat;background-size: cover">
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="setting">
+            <view class="set-box mx-1px-top">
+                <checkbox-group class="checkbox-group">
+                    <label class="checkbox">
+                        <checkbox  color="#ffffff"/> 设置为公开提问
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="upload">
+            <view class="iconfont icon-shangchuantupian"></view>
+        </view>
+    </block>
+</view>
