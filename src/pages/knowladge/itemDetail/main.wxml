@@ -1,0 +1,361 @@
+<view id="itemDetail">
+    <!--<view class="block knowladge-item">
+        <view class="theme-item">
+            <view class="avatar-box">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+            </view>
+            <view class="text">
+                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+            </view>
+            <view class="img">
+                <view class="item__list">
+                    &lt;!&ndash;如果图片长度为1，显示一张&ndash;&gt;
+                    <view class="img" bindtap="preImage">
+                        <image mode="widthFix" bindload="imgLoad"  src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    </view>
+                    <view class="img">
+                        <view class="item__list more">
+                            <view class="list__li" bindtap="preImage">
+                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                            <view class="list__li" bindtap="preImage">
+                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                            <view class="list__li" bindtap="preImage">
+                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                            <view class="list__li" bindtap="preImage">
+                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                            <view class="list__li" bindtap="preImage">
+                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="word">
+                        <view class="ico-img">
+
+                        </view>
+                        <view class="text">
+                            天善智能https://edu.hellobi.com/
+                        </view>
+                    </view>
+                    <view class="url">
+                        www.ibran.cc
+                    </view>
+                    <view class="reply-box">
+                        <view class="ask mx-1px-left">
+                            <view class="text">
+                                阳澄湖大闸蟹提问：分享一个专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                            </view>
+                        </view>
+                        <view class="reply">
+                            2011年9月，天善智能由3位从事商业智能工作的技术人员组织成立，每位成员都非常热爱商业智能技术，并且看好商业智能在中国发展的巨大潜力，从最初的3人发展至今，已经拥有15位成员。如今，天善智能已经成为中国最受欢迎，影响力最大的商业智能团队。
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>-->
+    <view class="knowladge-item">
+        <view class="theme-item">
+            <view class="avatar-box mx-1px-bottom">
+                <view class="img">
+                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                </view>
+                <view class="info">
+                    <view class="name nowrap">
+                        圈主：水煮哈密瓜
+                    </view>
+                    <view class="time">
+                        创建于 2018-10-08
+                    </view>
+                </view>
+                <view class="option iconfont icon-gengduo1" bindtap="changeSetting">
+
+                </view>
+            </view>
+            <view class="content-box">
+                <view class="text">
+                    分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                </view>
+                <view class="img">
+                    <view class="item__list more">
+                        <view class="list__li" bindtap="preImage">
+                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
+                        <view class="list__li" bindtap="preImage">
+                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
+                        <view class="list__li" bindtap="preImage">
+                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
+                        <view class="list__li" bindtap="preImage">
+                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
+                        <view class="list__li" bindtap="preImage">
+                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="tag-box">
+                    <span># 这个是标签 # </span>
+                    <span># 这个是标签 # </span>
+                    <span># 这个是标签 # </span>
+                </view>
+            </view>
+        </view>
+
+        <!--点赞-->
+        <view class="awesome-box">
+            <i class="iconfont icon-zan"></i>
+            <view class="text-box">
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴</span>
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴，</span>
+                <span class="awesome-item">油焖番石榴</span>
+            </view>
+        </view>
+
+        <!--评论  -->
+        <view class="comment-box">
+            <view class="comment-item mx-1px-bottom">
+                <view class="avatar-box">
+                    <view class="img">
+                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    </view>
+                    <view class="info">
+                        <view class="name nowrap">
+                            圈主：水煮哈密瓜
+                        </view>
+                        <view class="time">
+                            创建于 2018-10-08
+                        </view>
+                    </view>
+                    <view class="option active">
+                        <view>
+                            赞 <block>(99)</block>
+                        </view>
+                        <i class="iconfont icon-dianzan">
+
+                        </i>
+                    </view>
+                </view>
+                <view class="comment-text">
+                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
+                </view>
+                <!--子评论列表-->
+                <view class="child-item-box">
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="comment-item mx-1px-bottom">
+                <view class="avatar-box">
+                    <view class="img">
+                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    </view>
+                    <view class="info">
+                        <view class="name nowrap">
+                            圈主：水煮哈密瓜
+                        </view>
+                        <view class="time">
+                            创建于 2018-10-08
+                        </view>
+                    </view>
+                    <view class="option active">
+                        <view>
+                            赞 <block>(99)</block>
+                        </view>
+                        <i class="iconfont icon-dianzan">
+
+                        </i>
+                    </view>
+                </view>
+                <view class="comment-text">
+                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
+                </view>
+                <!--子评论列表-->
+                <view class="child-item-box">
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="comment-item mx-1px-bottom">
+                <view class="avatar-box">
+                    <view class="img">
+                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    </view>
+                    <view class="info">
+                        <view class="name nowrap">
+                            圈主：水煮哈密瓜
+                        </view>
+                        <view class="time">
+                            创建于 2018-10-08
+                        </view>
+                    </view>
+                    <view class="option active">
+                        <view>
+                            赞 <block>(99)</block>
+                        </view>
+                        <i class="iconfont icon-dianzan">
+
+                        </i>
+                    </view>
+                </view>
+                <view class="comment-text">
+                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
+                </view>
+                <!--子评论列表-->
+                <view class="child-item-box">
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                    <view class="child-item">
+                        <view class="left">
+                            清蒸百香果：
+                        </view>
+                        <view class="right">
+                            连雨不知春去，一晴方觉夏深。
+
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="operating-box">
+        <view class="item active mx-1px-right">
+            <i class="iconfont icon-dianzan"></i>
+            <view>99</view>
+        </view>
+        <view class="item mx-1px-right">
+            <i class="iconfont icon-pinglun"></i>
+            <view>99</view>
+        </view>
+        <view class="item mx-1px-right">
+            <i class="iconfont icon-dashang1"></i>
+            <view>打赏</view>
+        </view>
+        <view class="item"  bindtap="changeShare">
+            <i class="iconfont icon-fenxiang"></i>
+            <view>分享</view>
+        </view>
+    </view>
+
+    <view class="no-more">
+        没有更多了~
+    </view>
+
+    <!--分享部分-->
+    <block>
+        <view class="mask is_share {{show_share ? 'cur' : ''}}" bindtap="changeShare">
+
+        </view>
+        <view class="share-box {{show_share ? 'cur' : ''}}">
+            <button class="shaer-item" open-type="share">
+                分享给好友
+            </button>
+            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+                生成海报
+            </view>
+            <view class="shaer-item clear" bindtap="changeShare">
+                取消
+            </view>
+        </view>
+    </block>
+
+
+    <!--设置部分-->
+    <block>
+        <view class="mask {{show_setting ? 'cur' : ''}}" bindtap="changeSetting">
+
+        </view>
+        <view class="share-box setting {{show_setting ? 'cur' : ''}}">
+            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+                置顶动态
+            </view>
+            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+                标记精华
+            </view>
+            <view class="shaer-item clear" bindtap="changeSetting">
+                取消
+            </view>
+        </view>
+    </block>
+
+</view>
