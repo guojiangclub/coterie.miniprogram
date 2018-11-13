@@ -91,9 +91,9 @@
                         创建于 2018-10-08
                     </view>
                 </view>
-                <view class="option iconfont icon-gengduo1" bindtap="changeSetting">
+                <!--<view class="option iconfont icon-gengduo1" bindtap="changeSetting">
 
-                </view>
+                </view>-->
             </view>
             <view class="content-box">
                 <view class="text">

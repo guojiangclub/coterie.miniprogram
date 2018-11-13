@@ -1,11 +1,6 @@
 @import "../../../assets/css/global";
-#join{
+#personal{
   padding: 0 15px 20px 15px;
-  .top-bg {
-    background: @globalColor;
-    height: 120px;
-    margin: 0 -15px;
-  }
   .block {
     padding: 15px;
     background: #ffffff;
@@ -13,11 +8,11 @@
 
     &.knowladge-info {
       position: relative;
-      top: -75px;
-      margin-bottom: -75px;
-
+      margin-top: 55px;
+      text-align: center;
       .knowladge-avatar {
-        position: absolute;
+        display: inline-block;
+        position: relative;
         top: -35px;
         width: 70px;
         height: 70px;
@@ -25,109 +20,23 @@
         border-radius: 100%;
         box-shadow:0px 4px 8px 1px rgba(0,0,0,0.1);
         overflow: hidden;
+        margin-bottom: -35px;
         image {
           width: 100%;
           height: 100%;
         }
       }
-      .see-more {
-        text-align: right;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        color: #4A4A4A;
-        i {
-          margin-top: 1px;
-          margin-right: 5px;
-          font-size: 13px;
-          color: #4A4A4A;
-        }
-      }
       .title {
-        padding-top: 20px;
+        margin-top: 10px;
         font-size: 16px;
         color: #202020;
         font-weight: bold;
         line-height: 22px;
       }
-      .guest-box {
-        display: flex;
-        align-items: center;
+      .time {
         margin-top: 10px;
-
-        .left {
-          display: flex;
-          align-items: center;
-          flex: 1;
-          .avatar-box {
-            position: relative;
-            margin-right: 7px;
-            .item {
-              position: relative;
-              display: inline-block;
-              vertical-align: middle;
-              border-radius: 100%;
-              width: 25px;
-              height: 25px;
-            }
-          }
-          .text {
-            font-size: 12px;
-            color: #D7D7D7;
-          }
-        }
-        .right {
-          display: flex;
-          align-items: center;
-          color: @globalColor;
-          i {
-            margin-right: 5px;
-          }
-        }
-      }
-    }
-    &.topping {
-      padding: 0;
-      margin-top: 10px;
-      .title {
+        color: #909090;
         font-size: 12px;
-        display: flex;
-        align-items: center;
-        padding: 12px 15px;
-        .text {
-          flex: 1;
-          color: #909090;
-        }
-        .filter {
-          display: flex;
-          align-items: center;
-          color: #4A4A4A;
-          i {
-            font-size: 12px;
-            margin-right: 5px;
-          }
-        }
-      }
-      .topping-item {
-        display: flex;
-        align-items: center;
-        padding: 12px 15px;
-
-        .tag {
-          padding: 1px 5px;
-          color: @globalColor;
-          border: 1px solid @globalColor;
-          border-radius: 2px;
-        }
-        .text {
-          color: #909090;
-          padding-left: 10px;
-          flex: 1;
-        }
-        i {
-          font-size: 12px;
-          color: #d6d6d6;
-        }
       }
     }
 
@@ -349,23 +258,6 @@
   .no-more::after {
     margin-left: 10px;
   }
-
-
-  .publish-btn {
-    position: fixed;
-    right: 10px;
-    bottom: 100px;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    background: @globalColor;
-    border-radius: 4px;
-    padding: 10px 20px;
-    color: #ffffff;
-    i{
-      margin-right: 5px;
-    }
-  }
   .mask {
     position: fixed;
     top: 0;
@@ -464,60 +356,6 @@
     }
 
     &.setting {
-    }
-  }
-
-
-  .filter-box {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    padding: 20px 0;
-    background: #ffffff;
-    width: 90%;
-    border-radius: 5px;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 9;
-    height: 62%;
-    text-align: center;
-    display: none;
-
-    &.cur {
-      display: block;
-    }
-
-    .title {
-      color: #909090;
-      font-size: 12px;
-    }
-
-    .filter-type {
-      margin-top: 30px;
-      display: flex;
-      align-items: center;
-
-      .item {
-        flex: 1;
-        color: @globalColor;
-        font-size: 15px;
-      }
-    }
-    .all-type {
-      height: 70%;
-      overflow: auto;
-      text-align: left;
-      margin-top: 20px;
-      .item {
-        padding: 0 20px;
-        display: flex;
-        align-items: center;
-        height: 40px;
-        line-height: 40px;
-        .left {
-          flex: 1;
-        }
-      }
     }
   }
 }
