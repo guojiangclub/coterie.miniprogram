@@ -1,0 +1,18 @@
+<view id="personal-center">
+    <block>
+        <view class="header">
+            <view class="avatar">
+                <image src="http://img2.imgtn.bdimg.com/it/u=784864833,3468396605&fm=26&gp=0.jpg" alt=""></image>
+            </view>
+            <view class="nick-name">
+                qianzaizai
+            </view>
+        </view>
+        <view class="content">
+            <view class="item">
+                <view class="iconfont icon-dashang1"></view>
+                <view class="txt">我的余额</view>
+            </view>
+        </view>
+    </block>
+</view>

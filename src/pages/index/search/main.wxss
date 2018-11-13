@@ -1,0 +1,115 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+#search {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+#search .head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+#search .head .search {
+  flex: 1;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #F3F3F3;
+}
+#search .head .search input {
+  padding-left: 34px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+}
+#search .head .search .input-placeholder {
+  color: #909090;
+  font-size: 12px;
+}
+#search .head .search span {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: #909090;
+  font-size: 14px;
+}
+#search .head .cancel {
+  height: 40px;
+  line-height: 40px;
+  color: #202020;
+  font-size: 13px;
+  padding: 0 2px 0 17px;
+}
+#search .content {
+  padding: 0 0 0 15px;
+}
+#search .content .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 17px 25px 0;
+  font-size: 14px;
+}
+#search .content .title .txt {
+  color: #202020;
+  font-weight: bold;
+  line-height: 20px;
+}
+#search .content .title .change {
+  color: #4A4A4A;
+  line-height: 17px;
+  font-size: 12px;
+}
+#search .content .title .change span {
+  display: inline-block;
+  padding-right: 6px;
+  color: #202020;
+  font-size: 14px;
+}
+#search .content .cirle-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px 15px 0;
+}
+#search .content .cirle-item .picture {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+#search .content .cirle-item .picture image {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+#search .content .cirle-item .text {
+  flex: 1;
+  overflow: hidden;
+}
+#search .content .cirle-item .text .name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #202020;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+#search .content .cirle-item .text .describe {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #909090;
+  font-size: 12px;
+  line-height: 17px;
+}
+#search .content .cirle-item .iconfont {
+  padding-left: 6px;
+  color: #909090;
+  font-size: 12px;
+}

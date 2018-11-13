@@ -1,0 +1,47 @@
+@import "../../../assets/css/global";
+#setup{
+    .explain{
+      padding: 150px 58px 94px 58px;
+      text-align: center;
+      color: #909090;
+      font-size: 12px;
+      line-height: 17px;
+    }
+  .continue{
+    margin: 0 15px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #D7D7D7;
+    text-align: center;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    &.active{
+      background-color:@globalColor;
+    }
+  }
+  .agreement{
+    padding:0 15px;
+    width: 100%;
+    text-align: center;
+    color: #909090;
+    font-size: 12px;
+    line-height: 17px;
+    margin-top:22px;
+    margin-top:22px;
+    checkbox .wx-checkbox-input{
+      border-radius: 100%;
+      background-color: #fff;
+      border: 1px solid #c1caca;
+      box-shadow: 0 1px 2px rgba(0,0,0,.05), inset 0 -15px 10px -12px rgba(0,0,0,.05);
+      height: 14px;
+      width: 14px;
+    }
+    checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+      border-radius: 100%;
+      background-color: @globalColor;
+      border: 3px solid @globalColor;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+#topic {
+  background-color: #ffffff;
+}
+#topic .head {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}

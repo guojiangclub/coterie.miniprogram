@@ -1,0 +1,84 @@
+#setting .header {
+  background-color: #004E9D;
+  padding: 11px 0 37px 27px;
+}
+#setting .header .avatar {
+  position: relative;
+  z-index: 20;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.1);
+}
+#setting .header .avatar image {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#setting .content {
+  position: relative;
+  top: -68px;
+  left: 0;
+  margin: 0 15px;
+}
+#setting .content .container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 15px;
+}
+#setting .content .container .share {
+  text-align: right;
+  color: #004E9D;
+  font-size: 13px;
+  line-height: 18px;
+}
+#setting .content .container .share span {
+  color: #004E9D;
+  font-size: 13px;
+}
+#setting .content .container .nick-name {
+  color: #202020;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  padding: 12px 0;
+}
+#setting .content .container .describle {
+  color: #909090;
+  font-size: 13px;
+  line-height: 20px;
+}
+#setting .content .container .check-information {
+  padding: 11px 0 0 0;
+  color: #004E9D;
+  font-size: 13px;
+  line-height: 18px;
+}
+#setting .content .set-item {
+  margin-top: 11px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 18px 15px 12px;
+  background-color: #ffffff;
+}
+#setting .content .set-item .title {
+  color: #202020;
+  font-size: 14px;
+  line-height: 20px;
+  flex: 1;
+}
+#setting .content .set-item .name {
+  color: #909090;
+  font-size: 14px;
+  line-height: 20px;
+  padding-right: 11px;
+}
+#setting .content .set-item .iconfont {
+  color: #909090;
+  font-size: 14px;
+  line-height: 20px;
+}

@@ -1,0 +1,95 @@
+#post-news .edit-content {
+  background-color: #ffffff;
+}
+#post-news .edit-content .edit-describle {
+  padding: 17px 15px;
+}
+#post-news .edit-content .edit-describle textarea {
+  width: 100%;
+  font-size: 14px;
+  color: #202020;
+  line-height: 24px;
+}
+#post-news .edit-content .edit-describle textarea-placeholder {
+  font-size: 12px;
+  color: #909090;
+  line-height: 17px;
+}
+#post-news .edit-content .edit-link {
+  color: #004E9D;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0px 15px;
+}
+#post-news .edit-content .imgs-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px 8px 15px 8px;
+}
+#post-news .edit-content .imgs-box .item {
+  width: 29%;
+  margin: 7px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 8px;
+}
+#post-news .edit-content .imgs-box .item .img-info {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-bottom: 100%;
+}
+#post-news .edit-content .edit-topic {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 17px 15px 32px 15px;
+}
+#post-news .edit-content .edit-topic .item {
+  padding: 0px 10px;
+  background-color: #909090;
+  border-radius: 2px;
+  background-color: rgba(144, 144, 144, 0.2);
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  margin-right: 12px;
+}
+#post-news .edit-content .edit-topic .item span {
+  font-size: 16px;
+  color: #999999;
+}
+#post-news .edit-content .edit-topic .add-item {
+  padding: 0px 12px;
+  background-color: rgba(75, 138, 242, 0.2);
+  color: #004E9D;
+  border-radius: 2px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  margin-right: 12px;
+}
+#post-news .add-content {
+  display: flex;
+  align-items: center;
+  padding: 28px;
+}
+#post-news .add-content .iconfont {
+  font-size: 20px;
+  margin-right: 45px;
+  color: #4A4A4A;
+}
+#post-news .publish-btn {
+  position: fixed;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  background-color: #004E9D;
+  font-size: 16px;
+}

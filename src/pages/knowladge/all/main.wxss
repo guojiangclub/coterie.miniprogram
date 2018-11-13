@@ -1,0 +1,145 @@
+#all {
+  padding: 0 15px 60px 15px;
+}
+#all .top-bg {
+  background: #004E9D;
+  height: 120px;
+  margin: 0 -15px;
+}
+#all .block {
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+#all .block.knowladge-info {
+  position: relative;
+  top: -75px;
+  margin-bottom: -75px;
+}
+#all .block.knowladge-info .knowladge-avatar {
+  position: absolute;
+  top: -35px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+  box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+#all .block.knowladge-info .knowladge-avatar image {
+  width: 100%;
+  height: 100%;
+}
+#all .block.knowladge-info .title {
+  padding-top: 40px;
+  font-size: 16px;
+  color: #202020;
+  font-weight: bold;
+  line-height: 22px;
+}
+#all .block.knowladge-info .desc-box {
+  font-size: 13px;
+  color: #909090;
+  line-height: 20px;
+  padding-bottom: 15px;
+}
+#all .block.knowladge-info .desc-box .desc .text {
+  height: 64px;
+  overflow: hidden;
+  margin: 13px 0;
+}
+#all .block.knowladge-info .desc-box .desc .text.all {
+  height: auto;
+}
+#all .block.knowladge-info .desc-box .desc .all-btn {
+  color: #004E9D;
+  text-align: right;
+}
+#all .block.knowladge-info .lord-box {
+  display: flex;
+  align-content: center;
+  padding: 25px 0;
+}
+#all .block.knowladge-info .lord-box .img {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+#all .block.knowladge-info .lord-box .img image {
+  width: 100%;
+  height: 100%;
+}
+#all .block.knowladge-info .lord-box .info {
+  flex: 1;
+  margin-left: 15px;
+}
+#all .block.knowladge-info .lord-box .info .name {
+  font-weight: bold;
+  font-size: 14px;
+}
+#all .block.knowladge-info .lord-box .info .time {
+  font-size: 11px;
+  color: #909090;
+}
+#all .block.knowladge-info .guest-box .guest-title {
+  position: relative;
+}
+#all .block.knowladge-info .guest-box .guest-title .text {
+  font-size: 13px;
+  color: #4a4a4a;
+  position: absolute;
+  top: -10px;
+  background: #ffffff;
+  padding-right: 5px;
+}
+#all .block.knowladge-info .guest-box .guest-avatar {
+  color: #909090;
+  font-size: 10px;
+  padding-top: 30px;
+  height: 183px;
+  overflow: hidden;
+}
+#all .block.knowladge-info .guest-box .guest-avatar .item {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#all .block.knowladge-info .guest-box .guest-avatar .item image {
+  border-radius: 100%;
+  width: 44px;
+  height: 44px;
+}
+#all .block.knowladge-info .guest-box .guest-avatar.all {
+  height: auto;
+}
+#all .block.knowladge-info .guest-box .all-btn {
+  font-size: 13px;
+  color: #004E9D;
+  text-align: right;
+  margin-top: 5px;
+}
+#all .block.knowladge-info .info-box {
+  margin-top: 25px;
+  padding-top: 20px;
+}
+#all .block.knowladge-info .info-box .info-item {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  font-size: 11px;
+  color: #909090;
+}
+#all .block.knowladge-info .info-box .info-item .line {
+  position: absolute;
+  height: 16px;
+  width: 100%;
+  top: 14px;
+}
+#all .block.knowladge-info .info-box .info-item .num {
+  font-size: 15px;
+  color: #4A4A4A;
+  font-weight: 500;
+}

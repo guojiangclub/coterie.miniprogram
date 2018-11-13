@@ -1,0 +1,47 @@
+@import "../../../assets/css/global";
+#personal-center{
+  .header{
+    background-color: @globalColor;
+    padding:24px 26px;
+    display: flex;
+    align-items: center;
+    .avatar{
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      margin-right: 20px;
+      image{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    .nick-name{
+      color: #ffffff;
+      font-size:16px;
+      line-height: 22px;
+      font-weight: bold;
+    }
+  }
+  .content{
+    margin-top: 10px;
+    .item{
+      padding: 0 15px;
+      background-color: #ffffff;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      .iconfont{
+        color: @globalColor;
+        font-size:20px;
+      }
+      .txt{
+        font-size:14px;
+        color: #202020;
+        line-height: 20px;
+        padding-left: 10px;
+      }
+    }
+  }
+}

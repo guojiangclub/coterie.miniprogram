@@ -1,0 +1,72 @@
+#amount .set-amount {
+  text-align: center;
+  padding: 40px 15px 0 15px;
+}
+#amount .set-amount .title {
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 10px;
+}
+#amount .set-amount input {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  padding: 0 10px;
+}
+#amount .select-mode {
+  margin: 35px 15px 0 15px;
+}
+#amount .select-mode .title {
+  text-align: center;
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 10px;
+}
+#amount .select-mode .item {
+  background-color: #ffffff;
+  padding: 17px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+#amount .select-mode .item .checkbox {
+  font-size: 14px;
+  line-height: 20px;
+  color: #202020;
+}
+#amount .select-mode .item checkbox .wx-checkbox-input {
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #c1caca;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  height: 14px;
+  width: 14px;
+}
+#amount .select-mode .item checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 100%;
+  background-color: #004E9D;
+  border: 3px solid #004E9D;
+}
+#amount .select-mode .item .text {
+  color: #9B9B9B;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 5px 0 0 21px;
+}
+#amount .next-step {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  line-height: 45px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #004E9D;
+}

@@ -1,0 +1,12 @@
+<view id="topic">
+    <block>
+        <view class="head">
+            <view class="search">
+                <span class="iconfont icon-sousuo"></span>
+                <span class="txt">#</span>
+                <input type="text" placeholder="搜索话题"/>
+            </view>
+            <view class="btn">搜索</view>
+        </view>
+    </block>
+</view>

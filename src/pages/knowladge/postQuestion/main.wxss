@@ -1,0 +1,77 @@
+#question .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #ffffff;
+  padding: 0 18px 0 15px;
+  color: #202020;
+  font-size: 14px;
+}
+#question .header .initiate {
+  color: #4A4A4A;
+}
+#question .header .initiate span {
+  color: #909090;
+  display: inline-block;
+  padding-left: 8px;
+  font-size: 14px;
+}
+#question .content {
+  background-color: #ffffff;
+}
+#question .content textarea {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+#question .content .imgs-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px 8px 15px 8px;
+}
+#question .content .imgs-box .item {
+  width: 29%;
+  margin: 7px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 8px;
+}
+#question .content .imgs-box .item .img-info {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-bottom: 100%;
+}
+#question .setting {
+  background-color: #ffffff;
+}
+#question .setting .set-box {
+  margin-left: 15px;
+  padding: 16px 0;
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+}
+#question .setting .set-box checkbox .wx-checkbox-input {
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #c1caca;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  height: 14px;
+  width: 14px;
+}
+#question .setting .set-box checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 100%;
+  background-color: #004E9D;
+  border: 3px solid #004E9D;
+}
+#question .upload {
+  padding: 35px 0 0 15px;
+}
+#question .upload .iconfont {
+  font-size: 24px;
+  color: #4A4A4A;
+}
