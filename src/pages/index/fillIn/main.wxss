@@ -1,0 +1,99 @@
+#fill-in .avatar {
+  margin: 28px auto 32px auto;
+  width: 128px;
+  height: 128px;
+  background-color: #E9E9E9;
+  border-radius: 4px;
+}
+#fill-in .avatar .iconfont {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 55px;
+  color: #DBDBDB;
+}
+#fill-in .avatar .title {
+  text-align: center;
+  font-size: 12px ;
+  color: #909090;
+  line-height: 17px;
+}
+#fill-in .name {
+  text-align: center;
+  padding: 0 15px 0 15px;
+}
+#fill-in .name .title {
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 10px;
+}
+#fill-in .name input {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  padding: 0 10px;
+}
+#fill-in .Introduction {
+  margin-top: 24px;
+  padding: 0 15px 0 15px;
+}
+#fill-in .Introduction .title {
+  text-align: center;
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 10px;
+}
+#fill-in .Introduction textarea {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  height: 100px;
+  padding: 10px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+#fill-in .pay {
+  margin: 24px 15px 0 15px;
+  background-color: #ffffff;
+  padding: 14px 15px;
+  border-radius: 4px;
+}
+#fill-in .pay .checkbox {
+  font-size: 14px;
+  line-height: 20px;
+  color: #202020;
+}
+#fill-in .pay checkbox .wx-checkbox-input {
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #c1caca;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
+  height: 14px;
+  width: 14px;
+}
+#fill-in .pay checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 100%;
+  background-color: #004E9D;
+  border: 3px solid #004E9D;
+}
+#fill-in .pay .text {
+  color: #9B9B9B;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 5px 0 0 21px;
+}
+#fill-in .next-step {
+  margin-top: 46px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #ffffff;
+  background-color: #004E9D;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
