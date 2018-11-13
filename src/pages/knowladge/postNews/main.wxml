@@ -36,4 +36,20 @@
         </view>
         <view class="publish-btn">发表</view>
     </block>
+    <block>
+        <view class="add-link">
+            <view class="panel-body">
+                <view class="title">
+                    插入链接
+                </view>
+                <view class="ipt-box">
+                    <input type="text" placeholder="请插入链接" placeholder-class="input-placeholder"/>
+                </view>
+                <view class="btn-box mx-1px-top">
+                    <view class="item cancel">取消</view>
+                    <view class="item sure">确定</view>
+                </view>
+            </view>
+        </view>
+    </block>
 </view>

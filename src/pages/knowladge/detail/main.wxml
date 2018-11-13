@@ -56,7 +56,7 @@
             <i class="iconfont icon-jiantou"></i>
         </view>
     </view>
-    <!--<view class="block knowladge-item">
+    <view class="block knowladge-item">
         <view class="theme-item">
             <view class="avatar-box">
                 <view class="img">
@@ -76,7 +76,7 @@
             </view>
             <view class="img">
                 <view class="item__list">
-                    &lt;!&ndash;如果图片长度为1，显示一张&ndash;&gt;
+                    <!--如果图片长度为1，显示一张-->
                     <view class="img" bindtap="preImage">
                         <image mode="widthFix" bindload="imgLoad"  src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
                     </view>
@@ -133,7 +133,7 @@
                 </view>
             </view>
         </view>
-    </view>-->
+    </view>
     <view class="block knowladge-item">
         <view class="theme-item">
             <view class="avatar-box">

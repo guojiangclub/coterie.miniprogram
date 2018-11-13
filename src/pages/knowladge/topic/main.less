@@ -1,9 +1,53 @@
 @import "../../../assets/css/global";
-#topic{
-  background-color: #ffffff;
-  .head{
-    display: flex;
-    align-items: center;
-    height: 70px;
-  }
+page{
+  background: #ffffff;
 }
+  #topic{
+    width: 100%;
+    height: 100%;
+
+    .head{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      margin:18px 25px 18px 15px;
+      .search-box{
+        position: relative;
+        flex: 1;
+        height: 40px;
+        line-height: 40px;
+        background-color:#F3F3F3;
+        span{
+          position: absolute;
+          top:0px;
+          left: 12px;
+          font-size: 16px;
+        }
+        input{
+          height: 40px;
+          padding-left: 22px;
+        }
+      }
+      .btn{
+        padding-left: 20px;
+        color: #4A4A4A;
+        font-size: 18px;
+      }
+    }
+    .content{
+      padding: 27px 15px 0 15px;
+      .title{
+        color:#909090;
+        font-size: 13px;
+        line-height: 18px;
+      }
+      .list{
+        .item{
+          color: #202020;
+          line-height:22px;
+          font-size:16px;
+          padding-top:20px;
+        }
+      }
+    }
+  }

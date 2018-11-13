@@ -93,3 +93,66 @@
   background-color: #004E9D;
   font-size: 16px;
 }
+#post-news .add-link {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#post-news .add-link .panel-body {
+  width: 80%;
+  margin: 114px auto 0 auto;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+#post-news .add-link .panel-body .title {
+  font-size: 18px;
+  line-height: 25px;
+  color: #4A4A4A;
+  text-align: center;
+  font-weight: bold;
+  padding: 22px 0;
+}
+#post-news .add-link .panel-body .ipt-box {
+  padding: 0 15px 34px 15px;
+}
+#post-news .add-link .panel-body .ipt-box input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+#post-news .add-link .panel-body .ipt-box .input-placeholder {
+  color: #909090;
+  line-height: 17px;
+  font-size: 12px;
+}
+#post-news .add-link .panel-body .btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 2px;
+}
+#post-news .add-link .panel-body .btn-box .item {
+  flex: 1;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+#post-news .add-link .panel-body .btn-box .cancel {
+  background-color: #ffffff;
+  color: #4a4a4a;
+}
+#post-news .add-link .panel-body .btn-box .sure {
+  background-color: #004E9D;
+  color: #ffffff;
+}

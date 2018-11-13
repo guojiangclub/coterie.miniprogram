@@ -1,12 +1,17 @@
 <view id="topic">
-    <block>
-        <view class="head">
-            <view class="search">
-                <span class="iconfont icon-sousuo"></span>
-                <span class="txt">#</span>
-                <input type="text" placeholder="搜索话题"/>
-            </view>
-            <view class="btn">搜索</view>
+    <view class="head">
+        <view class="search-box">
+            <span>
+                #
+            </span>
+            <input type="text"/>
         </view>
-    </block>
+        <view class="btn">取消</view>
+    </view>
+    <view class="content mx-1px-top">
+        <view class="title">热门标签</view>
+        <view class="list">
+            <view class="item">#水煮哈密瓜</view>
+        </view>
+    </view>
 </view>

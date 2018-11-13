@@ -1,8 +1,49 @@
+page {
+  background: #ffffff;
+}
 #topic {
-  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
 }
 #topic .head {
+  height: 40px;
   display: flex;
   align-items: center;
-  height: 70px;
+  margin: 18px 25px 18px 15px;
+}
+#topic .head .search-box {
+  position: relative;
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+  background-color: #F3F3F3;
+}
+#topic .head .search-box span {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  font-size: 16px;
+}
+#topic .head .search-box input {
+  height: 40px;
+  padding-left: 22px;
+}
+#topic .head .btn {
+  padding-left: 20px;
+  color: #4A4A4A;
+  font-size: 18px;
+}
+#topic .content {
+  padding: 27px 15px 0 15px;
+}
+#topic .content .title {
+  color: #909090;
+  font-size: 13px;
+  line-height: 18px;
+}
+#topic .content .list .item {
+  color: #202020;
+  line-height: 22px;
+  font-size: 16px;
+  padding-top: 20px;
 }

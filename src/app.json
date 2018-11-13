@@ -12,12 +12,12 @@
     "pages/knowladge/manList/main",
     "pages/knowladge/postNews/main",
     "pages/knowladge/setting/main",
+    "pages/knowladge/topic/main",
     "pages/knowladge/memberManage/main",
     "pages/knowladge/moreSetting/main",
     "pages/knowladge/all/main",
-    "pages/user/personal/main"
-
-
+    "pages/user/personal/main",
+    "pages/user/index/main"
   ],
   "window": {
     "backgroundTextStyle": "dark",

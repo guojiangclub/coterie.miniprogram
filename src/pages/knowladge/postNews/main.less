@@ -98,5 +98,70 @@
     background-color: @globalColor;
     font-size:16px;
   }
+  .add-link{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    .panel-body{
+      width: 80%;
+      margin: 114px auto 0 auto;
+      background-color: #ffffff;
+      border-radius: 2px;
+      .title{
+        font-size:18px;
+        line-height:25px;
+        color: #4A4A4A;
+        text-align: center;
+        font-weight: bold;
+        padding: 22px 0;
+      }
+      .ipt-box{
+         padding:0 15px 34px 15px;
+        input{
+          width: 100%;
+          box-sizing: border-box;
+          height: 40px;
+          line-height: 40px;
+          background-color:rgba(243,243,243,1);
+          border-radius: 2px;
+          padding: 0 8px;
+          font-size: 12px;
+        }
+        .input-placeholder{
+          color:rgba(144,144,144,1);
+          line-height:17px;
+          font-size: 12px;
+        }
+
+      }
+      .btn-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:50px;
+        border-radius: 2px;
+        .item{
+          flex: 1;
+          font-size: 16px;
+          height:50px;
+          line-height:50px;
+          text-align: center;
+        }
+        .cancel{
+          background-color: #ffffff;
+          color:rgba(74,74,74,1);
+        }
+        .sure{
+          background-color: @globalColor;
+          color: #ffffff;
+        }
+      }
+
+    }
+  }
 
 }
