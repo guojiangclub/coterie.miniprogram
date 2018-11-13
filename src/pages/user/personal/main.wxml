@@ -1,59 +1,13 @@
-<view id="join">
-    <view class="top-bg">
-
-    </view>
+<view id="personal">
     <view class="knowladge-info block">
         <view class="knowladge-avatar">
             <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
         </view>
-        <view class="see-more">
-            <i class="iconfont icon-gengduo"></i>
-            <view>更多</view>
-        </view>
         <view class="title">
             愿作鸳鸯不羡仙。
         </view>
-        <view class="guest-box">
-            <view class="left">
-                <view class="avatar-box" style="margin-right: -30px">
-                    <image class="item" style="left: 0" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -10px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -20px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -30px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -40px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-
-                </view>
-                <view class="text">
-                    共99个成员
-                </view>
-            </view>
-            <view class="right">
-                <i class="iconfont icon-yaoqinghaoyou"></i>
-                <view>
-                    邀请好友
-                </view>
-            </view>
-        </view>
-    </view>
-
-    <view class="block topping">
-        <view class="title">
-            <view class="text">
-                全部主题
-            </view>
-            <view class="filter" bindtap="changeFilter">
-                <i class="iconfont icon-swap"></i>
-                <view>筛选</view>
-            </view>
-        </view>
-        <view class="topping-item mx-1px-top">
-            <view class="tag">
-                置顶
-            </view>
-            <view class="text nowrap">
-                第一天加入不可以发表内容…
-            </view>
-            <i class="iconfont icon-jiantou"></i>
+        <view class="time">
+            加入时间 2018年10月11日
         </view>
     </view>
     <!--<view class="block knowladge-item">
@@ -318,36 +272,10 @@
             </view>
         </view>
     </view>
-    <view class="publish-btn" bindtap="changePublish">
-        <i class="iconfont icon-fabu"></i>
-        <view>发表</view>
-    </view>
-
     <view class="no-more">
         没有更多了~
     </view>
 
-    <!--发表部分-->
-    <block>
-        <view class="mask {{show_publish ? 'cur' : ''}}">
-
-        </view>
-        <view class="publish-box {{show_publish ? 'cur' : ''}}">
-            <view class="title">
-                请选择您要发表的类型
-            </view>
-            <view class="btn avtive">
-                发表动态
-            </view>
-            <view class="btn problem">
-                发表提问
-            </view>
-
-            <view class="close iconfont icon-Group100" bindtap="changePublish">
-
-            </view>
-        </view>
-    </block>
 
 
 
@@ -388,173 +316,4 @@
         </view>
     </block>
 
-    <!--筛选部分-->
-    <block>
-        <view class="mask {{show_filter ? 'cur' : ''}}" bindtap="changeFilter">
-
-        </view>
-
-
-        <view class="filter-box {{show_filter ? 'cur' : ''}}">
-            <view class="title">
-                查看指定内容
-            </view>
-            <view class="filter-type">
-                <view class="item mx-1px-right">
-                    全部主题
-                </view>
-                <view class="item mx-1px-right">
-                    只看圈主
-                </view>
-                <view class="item">
-                    问答主题
-                </view>
-            </view>
-            <view class="all-type">
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view><view class="item mx-1px-bottom">
-                <view class="left nowrap">
-                    #中国好诗文
-                </view>
-                <view class="right">
-                    99条
-                </view>
-            </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-            </view>
-        </view>
-    </block>
 </view>
