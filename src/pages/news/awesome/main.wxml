@@ -1,0 +1,27 @@
+<view id="awesome">
+    <block>
+        <view class="content-ul">
+            <view class="item-li mx-1px-bottom">
+                <view class="avatar">
+                    <image src="http://img0.imgtn.bdimg.com/it/u=350146658,1511234626&fm=200&gp=0.jpg"></image>
+                </view>
+                <view class="infor">
+                    <view class="metion">
+                        油焖番石榴
+                        <span>赞了你的话题</span>
+                    </view>
+                    <!--<view class="describe">这真的很有趣啊！</view>-->
+                    <view class="aite">青梅枯萎竹马老去，从此我爱的人都幸福</view>
+                    <view class="author">
+                        愿作鸳鸯不羡仙
+                        <span></span>
+                        2018-10-10 16:20
+                    </view>
+                </view>
+                <view class="logo">
+                    <image src="http://img4.imgtn.bdimg.com/it/u=2347654393,4095682117&fm=26&gp=0.jpg"></image>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

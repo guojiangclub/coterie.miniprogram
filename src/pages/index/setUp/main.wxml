@@ -3,7 +3,7 @@
         <view class="explain">
             包含时政、低俗、色情、暴力引诱等敏感或违禁内容的圈子、将会被封停圈子和账号
         </view>
-        <view class="continue {{checked ? 'active':''}}">
+        <view class="continue {{checked ? 'active':''}}" bindtap="jumpNext">
             继续
         </view>
         <view class="agreement">

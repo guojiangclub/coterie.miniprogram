@@ -17,7 +17,9 @@
     "pages/knowladge/moreSetting/main",
     "pages/knowladge/all/main",
     "pages/user/personal/main",
-    "pages/user/index/main"
+    "pages/user/index/main",
+    "pages/news/index/main",
+    "pages/news/awesome/main"
   ],
   "window": {
     "backgroundTextStyle": "dark",

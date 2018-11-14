@@ -1,0 +1,113 @@
+@import "../../../assets/css/global";
+page{
+   background-color: #ffffff;
+}
+#message{
+  width: 100%;
+  height: 100%;
+  .list-li{
+    padding:15px 20px 15px 15px;
+    display: flex;
+    align-items: center;
+    .icon{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: @globalColor;
+      text-align: center;
+      line-height: 40px;
+      &.reward{
+        background-color:rgba(248,182,45,1);
+      }
+      span{
+        display: inline-block;
+        color: #ffffff;
+      }
+    }
+    .text{
+      color:rgba(32,32,32,1);
+      line-height:21px;
+      font-size:15px;
+      padding-left:14px;
+      flex: 1;
+    }
+    .icon-jiantou{
+      font-size: 10px;
+      color:rgba(144,144,144,1);
+    }
+  }
+  .content-ul{
+    padding: 0 0 15px 15px;
+    .item-li{
+      padding:20px 15px 20px 0;
+      display: flex;
+      align-items:flex-start;
+      .avatar{
+        width:36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 10px;
+        image{
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .infor{
+        flex: 1;
+        overflow: hidden;
+        .metion{
+          font-size: 14px;
+          color: #000;
+          padding-bottom: 10px;
+          font-weight: bold;
+          span{
+            display: inline-block;
+            padding-left:12px;
+          }
+        }
+        .describe{
+          color: #4A4A4A;
+          font-size: 12px;
+          line-height: 24px;
+        }
+        .aite{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          height: 24px;
+          line-height: 24px;
+          background-color:#F8F8F8;
+          font-size:12px;
+          color: #4A4A4A;
+        }
+        .author{
+          padding-top: 8px;
+          color: #909090;
+          font-size: 11px;
+          line-height: 16px;
+          span{
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            width: 2px;
+            height: 2px;
+            background-color:#909090;
+            margin: 0 5px;
+          }
+        }
+      }
+      .logo{
+        width: 64px;
+        height: 64px;
+        border-radius: 2px;
+        image{
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+        }
+      }
+
+    }
+  }
+}

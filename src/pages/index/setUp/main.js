@@ -7,6 +7,15 @@ Page({
         this.setData({
             checked:!this.data.checked
         })
+    },
+    jumpNext(){
+        if (this.data.checked){
+            wx.navigateTo({
+                url:'/pages/index/fillIn/main'
+            })
+        } else {
+            return
+        }
     }
 
 })

@@ -18,7 +18,7 @@
                 <view class="iconfont icon-jiantou"></view>
             </view>
         </view>
-        <view class="foot-btn">
+        <view class="foot-btn" bindtap="jumpSet">
             创建数据圈
         </view>
     </block>

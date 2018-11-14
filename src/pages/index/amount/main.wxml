@@ -1,6 +1,6 @@
 <view id="amount">
     <block>
-        <view class="set-amount">
+        <view class="set-amount" wx:if="{{is_pay == 'true'}}">
             <view class="title">设置金额</view>
             <input type="text" />
         </view>

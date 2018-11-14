@@ -6,20 +6,20 @@
       </view>
       <view class="name">
          <view class="title">数据圈名称</view>
-         <input type="text" />
+         <input type="text" bindinput="changeName"/>
       </view>
       <view class="Introduction">
          <view class="title">数据圈简介</view>
-         <textarea name="" id=""></textarea>
+         <textarea name="" id="" bindinput="changeIntroduction"></textarea>
       </view>
       <view class="pay">
-         <checkbox-group>
+         <checkbox-group bindchange="changePay">
             <label class="checkbox">
                <checkbox  color="#fff" /> 用户加入数据圈需要付费
             </label>
          </checkbox-group>
          <view class="text">创建后不可以更改圈子属性</view>
       </view>
-      <view class="next-step">下一步</view>
+      <view class="next-step" bindtap="nextStep">下一步</view>
    </block>
 </view>
