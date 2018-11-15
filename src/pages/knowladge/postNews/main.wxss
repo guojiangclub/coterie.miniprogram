@@ -16,10 +16,38 @@
   line-height: 17px;
 }
 #post-news .edit-content .edit-link {
-  color: #004E9D;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 0px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F3F3F3;
+  padding: 10px;
+  margin: 0 15px 10px 15px;
+}
+#post-news .edit-content .edit-link .link-left {
+  flex: 1;
+}
+#post-news .edit-content .edit-link .link-left .title {
+  color: #4A4A4A;
+  font-size: 12px;
+  line-height: 17px;
+  padding-bottom: 16px;
+}
+#post-news .edit-content .edit-link .link-left .txt {
+  color: #909090;
+  font-size: 12px;
+  line-height: 17px;
+}
+#post-news .edit-content .edit-link .link-right {
+  width: 50px;
+  height: 50px;
+  background-color: #004E9D;
+  line-height: 50px;
+  text-align: center;
+}
+#post-news .edit-content .edit-link .link-right span {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 19px;
 }
 #post-news .edit-content .imgs-box {
   display: flex;

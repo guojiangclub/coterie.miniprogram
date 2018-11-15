@@ -5,8 +5,15 @@
                 <textarea name="" id="" placeholder="分享自己的观点" placeholder-class="textarea-placeholder"></textarea>
             </view>
             <view class="edit-link">
-                <span class="iconfont icon-lianjie"></span>
-                www.ibran.cc
+               <!-- <span class="iconfont icon-lianjie"></span>
+                www.ibran.cc-->
+                <view class="link-left">
+                    <view class="title">央视网_世界就在眼前</view>
+                    <view class="txt">www.cctv.com</view>
+                </view>
+                <view class="link-right">
+                    <span class="iconfont icon-lianjie"></span>
+                </view>
             </view>
             <view class="imgs-box">
                 <view class="item">
