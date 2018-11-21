@@ -1,11 +1,7 @@
+import {config, getUrl, pageLogin, sandBox, cookieStorage} from './lib/myapp.js';
 
-import {config,getUrl,pageLogin,sandBox,cookieStorage} from './lib/myapp.js';
 App({
     onLaunch(e) {
-       var referrerInfo = e.referrerInfo;
-        if (referrerInfo.appId) {
-           cookieStorage.set('referrerInfo', referrerInfo);
-       }
         var token = cookieStorage.get('user_token');   // 确保缓存跟当前版本保持一致
 
         const updateManager = wx.getUpdateManager();
@@ -37,5 +33,17 @@ App({
                 content: '更新失败',
             })
         })
+    },
+    onShow() {
+        // 获取第三方平台配置
+        if (wx.getExtConfig) {
+            wx.getExtConfig({
+                success: res => {
+                    if (res.extConfig.appid) {
+                        cookieStorage.set('globalConfig', res.extConfig)
+                    }
+                }
+            })
+        }
     }
 });

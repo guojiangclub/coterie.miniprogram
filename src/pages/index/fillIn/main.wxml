@@ -1,9 +1,11 @@
 <view id="fill-in">
    <block>
-      <view class="avatar">
+      <view class="avatar" bindtap="changeImage">
          <view class="iconfont icon-shujuquantouxiang"></view>
          <view class="title">数据圈头像</view>
+         <image src="{{knowObj.avatar}}" wx:if="{{knowObj.avatar}}"></image>
       </view>
+
       <view class="name">
          <view class="title">数据圈名称</view>
          <input type="text" bindinput="changeName"/>

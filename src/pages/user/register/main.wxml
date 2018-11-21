@@ -1,0 +1,26 @@
+<view id="user-register">
+    <view class="tips" hidden="{{!message}}">{{message}}</view>
+    <!--<view class="register_header iconfont icon-youhuiquan"></view>-->
+    <view class="register_input">
+        <view class="tellphone">
+            <input type="text" placeholder="手机号码" bindinput="changeCode" placeholder-class="input-placeholder"/>
+        </view>
+        <view class="code">
+            <view class="writecode">
+                <input type="text" placeholder="验证码" bindinput="changeIdentifyCode" placeholder-class="input-placeholder"/>
+            </view>
+
+            <view class="getCode" catchtap="getCode">{{codes.codeText}}</view>
+        </view>
+    </view>
+    <view class="submit">
+        <button type="default" wx:if="{{checked}}" style="background: {{config.mainColor}}"  class="check" catchtap="submit" disabled="{{showLoading}}" loading="{{showLoading}}">快速登录/注册</button>
+        <button type="default" wx:if="{{!checked}}" catchtap="submit" disabled="{{showLoading}}" loading="{{showLoading}}">快速登录/注册</button>
+    </view>
+    <view class="select">
+        <!--<checkbox-group bindchange="changeChecked">-->
+        <checkbox bindtap="changeChecked" color="#fff" checked="{{checked}}" />
+        <text> 同意本小程序用户协议</text>
+        <!--</checkbox-group>-->
+    </view>
+</view>

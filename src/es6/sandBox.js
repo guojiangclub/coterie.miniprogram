@@ -11,8 +11,9 @@ var gbConfig = {
 };
 export const sandBox = {
     get({api, data, header}){
-        if (wx.getStorageSync('globalConfig')) {
-            gbConfig = wx.getStorageSync('globalConfig').data
+        let extConfig = wx.getExtConfigSync ? wx.getExtConfigSync(): {};
+        if (extConfig.appid) {
+            gbConfig = extConfig
         }
         if (header) {
             header.appid = gbConfig.appid
@@ -42,8 +43,9 @@ export const sandBox = {
         })
     },
     post({api, data, header}){
-        if (wx.getStorageSync('globalConfig')) {
-            gbConfig = wx.getStorageSync('globalConfig').data
+        let extConfig = wx.getExtConfigSync ? wx.getExtConfigSync(): {};
+        if (extConfig.appid) {
+            gbConfig = extConfig
         }
         if (header) {
             header.appid = gbConfig.appid
@@ -64,6 +66,7 @@ export const sandBox = {
                     })
                 },
                 fail:rej => {
+                    console.log(rej);
                     reject(rej)
                 }
             })
@@ -83,14 +86,14 @@ export const sandBox = {
                     success:(res)=>{
                         if (res.confirm) {
                             wx.navigateTo({
-                                url:`/pages/user/register/register?url=${url}`
+                                url:`/pages/user/login/main?url=${url}`
                             })
                             return;
                         }
                     },
                     cancel:()=>{
                         wx.navigateTo({
-                            url:`/pages/user/register/register?url=${url}`
+                            url:`/pages/user/login/main?url=${url}`
                         })
                         return;
                     }
@@ -105,8 +108,9 @@ export const sandBox = {
 
     },
     ajax({api, data, method, header}) {
-        if (wx.getStorageSync('globalConfig')) {
-            gbConfig = wx.getStorageSync('globalConfig').data
+        let extConfig = wx.getExtConfigSync ? wx.getExtConfigSync(): {};
+        if (extConfig.appid) {
+            gbConfig = extConfig
         }
         if (header) {
             header.appid = gbConfig.appid
@@ -133,8 +137,9 @@ export const sandBox = {
         })
     },
     uploadFile({api,filePath,header,name}){
-        if (wx.getStorageSync('globalConfig')) {
-            gbConfig = wx.getStorageSync('globalConfig').data
+        let extConfig = wx.getExtConfigSync ? wx.getExtConfigSync(): {};
+        if (extConfig.appid) {
+            gbConfig = extConfig
         }
         if (header) {
             header.appid = gbConfig.appid
@@ -158,8 +163,9 @@ export const sandBox = {
         })
     },
     dowloadFile({api, filePath, header, name}) {
-        if (wx.getStorageSync('globalConfig')) {
-            gbConfig = wx.getStorageSync('globalConfig').data
+        let extConfig = wx.getExtConfigSync ? wx.getExtConfigSync(): {};
+        if (extConfig.appid) {
+            gbConfig = extConfig
         }
         if (header) {
             header.appid = gbConfig.appid
@@ -181,8 +187,5 @@ export const sandBox = {
                 }
             })
         })
-    },
-    APIs: {
-
     }
 };

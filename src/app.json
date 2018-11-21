@@ -18,6 +18,8 @@
     "pages/knowladge/all/main",
     "pages/user/personal/main",
     "pages/user/index/main",
+    "pages/user/register/main",
+    "pages/user/login/main",
     "pages/news/index/main",
     "pages/news/awesome/main"
   ],
@@ -27,5 +29,32 @@
     "navigationBarTitleText": "数据圈",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F3F3F3"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#9B9B9B",
+    "selectedColor": "#004E9D",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index/index",
+        "text": "数据圈",
+        "iconPath": "assets/image/index.png",
+        "selectedIconPath": "assets/image/index-b.png"
+      },
+      {
+        "pagePath": "pages/news/index/main",
+        "text": "通知",
+        "iconPath": "assets/image/note.png",
+        "selectedIconPath": "assets/image/note-b.png"
+      },
+      {
+        "pagePath": "pages/user/index/main",
+        "text": "我的",
+        "iconPath": "assets/image/user.png",
+        "selectedIconPath": "assets/image/user-b.png"
+      }
+    ]
+
   }
 }
