@@ -193,6 +193,7 @@ Page({
                         cookieStorage.set("user_token",result.data.access_token,expires_in);
                         // wx.setStorageSync("user_token",result.access_token);
                         if(this.data.orginUrl){
+                            debugger
                             var path = [
                                 'pages/index/index/index',
                                 'pages/user/index/main'

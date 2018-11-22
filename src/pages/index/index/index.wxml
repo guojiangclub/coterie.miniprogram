@@ -1,7 +1,7 @@
 <view id="index">
     <block>
         <view class="head">
-            <view class="search">
+            <view class="search" bindtap="jumpSearch">
                 <span class="iconfont icon-sousuo"></span>
                 搜索知识圈
             </view>

@@ -8,12 +8,12 @@
 
       <view class="name">
          <view class="title">数据圈名称</view>
-         <input type="text" bindinput="changeName"/>
+         <input type="text" bindinput="changeName" value="{{knowObj.name}}"/>
       </view>
       <view class="Introduction">
          <view class="title">数据圈简介</view>
-         <textarea name="" id="" bindinput="changeIntroduction"></textarea>
+         <textarea name="" id="" bindinput="changeIntroduction" value="{{knowObj.description}}"></textarea>
       </view>
-      <view class="next-step" bindtap="nextStep">确定</view>
+      <view class="next-step" bindtap="sure">确定</view>
    </block>
 </view>

@@ -6,15 +6,11 @@ Page({
             avatar:"",//头像url
             name:"",//数据圈名称
             description:"",//数据圈简介
-            isPay: false,//是否付费
             cost_type: 'free'
         }
     },
-    //是否选择付费
-    changePay(){
-        this.setData({
-            'knowObj.isPay':!this.data.knowObj.isPay
-        })
+    onShow(){
+        this.getCoterie(3)
     },
     //数据圈名称
     changeName(e){
@@ -30,7 +26,7 @@ Page({
         })
     },
     //下一步
-    nextStep(){
+    sure(){
         var message = "";
         if(!this.data.knowObj.avatar){
             message = "请上传数据圈头像";
@@ -65,19 +61,8 @@ Page({
             })
 
         } else {
-            if (this.data.knowObj.isPay) {
-                this.setData({
-                    'knowObj.cost_type': 'charge'
-                })
-            } else {
-                this.setData({
-                    'knowObj.cost_type': 'free'
-                })
-            }
-            cookieStorage.set('knowObj',this.data.knowObj);
-            wx.navigateTo({
-                url:'/pages/index/amount/main?is_pay='+ this.data.knowObj.isPay
-            })
+            //请求修改圈子信息接口
+            this.postUpdate(3,this.data.knowObj.name,this.data.knowObj.description,this.data.knowObj.avatar)
         }
     },
     // 上传头像
@@ -123,5 +108,107 @@ Page({
             })
             wx.hideLoading();
         })
+    },
+    //获取圈子头像名称头像
+    getCoterie(coterie_id){
+        var token = cookieStorage.get('user_token');
+        wx.showLoading({
+            title:'加载中',
+            mask:true
+        });
+        sandBox.get({
+            api:'api/coterie/edit',
+            data:{
+                coterie_id:coterie_id
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                if(res.status){
+                    //获取到数据之后绑定
+                    var data = res.data;
+                    this.setData({
+                        'knowObj.avatar':data.avatar,
+                        'knowObj.name':data.name,
+                        'knowObj.description':data.description
+                    })
+
+                } else {
+                    wx.showModal({
+                        content:res.message || '服务器开了小差，请重试',
+                        showCancel:false
+                    })
+                }
+            } else {
+                wx.showModal({
+                    content:res.message || '服务器开了小差，请重试',
+                    showCancel:false
+                })
+            }
+            wx.hideLoading();
+        }).catch(rej=>{
+            wx.hideLoading();
+            wx.showModal({
+                content:'服务器开了小差，请重试',
+                showCancel:false
+            })
+        })
+    },
+    //请求修改圈子信息接口
+    postUpdate(coterie_id,name,description,avatar){
+        var token = cookieStorage.get('user_token');
+        wx.showLoading({
+            title:'加载中',
+            mask:true
+        });
+        sandBox.post({
+            api:'api/coterie/update',
+            data:{
+                coterie_id:coterie_id,
+                name:name,
+                description:description,
+                avatar:avatar
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                if(res.status){
+                    wx.showToast({
+                        title:'修改成功',
+                        icon:'success',
+                        mask:true
+                    })
+                    setTimeout(() => {
+                        wx.redirectTo({
+                            url: '/pages/knowladge/detail/main?id=' + res.data.id
+                        })
+                    }, 1000)
+                } else {
+                    wx.showModal({
+                        content:res.message || '服务器开了小差，请重试',
+                        showCancel:false
+                    })
+                }
+            } else {
+                wx.showModal({
+                    content:res.message || '服务器开了小差，请重试',
+                    showCancel:false
+                })
+            }
+            wx.hideLoading();
+        }).catch(rej=>{
+            wx.hideLoading();
+            wx.showModal({
+                content:'服务器开了小差，请重试',
+                showCancel:false
+            })
+        })
+
     }
 })
