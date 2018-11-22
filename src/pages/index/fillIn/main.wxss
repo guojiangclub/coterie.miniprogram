@@ -1,3 +1,6 @@
+#fill-in {
+  margin-bottom: 80px;
+}
 #fill-in .avatar {
   position: relative;
   margin: 28px auto 32px auto;
@@ -98,6 +101,8 @@
   padding: 5px 0 0 21px;
 }
 #fill-in .next-step {
+  position: fixed;
+  bottom: 0;
   margin-top: 46px;
   width: 100%;
   height: 45px;

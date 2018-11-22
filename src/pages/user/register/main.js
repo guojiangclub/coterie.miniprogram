@@ -190,21 +190,21 @@ Page({
                     if(result.data.access_token){
                         result.data.access_token =result.data.token_type + ' ' + result.data.access_token;
                         var expires_in = result.data.expires_in || 315360000;
-                        cookieStorage.set("user_token",result.access_token,expires_in);
+                        cookieStorage.set("user_token",result.data.access_token,expires_in);
                         // wx.setStorageSync("user_token",result.access_token);
                         if(this.data.orginUrl){
                             var path = [
                                 'pages/index/index/index',
                                 'pages/user/index/main'
                             ];
-                            var pathIndex = path.indexOf(this.data.url);
+                            var pathIndex = path.indexOf(this.data.orginUrl);
                             if (pathIndex == -1) {
                                 wx.redirectTo({
-                                    url:"/"+this.data.url
+                                    url:"/"+this.data.orginUrl
                                 })
                             } else {
                                 wx.switchTab({
-                                    url:"/"+this.data.url
+                                    url:"/"+this.data.orginUrl
                                 })
                             }
                         } else {
