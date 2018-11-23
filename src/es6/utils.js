@@ -193,7 +193,7 @@ function pageLogin(url,callback){
     } else {
     	callback && callback(token);
     }
-}
+};
 
 
 //判断生日有礼

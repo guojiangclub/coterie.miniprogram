@@ -51,7 +51,7 @@
             margin: 13px 0;
 
             &.all {
-              height: auto;
+              max-height: none;
             }
           }
           .all-btn {
@@ -105,6 +105,9 @@
 
         }
         .guest-avatar {
+          &.all {
+            max-height: none;
+          }
           color: #909090;
           font-size: 10px;
           padding-top: 30px;
@@ -121,9 +124,7 @@
               height: 44px;
             }
           }
-          &.all {
-            height: auto;
-          }
+
         }
 
         .all-btn {

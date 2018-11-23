@@ -26,7 +26,7 @@ Page({
             })
             return
         }
-        data.price = this.data.price;
+        data.price = this.data.price * 100;
         data.duration_type = 'joined';
         wx.showLoading({
             content: '创建中',

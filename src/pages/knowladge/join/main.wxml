@@ -12,10 +12,10 @@
             </view>
             <view class="desc-box mx-1px-bottom">
                 <view class="desc">
-                    <view class="text {{descAll ? 'all' : ''}}">
+                    <view class="text js_desc {{descAll ? 'all' : ''}}">
                        {{detail.description}}
                     </view>
-                    <view class="all-btn" bindtap="changeDesc">
+                    <view class="all-btn" wx:if="{{show_desc_btn}}" bindtap="changeDesc">
                         <block wx:if="{{!descAll}}">展开全部</block>
                         <block wx:else>收起</block>
                     </view>
@@ -23,14 +23,14 @@
             </view>
             <view class="lord-box">
                 <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <image src="{{detail.user.avatar || 'https://ibrand-miniprogram.oss-cn-hangzhou.aliyuncs.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%A4%B4%E5%83%8F.png'}}"></image>
                 </view>
                 <view class="info">
                     <view class="name">
-                        圈主：水煮哈密瓜
+                        圈主：{{detail.user.nick_name}}
                     </view>
                     <view class="time">
-                        创建于 2018-10-08
+                        创建于 {{detail.created_at}}
                     </view>
                 </view>
             </view>
@@ -40,7 +40,7 @@
                         嘉宾
                     </view>
                 </view>
-                <view class="guest-avatar {{guestAll ? 'all' : ''}}" >
+                <view class="guest-avatar js_guest {{guestAll ? 'all' : ''}}" >
                     <view class="item">
                         <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
                         <view>
@@ -102,7 +102,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="all-btn" bindtap="changeGuest">
+                <view class="all-btn" wx:if="{{show_guest_btn}}" bindtap="changeGuest">
                     <block wx:if="{{!guestAll}}">展开全部</block>
                     <block wx:else>收起</block>
                 </view>
@@ -318,7 +318,7 @@
         <view class="buy-btn">
             ￥<block wx:if="{{detail.price != 0}}">{{detail.price/100}}</block> <block wx:else>免费</block> 加入数据圈
 
-            <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="button">
+            <button wx:if="{{!detail.is_perfect_user_info}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="button">
 
             </button>
         </view>

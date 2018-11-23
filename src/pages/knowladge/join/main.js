@@ -6,7 +6,9 @@ Page({
         guestAll: false,
         id: '',
         detail: '',
-        init: false
+        init: false,
+        show_desc_btn: false,
+        show_guest_btn: false
     },
     onLoad(e) {
       if (e.id) {
@@ -20,6 +22,7 @@ Page({
               showCancel: false
           })
       }
+        console.log(this.getDomInfo);;
     },
     changeDesc() {
         this.setData({
@@ -30,6 +33,26 @@ Page({
         this.setData({
             guestAll: !this.data.guestAll
         })
+    },
+    // 获取节点信息
+    getDomInfo(name) {
+        var query = wx.createSelectorQuery();
+        query.select(name).boundingClientRect(res => {
+            if (name == '.js_desc' && res.height == 64) {
+                this.setData({
+                    show_desc_btn: true
+                })
+            }
+            if (name == '.js_guest' && res.height == 183) {
+                this.setData({
+                    show_guest_btn: true
+                })
+            }
+            /*this.setData({
+                [`domInfo.${type}`]: res.height
+            })*/
+            console.log(res.height);
+        }).exec();
     },
     // 更新用户信息
     bindgetuserinfo(e) {
@@ -58,13 +81,11 @@ Page({
                 res = res.data;
                 if (res.status) {
                     wx.showToast({
-                        title:'修改成功',
+                        title:'更新成功',
                         duration: 1500,
-                        success:()=>{
-                            setTimeout(()=>{
-
-                            },1500);
-                        }
+                    });
+                    this.setData({
+                        'detail.is_perfect_user_info': 1
                     })
                 } else {
                     wx.showModal({
@@ -102,9 +123,18 @@ Page({
             if(res.statusCode==200){
                 res = res.data;
                 if (res.status) {
+                    // 如果加入过当前课程，需要跳转到详情页面
+                    if (res.data.is_coterie_member) {
+                       /* wx.redirectTo({
+                            url: '/pages/knowladge/detail/main?id=' + res.data.id
+                        })*/
+                    }
                     this.setData({
                         detail: res.data,
                         init: true
+                    }, () => {
+                        this.getDomInfo('.js_desc');
+                        this.getDomInfo('.js_guest');
                     })
                 } else {
                     wx.showModal({

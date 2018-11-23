@@ -49,7 +49,7 @@
   margin: 13px 0;
 }
 #join .block.knowladge-info .desc-box .desc .text.all {
-  height: auto;
+  max-height: none;
 }
 #join .block.knowladge-info .desc-box .desc .all-btn {
   color: #004E9D;
@@ -100,6 +100,9 @@
   max-height: 183px;
   overflow: hidden;
 }
+#join .block.knowladge-info .guest-box .guest-avatar.all {
+  max-height: none;
+}
 #join .block.knowladge-info .guest-box .guest-avatar .item {
   display: inline-block;
   width: 25%;
@@ -110,9 +113,6 @@
   border-radius: 100%;
   width: 44px;
   height: 44px;
-}
-#join .block.knowladge-info .guest-box .guest-avatar.all {
-  height: auto;
 }
 #join .block.knowladge-info .guest-box .all-btn {
   font-size: 13px;
