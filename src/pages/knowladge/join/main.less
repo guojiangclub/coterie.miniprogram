@@ -46,7 +46,7 @@
         .desc {
 
           .text {
-            height: 64px;
+            max-height: 64px;
             overflow: hidden;
             margin: 13px 0;
 
@@ -108,7 +108,7 @@
           color: #909090;
           font-size: 10px;
           padding-top: 30px;
-          height: 183px;
+          max-height: 183px;
           overflow: hidden;
           .item {
             display: inline-block;
@@ -331,5 +331,16 @@
     height: 50px;
     color: #ffffff;
     background: @globalColor;
+    z-index: 1;
+
+    .button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      opacity: 0;
+      z-index: 2;
+    }
   }
 }
