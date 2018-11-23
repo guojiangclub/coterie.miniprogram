@@ -7,19 +7,22 @@
             </view>
         </view>
         <view class="content">
-            <view class="cirle-item mx-1px-bottom">
-                <view class="picture">
-                    <image src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1541665520&di=0ae106987090e64602b75d30cedf9a5d&src=http://5b0988e595225.cdn.sohucs.com/images/20180831/e1caa81d6c7346368b631cc98d330d5f.jpeg"></image>
+            <view wx:for="{{coterieList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+                <view class="cirle-item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}" bindtap="jumpDetail" data-id="{{item.id}}">
+                    <view class="picture">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="text">
+                        <view class="name">{{item.name}}</view>
+                        <view class="describe">{{item.user.nick_name || '无名'}}</view>
+                    </view>
+                    <view class="iconfont icon-jiantou"></view>
                 </view>
-                <view class="text">
-                    <view class="name">黔在在的圈子黔在在的圈子黔在在的圈子黔在在的圈子黔在在的圈子</view>
-                    <view class="describe">开开心心每一天，好好生活开开心心每一天，好好生活开开心心每一天，好好生活</view>
-                </view>
-                <view class="iconfont icon-jiantou"></view>
             </view>
         </view>
-        <view class="foot-btn" bindtap="jumpSet">
-            创建数据圈
+        <view class="foot-btn">
+            <view bindtap="jumpSet">创建数据圈</view>
+            <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="btn" wx:if="{{!is_perfect_user_info && token}}"> </button>
         </view>
     </block>
 

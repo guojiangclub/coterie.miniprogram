@@ -102,6 +102,7 @@
   text-align: center;
   background-color: #ffffff;
   z-index: 10;
+  transition: all .3s;
 }
 #member-manage .permission .item {
   height: 50px;
@@ -118,5 +119,5 @@
   border-bottom: 6px solid #E6E6E6;
 }
 #member-manage .permission.cur {
-  height: 260px;
+  height: 206px;
 }

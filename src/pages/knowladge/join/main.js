@@ -54,6 +54,57 @@ Page({
             console.log(res.height);
         }).exec();
     },
+    //免费加入圈子
+    freeJoin(){
+       if (this.data.detail.is_perfect_user_info){
+           this.postfreeMember(this.data.id)
+       } else {
+           return
+       }
+    },
+    //请求免费加入圈子接口
+    postfreeMember(id){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        });
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api:'api/member/store',
+            data:{
+                coterie_id:id
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                if (res.status){
+                    //看一下请求成功
+                    wx.navigateTo({
+                        url:'/pages/knowladge/detail/main?id='+this.data.id
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "服务器开了小差，请重试",
+                        showCancel: false
+                    });
+
+                }
+            } else {
+                wx.showModal({
+                    content:res.message ||  "服务器开了小差，请重试",
+                    showCancel: false
+                });
+            }
+        }).catch(rej=>{
+            wx.showModal({
+                content:"服务器开了小差，请重试",
+                showCancel: false
+            });
+        })
+    },
     // 更新用户信息
     bindgetuserinfo(e) {
         if (e.detail.userInfo) {
