@@ -61,6 +61,7 @@
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 8px;
+  position: relative;
 }
 #post-news .edit-content .imgs-box .item .img-info {
   width: 100%;
@@ -68,6 +69,14 @@
   overflow: hidden;
   margin: 0 auto;
   padding-bottom: 100%;
+}
+#post-news .edit-content .imgs-box .item .delete {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+#post-news .edit-content .imgs-box .item .delete.iconfont {
+  color: #909090;
 }
 #post-news .edit-content .edit-topic {
   display: flex;
@@ -103,6 +112,7 @@
   display: flex;
   align-items: center;
   padding: 28px;
+  margin-bottom: 50px;
 }
 #post-news .add-content .iconfont {
   font-size: 20px;
@@ -183,4 +193,7 @@
 #post-news .add-link .panel-body .btn-box .sure {
   background-color: #004E9D;
   color: #ffffff;
+}
+#post-news .add-link.cur {
+  display: block;
 }

@@ -1,7 +1,51 @@
 @import "../../../assets/css/global";
 #manList{
+  .head{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #ffffff;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+    .search{
+      flex: 1;
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      border-radius:4px;
+      background-color:#F3F3F3;
+      input{
+        padding-left:34px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+      }
+      .input-placeholder{
+        color:#909090;
+        font-size: 12px;
+      }
+      span{
+        position: absolute;
+        top: 0;
+        left: 10px;
+        color:#909090;
+        font-size: 14px;
+      }
+    }
+    .cancel{
+      height: 40px;
+      line-height: 40px;
+      color: #202020;
+      font-size: 13px;
+      padding:0 2px 0 17px;
+    }
+  }
   .content{
     background-color: #ffffff;
+    margin-top: 70px;
     .radio-group{
       .radio{
         display: flex;

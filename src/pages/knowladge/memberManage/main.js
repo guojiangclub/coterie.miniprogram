@@ -8,23 +8,24 @@ Page({
         page:0,
         hasMore:true,
         is_show:false,
-        activeItem:{}
+        activeItem:{},
+        name:''
     },
     onLoad(e){
-        /*this.setData({
+        this.setData({
             id:e.id
-        })*/
+        })
     },
     onShow(){
         var token = cookieStorage.get('user_token');
         if (token){
-            this.getMember(this.data.id,1)
+            this.getMember(this.data.id,1,this.data.name)
         }
     },
     onReachBottom() {
         if (this.data.hasMore) {
             var page = this.data.page + 1;
-            this.getMember(this.data.id,page);
+            this.getMember(this.data.id,page,this.data.name);
         } else {
             wx.showToast({
                 image: '../../../assets/image/error.png',
@@ -50,6 +51,10 @@ Page({
         }
 
     },
+    //踢出数据圈数据
+    delete(){
+        this.postDelete(this.data.activeItem.id,this.data.activeItem.coterie_id)
+    },
     //取消嘉宾
     cancleGuest(){
         if (this.data.activeItem.user_type == 'guest'){
@@ -58,6 +63,52 @@ Page({
         } else {
             return
         }
+    },
+    //请求踢出数据圈接口
+    postDelete(id,coterie_id){
+        wx.showLoading({
+            title:'加载中',
+            mask:true
+        });
+        this.setData({
+            is_show:false
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api:'api/member/delete',
+            data:{
+                id:id,
+                coterie_id:coterie_id
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                if(res.status){
+                    this.getMember(this.data.id,1,this.data.name);
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "服务器开了小差，请重试",
+                        showCancel: false
+                    });
+                }
+            } else {
+                wx.showModal({
+                    content:res.message ||  "服务器开了小差，请重试",
+                    showCancel: false
+                });
+            }
+            wx.hideLoading();
+        }).catch(rej=>{
+            wx.hideLoading();
+            wx.showModal({
+                content:"服务器开了小差，请重试",
+                showCancel: false
+            });
+        })
+
     },
     cancle(){
       this.setData({
@@ -88,7 +139,7 @@ Page({
             if (res.statusCode == 200){
                 res = res.data;
                 if(res.status){
-                    this.getMember(this.data.id,1);
+                    this.getMember(this.data.id,1,this.data.name);
                 } else {
                     wx.showModal({
                         content:res.message ||  "服务器开了小差，请重试",
@@ -111,8 +162,18 @@ Page({
         })
 
     },
+    //获取name
+    changeName(e){
+      this.setData({
+          name:e.detail.value
+      })
+    },
+    // 确认搜索
+    sureSearch(){
+       this.getMember(this.data.id,1,this.data.name) ;
+    },
     //请求获取数据圈会员接口
-    getMember(id,page){
+    getMember(id,page,name){
         wx.showLoading({
             title:'加载中',
             mask:true
@@ -122,7 +183,8 @@ Page({
             api:'api/member',
             data:{
                 coterie_id:id,
-                page:page
+                page:page,
+                name:name || ''
             },
             header:{
                 Authorization:token
@@ -137,15 +199,6 @@ Page({
                     var owner_list = res.meta.owner_list;
                      var guest_list = res.meta.guest_list;
                     var member_list = res.data;
-                    /* owner_list.forEach(val=>{
-                         val.isShow = false
-                     });
-                    guest_list.forEach(val=>{
-                        val.isShow = false
-                    });
-                    member_list.forEach(val=>{
-                        val.isShow = false
-                    });*/
                     this.setData({
                         [`memberList[${page-1}]`]:member_list,
                         page:current_page,

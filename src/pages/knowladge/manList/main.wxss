@@ -1,5 +1,49 @@
+#manList .head {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+#manList .head .search {
+  flex: 1;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #F3F3F3;
+}
+#manList .head .search input {
+  padding-left: 34px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+}
+#manList .head .search .input-placeholder {
+  color: #909090;
+  font-size: 12px;
+}
+#manList .head .search span {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: #909090;
+  font-size: 14px;
+}
+#manList .head .cancel {
+  height: 40px;
+  line-height: 40px;
+  color: #202020;
+  font-size: 13px;
+  padding: 0 2px 0 17px;
+}
 #manList .content {
   background-color: #ffffff;
+  margin-top: 70px;
 }
 #manList .content .radio-group .radio {
   display: flex;

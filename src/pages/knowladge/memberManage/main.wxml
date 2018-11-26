@@ -2,14 +2,14 @@
     <block>
         <view class="head mx-1px-bottom">
             <view class="search">
-                <input type="text" placeholder="搜索成员" placeholder-class="input-placeholder" disabled/>
+                <input type="text" placeholder="搜索成员" placeholder-class="input-placeholder" bindinput="changeName"/>
                 <span class="iconfont icon-sousuo"></span>
             </view>
-            <view class="cancel">取消</view>
+            <view class="cancel" bindtap="sureSearch">确认</view>
         </view>
         <view class="content">
             <view class="guest manage-item">
-                <view class="title">圈主/嘉宾</view>
+                <view class="title" wx:if="{{memberList[0].length}}">圈主/嘉宾</view>
                 <view class="member-list">
                     <view class="item mx-1px-bottom" wx:for="{{owner_list}}" wx:key="{{index}}" bindtap="showSet" data-item="{{item}}">
                         <view class="avatar">
@@ -56,7 +56,7 @@
             <view class="item mx-1px-bottom" bindtap="setGuest">设为嘉宾</view>
             <view class="item mx-1px-bottom" bindtap="cancleGuest">取消嘉宾</view>
            <!-- <view class="item mx-1px-bottom">禁言</view>-->
-            <view class="item bor">踢出数据圈</view>
+            <view class="item bor" bindtap="delete">踢出数据圈</view>
             <view class="item mx-1px-bottom cancel" bindtap="cancle">取消</view>
         </view>
     </block>

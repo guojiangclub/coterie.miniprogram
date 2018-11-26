@@ -1,4 +1,11 @@
 <view id="manList">
+    <view class="head mx-1px-bottom">
+        <view class="search">
+            <input type="text" placeholder="搜索成员" placeholder-class="input-placeholder" bindinput="changeName"/>
+            <span class="iconfont icon-sousuo"></span>
+        </view>
+        <view class="cancel" bindtap="sureSearch">确认</view>
+    </view>
     <view class="content">
         <radio-group class="radio-group">
             <label class="radio mx-1px-bottom">
