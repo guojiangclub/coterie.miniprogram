@@ -25,6 +25,7 @@
       background-color:#F3F3F3;
       padding:10px;
       margin:0 15px 10px 15px;
+      position: relative;
       .link-left{
         flex: 1;
         .title{
@@ -49,6 +50,14 @@
             display: inline-block;
             color:#ffffff;
             font-size: 19px;
+        }
+      }
+      .delete{
+        position: absolute;
+        right:-6px;
+        top: -6px;
+        &.iconfont{
+          color:#909090 ;
         }
       }
     }
@@ -122,6 +131,9 @@
       font-size: 20px;
       margin-right:45px;
       color: #4A4A4A;
+      &.grey{
+        color:#DBDBDB;
+      }
     }
   }
   .publish-btn{
@@ -135,6 +147,7 @@
     color: #ffffff;
     background-color: @globalColor;
     font-size:16px;
+    z-index: 50;
   }
   .add-link{
     display: none;

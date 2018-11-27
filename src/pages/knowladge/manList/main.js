@@ -3,15 +3,16 @@ Page({
     data:{
         id:'',//圈子id
         memberList:[],//成员列表
-        guest_list:[],//嘉宾列表
-        owner_list:[],//圈主
+        guest_list:[],//嘉宾和圈主列表
         page:0,
         hasMore:true,
-        name:''
+        name:'',
+        type:''
     },
     onLoad(e){
         this.setData({
-            id:e.id
+            id:e.id,
+            type:e.type
         })
     },
     onShow(){
@@ -67,13 +68,14 @@ Page({
                     var total_pages = pages.total_pages;
                     var owner_list = res.meta.owner_list;
                     var guest_list = res.meta.guest_list;
+                    var forbidden_list = res.meta.forbidden_list;
                     var member_list = res.data;
                     this.setData({
-                        [`memberList[${page-1}]`]:member_list,
+                        guest_list:owner_list.concat(guest_list),
+                        'memberList[0]':owner_list.concat(guest_list).concat(forbidden_list),
+                        [`memberList[${page}]`]:member_list,
                         page:current_page,
-                        hasMore:current_page<total_pages,
-                        owner_list:owner_list,
-                        guest_list:guest_list
+                        hasMore:current_page<total_pages
                     })
                 } else {
                     wx.showModal({
@@ -94,6 +96,13 @@ Page({
                 content:'服务器开了小差，请重试',
                 showCancel:false
             })
+        })
+    },
+    //选择提问人
+    selectQuestioner(e){
+        cookieStorage.set('questioner',e.currentTarget.dataset.item);
+        wx.navigateBack({
+            delta:1
         })
     }
 

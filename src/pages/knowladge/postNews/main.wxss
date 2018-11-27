@@ -22,6 +22,7 @@
   background-color: #F3F3F3;
   padding: 10px;
   margin: 0 15px 10px 15px;
+  position: relative;
 }
 #post-news .edit-content .edit-link .link-left {
   flex: 1;
@@ -48,6 +49,14 @@
   display: inline-block;
   color: #ffffff;
   font-size: 19px;
+}
+#post-news .edit-content .edit-link .delete {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+}
+#post-news .edit-content .edit-link .delete.iconfont {
+  color: #909090 ;
 }
 #post-news .edit-content .imgs-box {
   display: flex;
@@ -119,6 +128,9 @@
   margin-right: 45px;
   color: #4A4A4A;
 }
+#post-news .add-content .iconfont.grey {
+  color: #DBDBDB;
+}
 #post-news .publish-btn {
   position: fixed;
   text-align: center;
@@ -130,6 +142,7 @@
   color: #ffffff;
   background-color: #004E9D;
   font-size: 16px;
+  z-index: 50;
 }
 #post-news .add-link {
   display: none;

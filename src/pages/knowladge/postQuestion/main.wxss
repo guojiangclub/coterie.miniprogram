@@ -37,6 +37,7 @@
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 8px;
+  position: relative;
 }
 #question .content .imgs-box .item .img-info {
   width: 100%;
@@ -44,6 +45,14 @@
   overflow: hidden;
   margin: 0 auto;
   padding-bottom: 100%;
+}
+#question .content .imgs-box .item .delete {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+#question .content .imgs-box .item .delete.iconfont {
+  color: #909090;
 }
 #question .setting {
   background-color: #ffffff;
@@ -74,4 +83,17 @@
 #question .upload .iconfont {
   font-size: 24px;
   color: #4A4A4A;
+}
+#question .publish-btn {
+  z-index: 50;
+  position: fixed;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  background-color: #004E9D;
+  font-size: 16px;
 }

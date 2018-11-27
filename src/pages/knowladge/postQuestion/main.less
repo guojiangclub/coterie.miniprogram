@@ -36,12 +36,21 @@
         border-radius: 2px;
         border: 1px solid rgba(0,0,0,0.15);
         padding:8px;
+        position: relative;
         .img-info{
           width: 100%;
           height: 0;
           overflow: hidden;
           margin: 0 auto;
           padding-bottom: 100%;
+        }
+        .delete{
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          &.iconfont{
+            color: #909090;
+          }
         }
       }
     }
@@ -76,6 +85,19 @@
       font-size: 24px;
       color:#4A4A4A;
     }
+  }
+  .publish-btn{
+    z-index: 50;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height:50px;
+    line-height: 50px;
+    color: #ffffff;
+    background-color: @globalColor;
+    font-size:16px;
   }
 
 }

@@ -41,6 +41,9 @@ export const is = {
 	password(val) {
 		return val && val.length && val.length > 5 && !/^\d+$/.test(val);
 	},
+	url(val){
+		return val && /^((ht|f)tps?):\/\/([\w\-]+(\.[\w\-]+)*\/)*[\w\-]+(\.[\w\-]+)*\/?(\?([\w\-\.,@?^=%&:\/~\+#]*)+)?/.test(val);
+	},
 	bank(val) {
 		if (!val) return false;
 		val = String(val);

@@ -5,6 +5,7 @@ Page({
         memberList:[],//成员列表
         guest_list:[],//嘉宾列表
         owner_list:[],//圈主
+        forbidden_list:[],//禁言列表
         page:0,
         hasMore:true,
         is_show:false,
@@ -198,6 +199,7 @@ Page({
                     var total_pages = pages.total_pages;
                     var owner_list = res.meta.owner_list;
                      var guest_list = res.meta.guest_list;
+                    /* var forbidden_list = res.meta.forbidden_list;*/
                     var member_list = res.data;
                     this.setData({
                         [`memberList[${page-1}]`]:member_list,

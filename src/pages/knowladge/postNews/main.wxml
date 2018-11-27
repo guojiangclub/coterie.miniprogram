@@ -4,22 +4,23 @@
             <view class="edit-describle">
                 <textarea name="" id="" placeholder="分享自己的观点" placeholder-class="textarea-placeholder" bindinput="changeinput"></textarea>
             </view>
-            <view class="edit-link">
+            <view class="edit-link" wx:if="{{urlDetail}}">
                <!-- <span class="iconfont icon-lianjie"></span>
                 www.ibran.cc-->
                 <view class="link-left">
-                    <view class="title">央视网_世界就在眼前</view>
-                    <view class="txt">www.cctv.com</view>
+                    <view class="title">{{urlDetail.link.title}}</view>
+                    <view class="txt">{{urlDetail.link.link}}</view>
                 </view>
                 <view class="link-right">
                     <span class="iconfont icon-lianjie"></span>
                 </view>
+                <view class="delete iconfont icon-close-circle" bindtap="deleteLink"></view>
             </view>
             <view class="imgs-box">
                 <view class="item" wx:for="{{img_list}}" wx:key="{{index}}">
                     <view class="img-info" style="background:url({{item}});background-position: center;background-repeat: no-repeat;background-size: cover">
                     </view>
-                    <view class="delete iconfont icon-close-circle"></view>
+                    <view class="delete iconfont icon-close-circle" bindtap="deleteImg" data-index="{{index}}"></view>
                 </view>
             </view>
             <view class="edit-topic">
@@ -31,11 +32,11 @@
             </view>
         </view>
         <view class="add-content">
-            <view class="iconfont icon-shangchuantupian" bindtap="changeImage" wx:if="{{img_list.length < 9}}"></view>
-            <view class="iconfont icon-lianjie" bindtap="changeLink"></view>
+            <view class="iconfont icon-shangchuantupian {{is_grey ? 'grey' : ''}}" bindtap="changeImage" wx:if="{{img_list.length < 9}}"></view>
+            <view class="iconfont icon-lianjie {{is_showgrey ? 'grey' : ''}}" bindtap="changeLink"></view>
             <view class="iconfont icon-icon-test" bindtap="jumpAite"></view>
         </view>
-        <view class="publish-btn">发表</view>
+        <view class="publish-btn" bindtap="publish">发表</view>
     </block>
     <block>
         <view class="add-link {{is_show ? 'cur' : ''}}">
@@ -44,11 +45,11 @@
                     插入链接
                 </view>
                 <view class="ipt-box">
-                    <input type="text" placeholder="请插入链接" placeholder-class="input-placeholder"/>
+                    <input type="text" placeholder="请插入链接" placeholder-class="input-placeholder" bindinput="linkInfo"/>
                 </view>
                 <view class="btn-box mx-1px-top">
-                    <view class="item cancel">取消</view>
-                    <view class="item sure">确定</view>
+                    <view class="item cancel"  bindtap="changeLink">取消</view>
+                    <view class="item sure" bindtap="sure">确定</view>
                 </view>
             </view>
         </view>
