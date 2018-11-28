@@ -4,27 +4,22 @@
     </view>
     <view class="knowladge-info block">
         <view class="knowladge-avatar">
-            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            <image src="{{detail.avatar}}"></image>
         </view>
         <view class="see-more">
             <i class="iconfont icon-gengduo"></i>
             <view>更多</view>
         </view>
         <view class="title">
-            愿作鸳鸯不羡仙。
+            {{detail.name}}
         </view>
         <view class="guest-box">
             <view class="left">
-                <view class="avatar-box" style="margin-right: -30px">
-                    <image class="item" style="left: 0" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -10px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -20px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -30px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <image class="item" style="left: -40px" src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-
+                <view class="avatar-box">
+                    <image class="item" style="left: {{index * (-10)}}px" src="{{item.user_meta_info.avatar}}" wx:for="{{memberList}}" wx:key="{{index}}"></image>
                 </view>
                 <view class="text">
-                    共99个成员
+                    共{{detail.member_count}}个成员
                 </view>
             </view>
             <view class="right">
@@ -51,12 +46,12 @@
                 置顶
             </view>
             <view class="text nowrap">
-                第一天加入不可以发表内容…
+                {{sticknews.description}}
             </view>
             <i class="iconfont icon-jiantou"></i>
         </view>
     </view>
-    <view class="block knowladge-item">
+    <!--<view class="block knowladge-item">
         <view class="theme-item">
             <view class="avatar-box">
                 <view class="img">
@@ -76,7 +71,7 @@
             </view>
             <view class="img">
                 <view class="item__list">
-                    <!--如果图片长度为1，显示一张-->
+                    &lt;!&ndash;如果图片长度为1，显示一张&ndash;&gt;
                     <view class="img" bindtap="preImage">
                         <image mode="widthFix" bindload="imgLoad"  src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
                     </view>
@@ -133,114 +128,107 @@
                 </view>
             </view>
         </view>
-    </view>
-    <view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                </view>
-                <view class="info">
-                    <view class="name nowrap">
-                        圈主：水煮哈密瓜
+    </view>-->
+    <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+        <view class="block knowladge-item" wx:for="{{items}}" wx:key="{{index}}">
+            <view class="theme-item">
+                <view class="avatar-box">
+                    <view class="img">
+                        <image src="{{item.user.avatar}}"></image>
                     </view>
-                    <view class="time">
-                        创建于 2018-10-08
+                    <view class="info">
+                        <view class="name nowrap">
+                            {{item.user.nick_name}}
+                        </view>
+                        <view class="time">
+                            创建于 {{item.created_at}}
+                        </view>
                     </view>
-                </view>
-                <view class="option iconfont icon-gengduo1">
+                    <view class="option iconfont icon-gengduo1">
 
+                    </view>
                 </view>
-            </view>
-            <view class="text">
-                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-            </view>
-            <view class="img">
-                <view class="item__list more">
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
+                <view class="text">
+                    {{item.description}}
+                </view>
+                <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1}}">
+                    <view class="item__list more">
+                        <view class="list__li" bindtap="preImage" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}">
+                            <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
-            <view class="tag-box">
-                <span># 这个是标签 # </span>
-                <span># 这个是标签 # </span>
-                <span># 这个是标签 # </span>
-            </view>
+                <view class="img" bindtap="preImage"  wx:if="{{item.content_type == 'default' && item.img_list_info.length == 1}}" >
+                    <image mode="widthFix" bindload="imgLoad"  src="{{url}}" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}"></image>
+                </view>
+                <view class="url" wx:if="{{item.content_type == 'link'}}">
+                    <view class="edit-link">
+                        <view class="link-left">
+                            <view class="title">{{item.link_info.title}}</view>
+                            <view class="txt">{{item.link_info.link}}</view>
+                        </view>
+                        <view class="link-right">
+                            <span class="iconfont icon-lianjie"></span>
+                        </view>
+                    </view>
+                </view>
+                <view class="tag-box" wx:if="{{item.tags_list_info}}">
+                    <span wx:for="{{item.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
+                </view>
+                <!--操作-->
+                <view class="operating-box">
+                    <view class="item active">
+                        <i class="iconfont icon-dianzan"></i>
+                        <view>{{item.praise_count}}</view>
+                    </view>
+                    <view class="item">
+                        <i class="iconfont icon-pinglun"></i>
+                        <view>{{item.comment_count}}</view>
+                    </view>
+                   <!-- <view class="item">
+                        <i class="iconfont icon-dashang1"></i>
+                        <view>打赏</view>
+                    </view>-->
+                    <view class="item">
+                        <i class="iconfont icon-fenxiang"></i>
+                        <view>分享</view>
+                    </view>
+                </view>
 
-            <!--操作-->
-            <view class="operating-box">
-                <view class="item active">
-                    <i class="iconfont icon-dianzan"></i>
-                    <view>99</view>
+                <!--点赞-->
+                <view class="awesome-box nowrap">
+                    <i class="iconfont icon-zan"></i>
+                    <span class="awesome-item">油焖番石榴，</span>
+                    <span class="awesome-item">油焖番石榴，</span>
+                    <span class="awesome-item">油焖番石榴，</span>
+                    <span class="awesome-item">油焖番石榴</span>
                 </view>
-                <view class="item">
-                    <i class="iconfont icon-pinglun"></i>
-                    <view>99</view>
-                </view>
-                <view class="item">
-                    <i class="iconfont icon-dashang1"></i>
-                    <view>打赏</view>
-                </view>
-                <view class="item">
-                    <i class="iconfont icon-fenxiang"></i>
-                    <view>分享</view>
-                </view>
-            </view>
 
-            <!--点赞-->
-            <view class="awesome-box nowrap">
-                <i class="iconfont icon-zan"></i>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴</span>
-            </view>
-
-            <!--评论-->
-            <view class="comment-box">
-                <view class="comment-item">
-                    <view class="name nowrap">
-                        清蒸百香果：
+                <!--评论-->
+                <view class="comment-box">
+                    <view class="comment-item">
+                        <view class="name nowrap">
+                            清蒸百香果：
+                        </view>
+                        <view class="text nowrap">
+                            山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。
+                        </view>
                     </view>
-                    <view class="text nowrap">
-                        山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。
-                    </view>
-                </view>
-                <view class="comment-item">
-                    <view class="name nowrap">
-                        清蒸百香果：
-                    </view>
-                    <view class="text nowrap">
-                        欲将心事付瑶筝，知音少，弦断有谁听？
+                    <view class="comment-item">
+                        <view class="name nowrap">
+                            清蒸百香果：
+                        </view>
+                        <view class="text nowrap">
+                            欲将心事付瑶筝，知音少，弦断有谁听？
+                        </view>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-    <view class="block knowladge-item">
+    <!--<view class="block knowladge-item">
         <view class="theme-item">
             <view class="avatar-box">
                 <view class="img">
@@ -317,7 +305,7 @@
                 </view>
             </view>
         </view>
-    </view>
+    </view>-->
     <view class="publish-btn" bindtap="changePublish">
         <i class="iconfont icon-fabu"></i>
         <view>发表</view>
@@ -400,161 +388,28 @@
                 查看指定内容
             </view>
             <view class="filter-type">
-                <view class="item mx-1px-right">
+                <view class="item mx-1px-right" bindtap="changeTab" data-type="">
                     全部主题
                 </view>
-                <view class="item mx-1px-right">
+                <view class="item mx-1px-right" data-type="owner" bindtap="changeTab">
                     只看圈主
                 </view>
-                <view class="item">
+                <view class="item" data-type="question" bindtap="changeTab">
                     问答主题
                 </view>
             </view>
-            <view class="all-type">
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
+            <scroll-view class="all-type" scroll-y="true" bindscrolltolower="scrolltolower">
+                <view wx:for="{{hotTagList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+                    <view class="item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}" data-type="tag" data-item="{{item}}" bindtap="changeTab">
+                        <view class="left nowrap">
+                            #{{item.title}}
+                        </view>
+                        <view class="right">
+                            {{item.count}}条
+                        </view>
                     </view>
                 </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view><view class="item mx-1px-bottom">
-                <view class="left nowrap">
-                    #中国好诗文
-                </view>
-                <view class="right">
-                    99条
-                </view>
-            </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-                <view class="item mx-1px-bottom">
-                    <view class="left nowrap">
-                        #中国好诗文
-                    </view>
-                    <view class="right">
-                        99条
-                    </view>
-                </view>
-            </view>
+            </scroll-view>
         </view>
     </block>
 </view>

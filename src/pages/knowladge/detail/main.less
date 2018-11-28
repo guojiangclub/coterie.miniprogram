@@ -246,7 +246,40 @@
         }
         //url
         .url {
-          color: @globalColor;
+          .edit-link{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color:#F3F3F3;
+            padding:10px;
+            position: relative;
+            .link-left{
+              flex: 1;
+              .title{
+                color: #4A4A4A;
+                font-size: 12px;
+                line-height: 17px;
+                padding-bottom: 16px;
+              }
+              .txt{
+                color: #909090;
+                font-size: 12px;
+                line-height: 17px;
+              }
+            }
+            .link-right{
+              width:50px;
+              height: 50px;
+              background-color: @globalColor;
+              line-height: 50px;
+              text-align: center;
+              span{
+                display: inline-block;
+                color:#ffffff;
+                font-size: 19px;
+              }
+            }
+          }
         }
         //回复
         .reply-box {
@@ -505,7 +538,6 @@
     }
     .all-type {
       height: 70%;
-      overflow: auto;
       text-align: left;
       margin-top: 20px;
       .item {

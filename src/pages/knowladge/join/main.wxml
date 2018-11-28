@@ -34,71 +34,17 @@
                     </view>
                 </view>
             </view>
-            <view class="guest-box">
+            <view class="guest-box" wx:if="{{detail.member_guest.length != 0}}">
                 <view class="guest-title mx-1px-bottom">
                     <view class="text">
                         嘉宾
                     </view>
                 </view>
                 <view class="guest-avatar js_guest {{guestAll ? 'all' : ''}}" >
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <view class="item" wx:for="{{detail.member_guest}}" wx:key="{{index}}">
+                        <image src="{{item.user_meta_info.avatar}}"></image>
                         <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
-                        </view>
-                    </view>
-                    <view class="item">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                        <view>
-                            水煮哈密瓜
+                            {{item.nick_name}}
                         </view>
                     </view>
                 </view>
@@ -176,7 +122,7 @@
                         </view>
                         <view class="info">
                             <view class="name">
-                                圈主：{{item.user.nick_name}}
+                                {{item.user.nick_name}}
                             </view>
                             <view class="time">
                                 创建于 {{item.created_at}}
@@ -202,7 +148,7 @@
                         </view>
                         <view class="info">
                             <view class="name">
-                                圈主：{{item.user.nick_name}}
+                                {{item.user.nick_name}}
                             </view>
                             <view class="time">
                                 创建于 {{item.created_at}}
@@ -248,35 +194,43 @@
                         </view>
                     </view>
                 </view>-->
-                <!--<view class="theme-item mx-1px-bottom">
+                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'link'}}">
                     <view class="avatar-box">
                         <view class="img">
-                            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                            <image src="{{item.user.avatar}}"></image>
                         </view>
                         <view class="info">
                             <view class="name">
-                                圈主：水煮哈密瓜
+                                {{item.user.nick_name}}
                             </view>
                             <view class="time">
-                                创建于 2018-10-08
+                                创建于 {{item.created_at}}
                             </view>
                         </view>
                     </view>
                     <view class="text">
-                        分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                        {{item.description}}
                     </view>
                     <view class="url">
-                        www.ibran.cc
+                        <view class="edit-link">
+                            <view class="link-left">
+                                <view class="title">{{item.link_info.title}}</view>
+                                <view class="txt">{{item.link_info.link}}</view>
+                            </view>
+                            <view class="link-right">
+                                <span class="iconfont icon-lianjie"></span>
+                            </view>
+                        </view>
                     </view>
                 </view>
-                <view class="theme-item mx-1px-bottom">
+               <!-- <view class="theme-item mx-1px-bottom">
                     <view class="avatar-box">
                         <view class="img">
                             <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
                         </view>
                         <view class="info">
                             <view class="name">
-                                圈主：水煮哈密瓜
+                                水煮哈密瓜
                             </view>
                             <view class="time">
                                 创建于 2018-10-08

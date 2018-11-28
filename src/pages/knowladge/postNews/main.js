@@ -6,7 +6,7 @@ Page({
         is_show:false,
         url:'',
         urlDetail:'',
-        tags_list:'',
+        tags_list:['不要吸毒'],
         id:'',
         is_grey:false,
         is_showgrey:false
@@ -201,7 +201,7 @@ Page({
                 showCancel:false
             })
         } else {
-            this.postContent(this.data.img_list,this.data.describe,this.data.url,this.data.tags_list,this.data.id)
+            this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.tags_list,this.data.id)
         }
     },
     //请求发布接口
