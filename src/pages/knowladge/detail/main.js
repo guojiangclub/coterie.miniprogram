@@ -228,6 +228,7 @@ Page({
             if(res.statusCode==200){
                 res = res.data;
                 if (res.status) {
+
                     if (!res.data) return
                     //分页数据
                     var pages = res.data.meta;
