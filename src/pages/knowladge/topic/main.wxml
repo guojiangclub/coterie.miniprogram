@@ -1,5 +1,5 @@
 <view id="topic">
-    <view class="head">
+   <!-- <view class="head">
         <view class="search-box">
             <span>
                 #
@@ -13,5 +13,17 @@
         <view class="list">
             <view class="item">#水煮哈密瓜</view>
         </view>
+    </view>-->
+    <view class="btn" bindtap="start">
+        开始录音
+    </view>
+    <view class="btn" bindtap="pause">
+        暂停录音
+    </view>
+    <view class="btn" bindtap="stop">
+        结束录音
+    </view>
+    <view class="btn" bindtap="play">
+        播放录音
     </view>
 </view>
