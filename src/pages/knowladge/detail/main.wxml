@@ -391,7 +391,7 @@
                 <view class="item mx-1px-right" bindtap="changeTab" data-type="">
                     全部主题
                 </view>
-                <view class="item mx-1px-right" data-type="owner" bindtap="changeTab">
+                <view class="item mx-1px-right" data-type="owner" bindtap="changeTab" data-item="{{detail.user_id}}">
                     只看圈主
                 </view>
                 <view class="item" data-type="question" bindtap="changeTab">
@@ -400,7 +400,7 @@
             </view>
             <scroll-view class="all-type" scroll-y="true" bindscrolltolower="scrolltolower">
                 <view wx:for="{{hotTagList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
-                    <view class="item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}" data-type="tag" data-item="{{item}}" bindtap="changeTab">
+                    <view class="item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}" data-type="tag" data-item="{{item.name}}" bindtap="changeTab">
                         <view class="left nowrap">
                             #{{item.title}}
                         </view>

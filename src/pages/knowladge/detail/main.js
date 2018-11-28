@@ -27,13 +27,13 @@ Page({
     onShow(){
         this.getDetail(this.data.id);
         this.getStick(this.data.id);
-        this.getContnetList(this.data.id,1);
+        this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
         this.getTags(this.data.id,1);
     },
     onReachBottom() {
         if (this.data.tagMore) {
             var page = this.data.tagpage + 1;
-            this.getContnetList(this.data.id,page);
+            this.getContnetList(this.data.id,page,this.data.type,this.data.tagname);
         } else {
             /*wx.showToast({
                 image: '../../../assets/image/error.png',
@@ -260,7 +260,7 @@ Page({
         var tagname = ''
         if(e.currentTarget.dataset.item){
             var item = e.currentTarget.dataset.item;
-            tagname = item.name;
+            tagname = item;
         } else {
             tagname = '' ;
         }
