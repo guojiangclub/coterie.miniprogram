@@ -36,6 +36,7 @@ Page({
     },
     // 获取节点信息
     getDomInfo(name) {
+        console.log(name);
         var query = wx.createSelectorQuery();
         query.select(name).boundingClientRect(res => {
             if (name == '.js_desc' && res.height == 64) {
@@ -176,16 +177,19 @@ Page({
                 if (res.status) {
                     // 如果加入过当前课程，需要跳转到详情页面
                     if (res.data.is_coterie_member) {
-                       /* wx.redirectTo({
+                        wx.redirectTo({
                             url: '/pages/knowladge/detail/main?id=' + res.data.id
-                        })*/
+                        })
                     }
                     this.setData({
                         detail: res.data,
                         init: true
                     }, () => {
                         this.getDomInfo('.js_desc');
-                        this.getDomInfo('.js_guest');
+
+                        if (res.data.member_guest.length != 0) {
+                            this.getDomInfo('.js_guest');
+                        }
                     })
                 } else {
                     wx.showModal({

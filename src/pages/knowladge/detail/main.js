@@ -31,7 +31,7 @@ Page({
         this.getTags(this.data.id,1);
     },
     onReachBottom() {
-        if (this.data.tagMore) {
+        if (this.data.hasMore) {
             var page = this.data.tagpage + 1;
             this.getContnetList(this.data.id,page,this.data.type,this.data.tagname);
         } else {
@@ -44,7 +44,7 @@ Page({
     },
     //热门标签scroll-view底部滑动
     scrolltolower(){
-        if (this.data.hasMore) {
+        if (this.data.tagMore) {
             var page = this.data.page + 1;
             this.getTags(this.data.id,page);
         } else {

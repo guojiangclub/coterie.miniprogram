@@ -108,7 +108,7 @@
                 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。 星球福利 #项目实操训练-每三月一次# 以真实项目为需求，提供专业交互原型，以小组竞赛的形式完成从0到1的完整UE/UI设计，帮你积累经验、完善作品集。
             </view>
         </view>
-        <view class="preview block">
+        <view class="preview block" wx:if="{{detail.content && detail.content.length}}">
             <view class="title mx-1px-bottom">
                 <view class="text">
                     部分主题预览
