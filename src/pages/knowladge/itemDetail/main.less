@@ -120,7 +120,44 @@
         }
         //url
         .url {
-          color: @globalColor;
+          .edit-link{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color:#F3F3F3;
+            padding:10px;
+            position: relative;
+            .link-left{
+              flex: 1;
+              overflow: hidden;
+              .title{
+                color: #4A4A4A;
+                font-size: 12px;
+                line-height: 17px;
+                padding-bottom: 16px;
+              }
+              .txt{
+                color: #909090;
+                font-size: 12px;
+                line-height: 17px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
+            .link-right{
+              width:50px;
+              height: 50px;
+              background-color: @globalColor;
+              line-height: 50px;
+              text-align: center;
+              span{
+                display: inline-block;
+                color:#ffffff;
+                font-size: 19px;
+              }
+            }
+          }
         }
         //回复
         .reply-box {
@@ -216,7 +253,7 @@
           padding-right: 15px;
           .child-item {
             position: relative;
-            display: flex;
+            /*display: flex;*/
             background: #E7E7E7;
             color: #4A4A4A;
             border-radius: 2px;
@@ -239,10 +276,13 @@
             }
             .left {
               color: @globalColor;
+              display: inline-block;
+              .right {
+                display: inline-block;
+                color: #4A4A4A;
+              }
             }
-            .right {
-              flex: 1;
-            }
+
           }
         }
       }
@@ -336,6 +376,39 @@
     }
     &.is_share {
       background: none;
+    }
+  }
+  .comment{
+    background:#F3F3F3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 50;
+    .small-box{
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      input{
+        flex: 1;
+        border-radius:3px;
+        height: 40px;
+        background-color: #FFFFFF;
+        line-height: 40px;
+      }
+      .send{
+        color: #4A4A4A;
+        font-size: 12px;
+        line-height: 40px;
+        padding-left: 10px;
+      }
+
+    }
+
+    &.cur{
+      height: 60px;
     }
   }
   .share-box {

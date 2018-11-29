@@ -108,8 +108,43 @@
   margin-left: 15px;
   flex: 1;
 }
-#itemDetail .knowladge-item .theme-item .content-box .url {
-  color: #004E9D;
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F3F3F3;
+  padding: 10px;
+  position: relative;
+}
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link .link-left {
+  flex: 1;
+  overflow: hidden;
+}
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link .link-left .title {
+  color: #4A4A4A;
+  font-size: 12px;
+  line-height: 17px;
+  padding-bottom: 16px;
+}
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link .link-left .txt {
+  color: #909090;
+  font-size: 12px;
+  line-height: 17px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link .link-right {
+  width: 50px;
+  height: 50px;
+  background-color: #004E9D;
+  line-height: 50px;
+  text-align: center;
+}
+#itemDetail .knowladge-item .theme-item .content-box .url .edit-link .link-right span {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 19px;
 }
 #itemDetail .knowladge-item .theme-item .content-box .reply-box .ask {
   background: #F8F8F8;
@@ -193,7 +228,7 @@
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item {
   position: relative;
-  display: flex;
+  /*display: flex;*/
   background: #E7E7E7;
   color: #4A4A4A;
   border-radius: 2px;
@@ -216,9 +251,11 @@
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left {
   color: #004E9D;
+  display: inline-block;
 }
-#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .right {
-  flex: 1;
+#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left .right {
+  display: inline-block;
+  color: #4A4A4A;
 }
 #itemDetail .operating-box {
   position: fixed;
@@ -299,6 +336,37 @@
 }
 #itemDetail .mask.is_share {
   background: none;
+}
+#itemDetail .comment {
+  background: #F3F3F3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 50;
+}
+#itemDetail .comment .small-box {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#itemDetail .comment .small-box input {
+  flex: 1;
+  border-radius: 3px;
+  height: 40px;
+  background-color: #FFFFFF;
+  line-height: 40px;
+}
+#itemDetail .comment .small-box .send {
+  color: #4A4A4A;
+  font-size: 12px;
+  line-height: 40px;
+  padding-left: 10px;
+}
+#itemDetail .comment.cur {
+  height: 60px;
 }
 #itemDetail .share-box {
   background: #CDCDD1;

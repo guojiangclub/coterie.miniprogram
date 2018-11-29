@@ -242,6 +242,7 @@
 }
 #join .block.knowladge-item .theme-item .url .edit-link .link-left {
   flex: 1;
+  overflow: hidden;
 }
 #join .block.knowladge-item .theme-item .url .edit-link .link-left .title {
   color: #4A4A4A;
@@ -253,6 +254,9 @@
   color: #909090;
   font-size: 12px;
   line-height: 17px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #join .block.knowladge-item .theme-item .url .edit-link .link-right {
   width: 50px;
@@ -447,7 +451,7 @@
   color: #9B9B9B;
 }
 #join .share-box.cur {
-  height: 155px;
+  height: auto;
 }
 #join .filter-box {
   position: fixed;

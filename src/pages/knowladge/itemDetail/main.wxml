@@ -81,14 +81,14 @@
         <view class="theme-item">
             <view class="avatar-box mx-1px-bottom">
                 <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                    <image src="{{item.user.avatar}}"></image>
                 </view>
                 <view class="info">
                     <view class="name nowrap">
-                        圈主：水煮哈密瓜
+                        {{item.user.nick_name}}
                     </view>
                     <view class="time">
-                        创建于 2018-10-08
+                        创建于 {{item.created_at}}
                     </view>
                 </view>
                 <!--<view class="option iconfont icon-gengduo1" bindtap="changeSetting">
@@ -97,41 +97,33 @@
             </view>
             <view class="content-box">
                 <view class="text">
-                    分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                    {{item.description}}
                 </view>
-                <view class="img">
+                <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1}}">
                     <view class="item__list more">
-                        <view class="list__li" bindtap="preImage">
-                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                <span></span>
-                            </view>
-                        </view>
-                        <view class="list__li" bindtap="preImage">
-                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                <span></span>
-                            </view>
-                        </view>
-                        <view class="list__li" bindtap="preImage">
-                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                <span></span>
-                            </view>
-                        </view>
-                        <view class="list__li" bindtap="preImage">
-                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                <span></span>
-                            </view>
-                        </view>
-                        <view class="list__li" bindtap="preImage">
-                            <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                        <view class="list__li" bindtap="preImage" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" data-url="{{url}}" data-urlList="{{item.img_list_info}}">
+                            <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
                                 <span></span>
                             </view>
                         </view>
                     </view>
                 </view>
-                <view class="tag-box">
-                    <span># 这个是标签 # </span>
-                    <span># 这个是标签 # </span>
-                    <span># 这个是标签 # </span>
+                <view class="img"   wx:if="{{item.content_type == 'default' && item.img_list_info.length == 1}}" >
+                    <image mode="widthFix"   src="{{url}}" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" bindtap="preImage" data-url="{{url}}" data-urllist="{{item.img_list_info}}"></image>
+                </view>
+                <view class="url" wx:if="{{item.content_type == 'link'}}">
+                    <view class="edit-link">
+                        <view class="link-left">
+                            <view class="title">{{item.link_info.title}}</view>
+                            <view class="txt">{{item.link_info.link}}</view>
+                        </view>
+                        <view class="link-right">
+                            <span class="iconfont icon-lianjie"></span>
+                        </view>
+                    </view>
+                </view>
+                <view class="tag-box" wx:if="{{item.tags_list_info}}">
+                    <span wx:for="{{item.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
                 </view>
             </view>
         </view>
@@ -139,157 +131,48 @@
         <!--点赞-->
         <view class="awesome-box">
             <i class="iconfont icon-zan"></i>
-            <view class="text-box">
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴</span>
+            <view class="text-box" >
+                <span class="awesome-item" wx:for="{{item.praise}}" wx:key="{{index}}" wx:for-item="man">{{man.user_meta_info.nick_name}},</span>
             </view>
         </view>
 
         <!--评论  -->
         <view class="comment-box">
-            <view class="comment-item mx-1px-bottom">
-                <view class="avatar-box">
-                    <view class="img">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    </view>
-                    <view class="info">
-                        <view class="name nowrap">
-                            圈主：水煮哈密瓜
+            <view wx:for="{{commentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+                <view class="comment-item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
+                    <view class="avatar-box">
+                        <view class="img">
+                            <image src="{{item.user_meta_info.avatar}}"></image>
                         </view>
-                        <view class="time">
-                            创建于 2018-10-08
+                        <view class="info">
+                            <view class="name nowrap">
+                                {{item.user_meta_info.nick_name}}
+                            </view>
+                            <view class="time">
+                                创建于 {{item.created_at}}
+                            </view>
                         </view>
-                    </view>
-                    <view class="option active">
-                        <view>
-                            赞 <block>(99)</block>
-                        </view>
-                        <i class="iconfont icon-dianzan">
+                        <view class="option active">
+                            <view>
+                                赞 <block>({{item.praise_count}})</block>
+                            </view>
+                            <i class="iconfont icon-dianzan">
 
-                        </i>
-                    </view>
-                </view>
-                <view class="comment-text">
-                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
-                </view>
-                <!--子评论列表-->
-                <view class="child-item-box">
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
+                            </i>
                         </view>
                     </view>
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
-                        </view>
+                    <view class="comment-text" bindtap="changeComment" data-id="{{item.id}}">
+                        {{item.content}}
                     </view>
-                </view>
-            </view>
-            <view class="comment-item mx-1px-bottom">
-                <view class="avatar-box">
-                    <view class="img">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    </view>
-                    <view class="info">
-                        <view class="name nowrap">
-                            圈主：水煮哈密瓜
-                        </view>
-                        <view class="time">
-                            创建于 2018-10-08
-                        </view>
-                    </view>
-                    <view class="option active">
-                        <view>
-                            赞 <block>(99)</block>
-                        </view>
-                        <i class="iconfont icon-dianzan">
-
-                        </i>
-                    </view>
-                </view>
-                <view class="comment-text">
-                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
-                </view>
-                <!--子评论列表-->
-                <view class="child-item-box">
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
-                        </view>
-                    </view>
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="comment-item mx-1px-bottom">
-                <view class="avatar-box">
-                    <view class="img">
-                        <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    </view>
-                    <view class="info">
-                        <view class="name nowrap">
-                            圈主：水煮哈密瓜
-                        </view>
-                        <view class="time">
-                            创建于 2018-10-08
-                        </view>
-                    </view>
-                    <view class="option active">
-                        <view>
-                            赞 <block>(99)</block>
-                        </view>
-                        <i class="iconfont icon-dianzan">
-
-                        </i>
-                    </view>
-                </view>
-                <view class="comment-text">
-                    欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？欲将心事付瑶筝，知音少，弦断有谁听？
-                </view>
-                <!--子评论列表-->
-                <view class="child-item-box">
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
-                        </view>
-                    </view>
-                    <view class="child-item">
-                        <view class="left">
-                            清蒸百香果：
-                        </view>
-                        <view class="right">
-                            连雨不知春去，一晴方觉夏深。
-
+                    <!--子评论列表-->
+                    <view class="child-item-box">
+                        <view class="child-item">
+                            <view class="left">
+                                清蒸百香果：
+                                <view class="right">
+                                    天天元气满满好心情
+                                </view>
+                            </view>
                         </view>
                     </view>
                 </view>
@@ -301,16 +184,16 @@
     <view class="operating-box">
         <view class="item active mx-1px-right">
             <i class="iconfont icon-dianzan"></i>
-            <view>99</view>
+            <view>{{item.praise_count}}</view>
         </view>
-        <view class="item mx-1px-right">
+        <view class="item mx-1px-right" bindtap="changeComment">
             <i class="iconfont icon-pinglun"></i>
-            <view>99</view>
+            <view>{{item.comment_count}}</view>
         </view>
-        <view class="item mx-1px-right">
+        <!--<view class="item mx-1px-right">
             <i class="iconfont icon-dashang1"></i>
             <view>打赏</view>
-        </view>
+        </view>-->
         <view class="item"  bindtap="changeShare">
             <i class="iconfont icon-fenxiang"></i>
             <view>分享</view>
@@ -335,6 +218,16 @@
             </view>
             <view class="shaer-item clear" bindtap="changeShare">
                 取消
+            </view>
+        </view>
+    </block>
+    <!--评论弹出-->
+    <block>
+        <view class="mask {{show_comment ? 'cur' : ''}}" bindtap="clearData"></view>
+        <view class="comment {{show_comment ? 'cur' : ''}}">
+            <view class="small-box">
+                <input type="text" bindinput="getComment" value="{{commentValue}}"/>
+                <view class="send" bindtap="sendComment">发送</view>
             </view>
         </view>
     </block>
