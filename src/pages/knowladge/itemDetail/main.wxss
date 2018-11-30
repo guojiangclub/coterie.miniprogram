@@ -217,6 +217,18 @@
 #itemDetail .knowladge-item .comment-box .comment-item .avatar-box .option.active {
   color: #004E9D;
 }
+#itemDetail .knowladge-item .comment-box .comment-item .avatar-box .option .delete {
+  color: #909090;
+  font-size: 13px;
+}
+#itemDetail .knowladge-item .comment-box .comment-item .avatar-box .option .delete span {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #D8D8D8;
+  margin: 0 5px;
+}
 #itemDetail .knowladge-item .comment-box .comment-item .comment-text {
   margin-left: 51px;
   padding-right: 15px;
@@ -233,7 +245,7 @@
   color: #4A4A4A;
   border-radius: 2px;
   padding: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px;*/
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item:after {
   content: '';
@@ -250,10 +262,10 @@
   border-width: 8px;
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left {
-  color: #4A4A4A;
+  color: #004E9D;
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left span {
-  color: #004E9D;
+  color: #4A4A4A;
 }
 #itemDetail .operating-box {
   position: fixed;
