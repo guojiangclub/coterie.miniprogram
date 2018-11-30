@@ -250,12 +250,10 @@
   border-width: 8px;
 }
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left {
-  color: #004E9D;
-  display: inline-block;
-}
-#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left .right {
-  display: inline-block;
   color: #4A4A4A;
+}
+#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left span {
+  color: #004E9D;
 }
 #itemDetail .operating-box {
   position: fixed;

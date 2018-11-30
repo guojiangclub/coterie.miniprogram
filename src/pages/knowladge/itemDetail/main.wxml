@@ -149,7 +149,7 @@
                                 {{item.user_meta_info.nick_name}}
                             </view>
                             <view class="time">
-                                创建于 {{item.created_at}}
+                                {{item.created_at}}
                             </view>
                         </view>
                         <view class="option active">
@@ -165,13 +165,10 @@
                         {{item.content}}
                     </view>
                     <!--子评论列表-->
-                    <view class="child-item-box">
+                    <view class="child-item-box" wx:for="{{item.reply}}" wx:for-item="onereply" wx:for-index="onekey" wx:key="{{onekey}}" wx:if="{{item.reply}}">
                         <view class="child-item">
                             <view class="left">
-                                清蒸百香果：
-                                <view class="right">
-                                    天天元气满满好心情
-                                </view>
+                                <span>{{onereply.user_meta_info.nick_name}}</span>:{{onereply.content}}
                             </view>
                         </view>
                     </view>
