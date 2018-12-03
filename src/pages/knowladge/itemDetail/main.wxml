@@ -80,7 +80,7 @@
     <view class="knowladge-item">
         <view class="theme-item">
             <view class="avatar-box mx-1px-bottom">
-                <view class="img">
+                <view class="img" bindtap="jumpPersonal">
                     <image src="{{itemdetail.user.avatar}}"></image>
                 </view>
                 <view class="info">
@@ -91,9 +91,9 @@
                         创建于 {{itemdetail.created_at}}
                     </view>
                 </view>
-                <!--<view class="option iconfont icon-gengduo1" bindtap="changeSetting">
+                <view class="option iconfont icon-gengduo1" bindtap="changeSetting">
 
-                </view>-->
+                </view>
             </view>
             <view class="content-box">
                 <view class="text">
@@ -132,7 +132,7 @@
         <view class="awesome-box" wx:if="{{itemdetail.praise.length != 0}}">
             <i class="iconfont icon-zan"></i>
             <view class="text-box" >
-                <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man">{{man.user_meta_info.nick_name}},</span>
+                <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man" bindtap="jumpPersonal" data-userid="{{man.user_id}}">{{man.user_meta_info.nick_name}}，  </span>
             </view>
         </view>
 
@@ -141,27 +141,27 @@
             <view wx:for="{{commentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
                 <view class="comment-item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
                     <view class="avatar-box">
-                        <view class="img">
+                        <view class="img" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
                             <image src="{{item.user_meta_info.avatar}}"></image>
                         </view>
                         <view class="info">
-                            <view class="name nowrap">
+                            <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
                                 {{item.user_meta_info.nick_name}}
                             </view>
                             <view class="time">
                                 {{item.created_at}}
                             </view>
                         </view>
-                        <view class="option active">
+                        <view class="option {{item.is_praise_user ? 'active' : ''}}">
                             <view class="delete" bindtap="deleteComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{itemdetail.coterie_user_type == 'owner' || item.is_comment_user == 1}}">删除
                             <span class="dot"></span>
                             </view>
-                            <view>
-                                赞 <block>({{item.praise_count}})</block>
-                            </view>
-                            <i class="iconfont icon-dianzan">
+                            <view bindtap="praiseComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" >
+                                赞 <block wx:if="{{item.praise_count != 0}}">({{item.praise_count}})</block>
+                                <i class="iconfont icon-dianzan">
 
-                            </i>
+                                </i>
+                            </view>
                         </view>
                     </view>
                     <view class="comment-text" bindtap="changeComment" data-id="{{item.id}}" data-type="one">
@@ -171,10 +171,10 @@
                     <view class="child-item-box" >
                         <view class="child-item" wx:for="{{item.reply}}" wx:for-item="onereply" wx:for-index="onekey" wx:key="{{onekey}}" wx:if="{{item.reply}}">
                             <view class="left" wx:if="{{onereply.to_user_meta_info}}">
-                                {{onereply.user_meta_info.nick_name}}: <span>回复</span> {{onereply.to_user_meta_info.nick_name}}: <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
+                                <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span>回复</span> <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.to_user_meta_info.id}}">{{onereply.to_user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
                             </view>
                             <view class="left" wx:else>
-                                {{onereply.user_meta_info.nick_name}}: <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
+                                <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
                             </view>
                         </view>
                     </view>
@@ -238,17 +238,26 @@
 
     <!--设置部分-->
     <block>
-        <view class="mask {{show_setting ? 'cur' : ''}}" bindtap="changeSetting">
+        <view class="mask {{show_setting ? 'cur' : ''}}" bindtap="changeSet">
 
         </view>
         <view class="share-box setting {{show_setting ? 'cur' : ''}}">
-            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+            <view class="shaer-item mx-1px-top">
+                举报动态
+            </view>
+            <view class="shaer-item mx-1px-top" wx:if="{{itemdetail.coterie_user_type == 'owner' && itemdetail.is_stick == 0}}" bindtap="setStick">
                 置顶动态
             </view>
-            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+            <view class="shaer-item mx-1px-top" wx:if="{{itemdetail.coterie_user_type == 'owner' && itemdetail.is_stick == 1}}" bindtap="cancleStick">
+                取消置顶
+            </view>
+            <view class="shaer-item mx-1px-top" wx:if="{{(itemdetail.coterie_user_type == 'owner' || itemdetail.coterie_user_type == 'guest') && itemdetail.is_recommend == 0}}" bindtap="setRecommend">
                 标记精华
             </view>
-            <view class="shaer-item clear" bindtap="changeSetting">
+            <view class="shaer-item mx-1px-top" wx:if="{{(itemdetail.coterie_user_type == 'owner' || itemdetail.coterie_user_type == 'guest') && itemdetail.is_recommend == 1}}" bindtap="cancleRecommend">
+                取消精华
+            </view>
+            <view class="shaer-item clear" bindtap="changeSet">
                 取消
             </view>
         </view>

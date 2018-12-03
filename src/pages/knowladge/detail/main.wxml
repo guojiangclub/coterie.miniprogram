@@ -142,11 +142,11 @@
         <view class="block knowladge-item" wx:for="{{items}}" wx:key="{{index}}">
             <view class="theme-item">
                 <view class="avatar-box">
-                    <view class="img">
+                    <view class="img" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
                         <image src="{{item.user.avatar}}"></image>
                     </view>
                     <view class="info">
-                        <view class="name nowrap">
+                        <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
                             {{item.user.nick_name}}
                         </view>
                         <view class="time">
@@ -207,30 +207,19 @@
                 </view>
 
                 <!--点赞-->
-                <view class="awesome-box nowrap">
+                <view class="awesome-box nowrap" wx:if="{{item.praise.length != 0}}">
                     <i class="iconfont icon-zan"></i>
-                    <span class="awesome-item">油焖番石榴，</span>
-                    <span class="awesome-item">油焖番石榴，</span>
-                    <span class="awesome-item">油焖番石榴，</span>
-                    <span class="awesome-item">油焖番石榴</span>
+                    <span class="awesome-item" bindtap="jumpPersonal" data-userid="{{praise.user_id}}" wx:for="{{item.praise}}" wx:for-item="praise" wx:for-index="pkey" wx:key="{{pkey}}">{{praise.user_meta_info.nick_name}}，   </span>
                 </view>
 
                 <!--评论-->
                 <view class="comment-box">
-                    <view class="comment-item">
-                        <view class="name nowrap">
-                            清蒸百香果：
+                    <view class="comment-item" wx:for="{{item.comment}}" wx:for-item="comment" wx:for-index="ckey" wx:key="{{ckey}}">
+                        <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{comment.user_id}}">
+                            {{comment.user_meta_info.nick_name}}:
                         </view>
                         <view class="text nowrap">
-                            山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。
-                        </view>
-                    </view>
-                    <view class="comment-item">
-                        <view class="name nowrap">
-                            清蒸百香果：
-                        </view>
-                        <view class="text nowrap">
-                            欲将心事付瑶筝，知音少，弦断有谁听？
+                            {{comment.content}}
                         </view>
                     </view>
                 </view>

@@ -261,11 +261,13 @@
   border-color: transparent transparent  #E7E7E7 transparent;
   border-width: 8px;
 }
-#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left {
-  color: #004E9D;
-}
 #itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left span {
   color: #4A4A4A;
+}
+#itemDetail .knowladge-item .comment-box .comment-item .child-item-box .child-item .left span.txt {
+  display: inline-block;
+  color: #004E9D;
+  margin-right: 5px;
 }
 #itemDetail .operating-box {
   position: fixed;
@@ -405,5 +407,5 @@
   color: #9B9B9B;
 }
 #itemDetail .share-box.cur {
-  height: 155px;
+  height: auto;
 }

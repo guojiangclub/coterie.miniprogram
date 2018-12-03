@@ -9,7 +9,8 @@ Page({
         tags_list:['不要吸毒'],
         id:'',
         is_grey:false,
-        is_showgrey:false
+        is_showgrey:false,
+        at_user_id:''
     },
     onLoad(e){
         this.setData({
@@ -17,7 +18,18 @@ Page({
         })
     },
     onShow(){
-
+        var aite = cookieStorage.get('aite_person');
+        if(aite){
+            var txt = this.data.describe;
+            var nick_name = aite.user_meta_info.nick_name;
+            var describe = txt + '@ '+nick_name;
+           /* var reg = /^'@'/;
+            console.log(describe.search(reg));*/
+            this.setData({
+                at_user_id:aite.user_id,
+                describe:describe
+            })
+        }
     },
     changeinput(e){
         this.setData({
@@ -92,7 +104,7 @@ Page({
     //添加标签
     jumpTopic(){
         wx.navigateTo({
-            url:'/pages/knowladge/topic/main'
+            url:'/pages/knowladge/topic/main?id='+ this.data.id
         })
     },
     //显示链接

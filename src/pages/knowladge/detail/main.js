@@ -52,6 +52,16 @@ Page({
             return
         }
     },
+    //跳到个人页
+    jumpPersonal(e){
+        var user_id = '';
+        if(e.currentTarget.dataset.userid){
+            user_id = e.currentTarget.dataset.userid
+        }
+        wx.navigateTo({
+            url:'/pages/user/personal/main?id='+this.data.id + '&user_id='+user_id
+        })
+    },
     //热门标签scroll-view底部滑动
     scrolltolower(){
         if (this.data.tagMore) {
@@ -248,7 +258,10 @@ Page({
                 res = res.data;
                 if (res.status) {
 
-                    if (!res.data) return
+                    if (!res.data) {
+                        return
+                        wx.hideLoading();
+                    }
                     //分页数据
                     var pages = res.data.meta;
                     var current_page = pages.current_page;

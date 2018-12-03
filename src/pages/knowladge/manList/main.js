@@ -72,7 +72,7 @@ Page({
                     var member_list = res.data;
                     this.setData({
                         guest_list:owner_list.concat(guest_list),
-                        'memberList[0]':owner_list.concat(guest_list).concat(forbidden_list),
+                        'memberList[0]':owner_list.concat(guest_list),
                         [`memberList[${page}]`]:member_list,
                         page:current_page,
                         hasMore:current_page<total_pages
@@ -100,10 +100,14 @@ Page({
     },
     //选择提问人
     selectQuestioner(e){
-        cookieStorage.set('questioner',e.currentTarget.dataset.item);
-        wx.navigateBack({
-            delta:1
-        })
+        if(this.data.type == 'question'){
+            cookieStorage.set('questioner',e.currentTarget.dataset.item);
+        } else if(this.data.type == 'news'){
+            cookieStorage.set('aite_person',e.currentTarget.dataset.item);
+        }
+            wx.navigateBack({
+                delta:1
+            })
     }
 
 })

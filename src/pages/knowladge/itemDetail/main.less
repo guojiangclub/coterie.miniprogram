@@ -287,9 +287,14 @@
               border-width: 8px;
             }
             .left {
-              color:@globalColor;
               span{
                 color:#4A4A4A;
+                &.txt{
+                  display: inline-block;
+                  color:@globalColor;
+                  margin-right: 5px;
+
+                }
               }
             }
 
@@ -448,7 +453,7 @@
     }
 
     &.cur{
-      height: 155px;
+      height:auto;
     }
 
     &.setting {

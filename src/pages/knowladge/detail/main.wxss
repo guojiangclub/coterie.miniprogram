@@ -321,6 +321,7 @@
 #join .block.knowladge-item .theme-item .comment-box .comment-item .name {
   max-width: 85px;
   color: #004E9D;
+  margin-right: 5px;
 }
 #join .block.knowladge-item .theme-item .comment-box .comment-item .text {
   flex: 1;

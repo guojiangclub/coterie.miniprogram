@@ -1,13 +1,13 @@
 <view id="personal">
     <view class="knowladge-info block">
         <view class="knowladge-avatar">
-            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            <image src="{{detail.avatar}}"></image>
         </view>
         <view class="title">
-            愿作鸳鸯不羡仙。
+            {{detail.name}}
         </view>
         <view class="time">
-            加入时间 2018年10月11日
+            加入时间 {{detail.created_at}}
         </view>
     </view>
     <!--<view class="block knowladge-item">
@@ -88,186 +88,90 @@
             </view>
         </view>
     </view>-->
-    <view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                </view>
-                <view class="info">
-                    <view class="name nowrap">
-                        圈主：水煮哈密瓜
+    <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+        <view class="block knowladge-item" wx:for="{{items}}" wx:key="{{index}}">
+            <view class="theme-item" bindtap="jumpItem" data-id="{{item.id}}">
+                <view class="avatar-box">
+                    <view class="img">
+                        <image src="{{item.user.avatar}}"></image>
                     </view>
-                    <view class="time">
-                        创建于 2018-10-08
-                    </view>
-                </view>
-                <view class="option iconfont icon-gengduo1">
-
-                </view>
-            </view>
-            <view class="text">
-                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-            </view>
-            <view class="img">
-                <view class="item__list more">
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
+                    <view class="info">
+                        <view class="name nowrap">
+                            {{item.user.nick_name}}
+                        </view>
+                        <view class="time">
+                            创建于 {{item.created_at}}
                         </view>
                     </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                    <view class="list__li" bindtap="preImage">
-                        <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                            <span></span>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="tag-box">
-                <span># 这个是标签 # </span>
-                <span># 这个是标签 # </span>
-                <span># 这个是标签 # </span>
-            </view>
+                    <view class="option iconfont icon-gengduo1">
 
-            <!--操作-->
-            <view class="operating-box">
-                <view class="item active">
-                    <i class="iconfont icon-dianzan"></i>
-                    <view>99</view>
-                </view>
-                <view class="item">
-                    <i class="iconfont icon-pinglun"></i>
-                    <view>99</view>
-                </view>
-                <view class="item">
-                    <i class="iconfont icon-dashang1"></i>
-                    <view>打赏</view>
-                </view>
-                <view class="item">
-                    <i class="iconfont icon-fenxiang"></i>
-                    <view>分享</view>
-                </view>
-            </view>
-
-            <!--点赞-->
-            <view class="awesome-box nowrap">
-                <i class="iconfont icon-zan"></i>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴，</span>
-                <span class="awesome-item">油焖番石榴</span>
-            </view>
-
-            <!--评论-->
-            <view class="comment-box">
-                <view class="comment-item">
-                    <view class="name nowrap">
-                        清蒸百香果：
                     </view>
-                    <view class="text nowrap">
-                        山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。山中何事，松花酿酒，春水煎茶。
-                    </view>
-                </view>
-                <view class="comment-item">
-                    <view class="name nowrap">
-                        清蒸百香果：
-                    </view>
-                    <view class="text nowrap">
-                        欲将心事付瑶筝，知音少，弦断有谁听？
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                </view>
-                <view class="info">
-                    <view class="name">
-                        圈主：水煮哈密瓜
-                    </view>
-                    <view class="time">
-                        创建于 2018-10-08
-                    </view>
-                </view>
-            </view>
-            <view class="text">
-                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-            </view>
-            <view class="word">
-                <view class="ico-img">
-
                 </view>
                 <view class="text">
-                    天善智能https://edu.hellobi.com/
+                    {{item.description}}
                 </view>
-            </view>
-        </view>
-    </view>
-    <view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                </view>
-                <view class="info">
-                    <view class="name">
-                        圈主：水煮哈密瓜
-                    </view>
-                    <view class="time">
-                        创建于 2018-10-08
+                <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1}}">
+                    <view class="item__list more">
+                        <view class="list__li" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}">
+                            <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                <span></span>
+                            </view>
+                        </view>
                     </view>
                 </view>
-            </view>
-            <view class="text">
-                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-            </view>
-            <view class="url">
-                www.ibran.cc
-            </view>
-        </view>
-    </view>
-    <view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                <view class="img"   wx:if="{{item.content_type == 'default' && item.img_list_info.length == 1}}" >
+                    <image mode="widthFix"   src="{{url}}" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}"></image>
                 </view>
-                <view class="info">
-                    <view class="name">
-                        圈主：水煮哈密瓜
-                    </view>
-                    <view class="time">
-                        创建于 2018-10-08
+                <view class="url" wx:if="{{item.content_type == 'link'}}">
+                    <view class="edit-link">
+                        <view class="link-left">
+                            <view class="title">{{item.link_info.title}}</view>
+                            <view class="txt">{{item.link_info.link}}</view>
+                        </view>
+                        <view class="link-right">
+                            <span class="iconfont icon-lianjie"></span>
+                        </view>
                     </view>
                 </view>
-            </view>
-            <view class="reply-box">
-                <view class="ask mx-1px-left">
-                    <view class="text">
-                        阳澄湖大闸蟹提问：分享一个专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
+                <view class="tag-box" wx:if="{{item.tags_list_info}}">
+                    <span wx:for="{{item.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
+                </view>
+                <!--操作-->
+                <view class="operating-box">
+                    <view class="item {{item.is_praise_user ? 'active' :''}}">
+                        <i class="iconfont icon-dianzan"></i>
+                        <view>{{item.praise_count}}</view>
+                    </view>
+                    <view class="item">
+                        <i class="iconfont icon-pinglun"></i>
+                        <view>{{item.comment_count}}</view>
+                    </view>
+                    <!-- <view class="item">
+                         <i class="iconfont icon-dashang1"></i>
+                         <view>打赏</view>
+                     </view>-->
+                    <view class="item">
+                        <i class="iconfont icon-fenxiang"></i>
+                        <view>分享</view>
                     </view>
                 </view>
-                <view class="reply">
-                    2011年9月，天善智能由3位从事商业智能工作的技术人员组织成立，每位成员都非常热爱商业智能技术，并且看好商业智能在中国发展的巨大潜力，从最初的3人发展至今，已经拥有15位成员。如今，天善智能已经成为中国最受欢迎，影响力最大的商业智能团队。
+
+                <!--点赞-->
+                <view class="awesome-box nowrap" wx:if="{{item.praise.length != 0}}">
+                    <i class="iconfont icon-zan"></i>
+                    <span class="awesome-item" wx:for="{{item.praise}}" wx:for-item="praise" wx:for-index="pkey" wx:key="{{pkey}}">{{praise.user_meta_info.nick_name}}， </span>
+                </view>
+
+                <!--评论-->
+                <view class="comment-box">
+                    <view class="comment-item" wx:for="{{item.comment}}" wx:for-item="comment" wx:for-index="ckey" wx:key="{{ckey}}">
+                        <view class="name nowrap">
+                            {{comment.user_meta_info.nick_name}}:
+                        </view>
+                        <view class="text nowrap">
+                            {{comment.content}}
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>

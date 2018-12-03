@@ -30,10 +30,38 @@ Page({
         this.postContent(this.data.id,this.data.content_id);
         this.getcomment(this.data.content_id,1);
     },
+    onReachBottom() {
+        if (this.data.hasMore) {
+            var page = this.data.page + 1;
+            this.getcomment(this.data.content_id,page);
+        } else {
+            /*wx.showToast({
+             image: '../../../assets/image/error.png',
+             title: '再拉也没有啦'
+             });*/
+            return
+        }
+    },
     changeSetting() {
         this.setData({
             show_setting: !this.data.show_setting
         })
+    },
+    changeSet(){
+        this.setData({
+            show_setting: !this.data.show_setting
+        })
+    },
+    jumpPersonal(e){
+        var user_id = '';
+        if(e.currentTarget.dataset.userid){
+            user_id = e.currentTarget.dataset.userid
+        } else {
+            user_id = this.data.itemdetail.user_id
+        }
+      wx.navigateTo({
+          url:'/pages/user/personal/main?id='+this.data.id + '&user_id='+user_id
+      })
     },
     //剪贴板的内容
     clipBoard(e){
@@ -323,7 +351,7 @@ Page({
                     list[idx].splice(index,1);
                     this.setData({
                         commentList:list,
-                        'itemdetail.comment_count':this.data.itemdetail.comment_count+1
+                        'itemdetail.comment_count':this.data.itemdetail.comment_count-1
                     })
                     wx.showToast({
                         title:'删除成功'
@@ -404,5 +432,194 @@ Page({
         }
     },
     //请求评论点赞接口
+    commentPraise(comment_id,idx,index){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/comment/praise/store',
+            header:{
+                Authorization: token
+            },
+            data:{
+                comment_id: comment_id
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        [`commentList[${idx}][${index}].is_praise_user`]:1,
+                        [`commentList[${idx}][${index}].praise_count`]:this.data.commentList[idx][index].praise_count + 1
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    //点击评论的赞按钮
+    praiseComment(e){
+        var idx = e.currentTarget.dataset.idx;
+        var index = e.currentTarget.dataset.index;
+        var id = e.currentTarget.dataset.id;
+        this.commentPraise(id,idx,index);
+    },
+    //圈主设置置顶动态或者取消动态
+    postSetStick(content_id,coterie_id,type){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token')
+        sandBox.post({
+            api: 'api/content/stick',
+            header:{
+                Authorization: token
+            },
+            data:{
+                content_id: content_id,
+                coterie_id:coterie_id,
+                type:type
+
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_setting:false
+                    });
+                    if(type == 1){
+                        wx.showToast({
+                            title:'置顶成功',
+                            icon:'success'
+                        })
+                        this.setData({
+                            'itemdetail.is_stick':1
+                        })
+                    } else {
+                        this.setData({
+                            'itemdetail.is_stick':0
+                        })
+                        wx.showToast({
+                            title:'取消置顶',
+                            icon:'success'
+                        })
+                    }
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    //圈主设置为置顶状态
+    setStick(){
+        //type = 1 为置顶
+        var content_id = this.data.content_id;
+        var coterie_id = this.data.id;
+        this.postSetStick(content_id,coterie_id,1);
+    },
+    cancleStick(){
+        //type = 0 为取消置顶
+        var content_id = this.data.content_id;
+        var coterie_id = this.data.id;
+        this.postSetStick(content_id,coterie_id,0);
+    },
+    //圈主或者嘉宾推荐精华或者取消精华
+    postSetRecommend(content_id,coterie_id,type){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/content/recommended',
+            header:{
+                Authorization: token
+            },
+            data:{
+                content_id: content_id,
+                coterie_id:coterie_id,
+                type:type
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_setting:false
+                    });
+                    if(type == 1){
+                        wx.showToast({
+                            title:'标记成功',
+                            icon:'success'
+                        })
+                        this.setData({
+                            'itemdetail.is_recommend':1
+                        })
+                    } else {
+                        this.setData({
+                            'itemdetail.is_recommend':0
+                        })
+                        wx.showToast({
+                            title:'取消成功',
+                            icon:'success'
+                        })
+                    }
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    //圈主设置为推荐精华
+    setRecommend(){
+        //type = 1 为置顶
+        var content_id = this.data.content_id;
+        var coterie_id = this.data.id;
+        this.postSetRecommend(content_id,coterie_id,1);
+    },
+    cancleRecommend(){
+        //type = 0 为取消置顶
+        var content_id = this.data.content_id;
+        var coterie_id = this.data.id;
+        this.postSetRecommend(content_id,coterie_id,0);
+    },
 
 })

@@ -9,7 +9,7 @@
     <view class="content" wx:if="{{type == 'news'}}">
         <radio-group class="radio-group">
             <view wx:for="{{memberList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
-                <label class="radio mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
+                <label class="radio mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}" bindtap="selectQuestioner" data-item="{{item}}">
                     <radio color="#fff"/>
                     <view class="info">
                         <view class="avatar">

@@ -47,11 +47,3 @@ page {
   font-size: 16px;
   padding-top: 20px;
 }
-.btn {
-  height: 50px;
-  line-height: 50px;
-  color: #FFFFFF;
-  background: #004E9D;
-  text-align: center;
-  margin-top: 20px;
-}

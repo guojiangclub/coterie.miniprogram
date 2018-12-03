@@ -2,7 +2,7 @@
     <block>
         <view class="edit-content">
             <view class="edit-describle">
-                <textarea name="" id="" placeholder="分享自己的观点" placeholder-class="textarea-placeholder" bindinput="changeinput"></textarea>
+                <textarea name="" id="" placeholder="分享自己的观点" placeholder-class="textarea-placeholder" bindinput="changeinput" value="{{describe}}"></textarea>
             </view>
             <view class="edit-link" wx:if="{{urlDetail}}">
                <!-- <span class="iconfont icon-lianjie"></span>

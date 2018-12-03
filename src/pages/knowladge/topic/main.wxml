@@ -1,20 +1,22 @@
 <view id="topic">
-   <!-- <view class="head">
+    <view class="head">
         <view class="search-box">
             <span>
                 #
             </span>
-            <input type="text"/>
+            <input type="text" bindinput="getTitle"/>
         </view>
-        <view class="btn">取消</view>
+        <view class="btn">确认</view>
     </view>
     <view class="content mx-1px-top">
         <view class="title">热门标签</view>
-        <view class="list">
-            <view class="item">#水煮哈密瓜</view>
+        <view wx:for="{{hotTagList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+            <view class="list" wx:for="{{items}}" wx:key="{{index}}">
+                <view class="item">#{{item.title}}</view>
+            </view>
         </view>
-    </view>-->
-    <view class="btn" bindtap="start">
+    </view>
+   <!-- <view class="btn" bindtap="start">
         开始录音
     </view>
     <view class="btn" bindtap="pause">
@@ -25,5 +27,5 @@
     </view>
     <view class="btn" bindtap="play">
         播放录音
-    </view>
+    </view>-->
 </view>
