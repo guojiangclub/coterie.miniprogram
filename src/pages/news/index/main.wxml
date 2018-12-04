@@ -7,22 +7,37 @@
             <view class="text">我收到的赞</view>
             <view class="iconfont icon-jiantou"></view>
         </view>
-        <view class="list-li mx-1px-bottom">
+       <!-- <view class="list-li mx-1px-bottom">
             <view class="icon reward">
                 <span class="iconfont icon-dashang"></span>
             </view>
             <view class="text">我收到的打赏</view>
             <view class="iconfont icon-jiantou"></view>
-        </view>
+        </view>-->
         <view class="content-ul">
             <view class="item-li mx-1px-bottom">
                 <view class="avatar">
                     <image src="http://img0.imgtn.bdimg.com/it/u=350146658,1511234626&fm=200&gp=0.jpg"></image>
                 </view>
                 <view class="infor">
-                    <view class="metion">
+                    <!--<view class="metion">
                         油焖番石榴
                         <span>在新话题中提到了你</span>
+                    </view>-->
+                    <!--第一种情况  当用户发表动态时，通知圈主  type = PublishContent-->
+                    <view class="metion">
+                        猫唧唧
+                        <span>发表了内容</span>
+                    </view>
+                    <!--第二种情况  当普通用户加入圈子，通知圈主  type = JoinCoterie user_type == normal-->
+                    <view class="metion">
+                        用户琴吉吉
+                        <span>加入了</span>
+                    </view>
+                    <!--第三种情况 ，嘉宾加入圈子 type = JoinCoterie user_type == guest -->
+                    <view class="metion">
+                        嘉宾蕾唧唧
+                        <span>加入了</span>
                     </view>
                     <view class="describe">这真的很有趣啊！</view>
                     <view class="aite">@所有人 分享一个专注商业智能和数分享一个专注商业智能和数</view>

@@ -24,17 +24,17 @@
                 </view>
             </view>
             <view class="edit-topic">
-                <!--<view class="item">
-                    棒呀！
-                    <span class="iconfont icon-dashang"></span>
-                </view>-->
-                <view class="add-item" bindtap="jumpTopic">#添加话题</view>
+                <view class="item" wx:for="{{tags_list}}" wx:key="{{index}}">
+                    # {{item}}
+                    <span class="iconfont icon-close-circle" bindtap="deleteTag" data-index="{{index}}"></span>
+                </view>
+                <view class="add-item" bindtap="jumpTopic" wx:if="{{tags_list.length < 3}}">#添加话题</view>
             </view>
         </view>
         <view class="add-content">
             <view class="iconfont icon-shangchuantupian {{is_grey ? 'grey' : ''}}" bindtap="changeImage" wx:if="{{img_list.length < 9}}"></view>
             <view class="iconfont icon-lianjie {{is_showgrey ? 'grey' : ''}}" bindtap="changeLink"></view>
-            <view class="iconfont icon-icon-test" bindtap="jumpAite"></view>
+            <view class="iconfont icon-icon-test {{is_aite ? '' : 'grey'}}" bindtap="jumpAite"></view>
         </view>
         <view class="publish-btn" bindtap="publish">发表</view>
     </block>

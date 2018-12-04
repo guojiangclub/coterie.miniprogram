@@ -6,12 +6,12 @@
             </span>
             <input type="text" bindinput="getTitle"/>
         </view>
-        <view class="btn">确认</view>
+        <view class="btn" bindtap="addTags">添加</view>
     </view>
     <view class="content mx-1px-top">
         <view class="title">热门标签</view>
         <view wx:for="{{hotTagList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
-            <view class="list" wx:for="{{items}}" wx:key="{{index}}">
+            <view class="list" wx:for="{{items}}" wx:key="{{index}}" bindtap="selectTags" data-title="{{item.title}}" data-idx="{{idx}}" data-index="{{index}}">
                 <view class="item">#{{item.title}}</view>
             </view>
         </view>

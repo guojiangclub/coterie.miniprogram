@@ -5,7 +5,8 @@ Page({
         tagpage:0,
         tagMore:true,
         title:'',
-        id:''
+        id:'',
+        selectList:[]
 
     },
     onLoad(e) {
@@ -30,6 +31,45 @@ Page({
     this.getTags(this.data.id,1,e.detail.value)
 
     },
+    //点击热门标签
+    selectTags(e){
+        var topic_list = cookieStorage.get('topic_list');
+        var list = [];
+        if(topic_list){
+            list = topic_list;
+        } else {
+            list = this.data.selectList;
+        }
+        var title = e.currentTarget.dataset.title;
+        list.push(title);
+        this.setData({
+            selectList:list
+        })
+        cookieStorage.set('topic_list',this.data.selectList);
+        wx.navigateBack({
+            delta:1
+        })
+    },
+    //确认添加标签
+    addTags(){
+        var topic_list = cookieStorage.get('topic_list');
+        var list = [];
+        if(topic_list){
+            list = topic_list;
+        } else {
+            list = this.data.selectList;
+        }
+      list.push(this.data.title);
+      this.setData({
+          selectList:list
+      })
+        cookieStorage.set('topic_list',this.data.selectList);
+        wx.navigateBack({
+            delta:1
+        })
+
+    },
+
     //获取热门标签
     getTags(id,page,title) {
         wx.showLoading({

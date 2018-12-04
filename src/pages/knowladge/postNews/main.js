@@ -6,11 +6,12 @@ Page({
         is_show:false,
         url:'',
         urlDetail:'',
-        tags_list:['不要吸毒'],
+        tags_list:'',
         id:'',
         is_grey:false,
         is_showgrey:false,
-        at_user_id:''
+        at_user_id:'',
+        is_aite:true
     },
     onLoad(e){
         this.setData({
@@ -19,15 +20,34 @@ Page({
     },
     onShow(){
         var aite = cookieStorage.get('aite_person');
-        if(aite){
-            var txt = this.data.describe;
+        var topic_list = cookieStorage.get('topic_list');
+        var txt = this.data.describe;
+        var reg = /@\S+\s+/;
+        //利用对象的属性去重
+       if(topic_list){
+           if(topic_list.length != 0 || topic_list.length != 1){
+               var res = [];
+               var obj = {};
+               for(var i = 0;i < topic_list.length;i++){
+                   if(!obj[topic_list[i]]){
+                       res.push(topic_list[i]);
+                       obj[topic_list[i]] = 1
+                   }
+               }
+               this.setData({
+                   tags_list:res
+               })
+               cookieStorage.set('topic_list',this.data.tags_list);
+           }
+       }
+
+        if(aite && txt.search(reg) == -1){
             var nick_name = aite.user_meta_info.nick_name;
-            var describe = txt + '@ '+nick_name;
-           /* var reg = /^'@'/;
-            console.log(describe.search(reg));*/
+            var describe = txt + '@'+nick_name+' ';
             this.setData({
                 at_user_id:aite.user_id,
-                describe:describe
+                describe:describe || txt,
+                is_aite:false
             })
         }
     },
@@ -35,6 +55,30 @@ Page({
         this.setData({
             describe:e.detail.value
         })
+        var reg = /@\S+\s+/;
+        var aite = cookieStorage.get('aite_person');
+        if(aite){
+            var nick_name = '@'+aite.user_meta_info.nick_name;
+            if (this.data.describe.search(reg) == -1){
+                var newtxt = this.data.describe.replace(nick_name,' ');
+                this.setData({
+                    describe:newtxt,
+                    is_aite:true
+                })
+                cookieStorage.clear('aite_person');
+            }
+        }
+
+    },
+    //点击删除标签的按钮
+    deleteTag(e){
+        var index = e.currentTarget.dataset.index;
+        var list = this.data.tags_list;
+        list.splice(index,1);
+        this.setData({
+            tags_list:list
+        })
+        cookieStorage.set('topic_list',this.data.tags_list);
     },
     //上传图片
     changeImage() {
@@ -197,9 +241,13 @@ Page({
     },
     //@别人
     jumpAite(){
-        wx.navigateTo({
-            url:'/pages/knowladge/manList/main?id='+this.data.id+'&type=news'
-        })
+        if(this.data.is_aite){
+            wx.navigateTo({
+                url:'/pages/knowladge/manList/main?id='+this.data.id+'&type=news'
+            })
+        } else {
+            return
+        }
     },
     //发布按钮
     publish(){
@@ -213,11 +261,23 @@ Page({
                 showCancel:false
             })
         } else {
-            this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.tags_list,this.data.id)
+            var reg = /@\S+\s+/;
+            var arr = this.data.describe.match(reg);
+            console.log(arr[0]);
+            var aite = cookieStorage.get('aite_person');
+            if(aite){
+                var nick_name = '@'+aite.user_meta_info.nick_name+ ' ';
+                if(arr[0] == nick_name){
+                    this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.id,this.data.at_user_id,this.data.tags_list);
+                } else {
+                    this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.id,'',this.data.tags_list);
+                }
+            }
+
         }
     },
     //请求发布接口
-    postContent(img_list,description,link,tags_list,coterie_id){
+    postContent(img_list,description,link,coterie_id,at_user_id,tags_list){
         wx.showLoading({
             title:'加载中',
             mask:true
@@ -238,7 +298,10 @@ Page({
                 content_type:content_type,
                 description:description,
                 link:link || '',
-                style_type:'default'
+                style_type:'default',
+                at_user_id:at_user_id || '',
+                tags_list:tags_list || ''
+
             },
             header:{
                 Authorization:token
@@ -250,6 +313,8 @@ Page({
                     wx.redirectTo({
                         url:'/pages/knowladge/detail/main?id='+this.data.id
                     })
+                    cookieStorage.clear('aite_person');
+                    cookieStorage.clear('topic_list');
                 } else{
                     wx.showModal({
                         content: res.message || '服务器开了小差，请重试',

@@ -102,6 +102,7 @@
   line-height: 26px;
   font-size: 12px;
   margin-right: 12px;
+  margin-top: 10px;
 }
 #post-news .edit-content .edit-topic .item span {
   font-size: 16px;
@@ -116,6 +117,7 @@
   line-height: 26px;
   font-size: 12px;
   margin-right: 12px;
+  margin-top: 10px;
 }
 #post-news .add-content {
   display: flex;

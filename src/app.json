@@ -7,6 +7,7 @@
     "pages/index/amount/main",
     "pages/knowladge/join/main",
     "pages/knowladge/invite/main",
+    "pages/knowladge/goInvite/main",
     "pages/knowladge/detail/main",
     "pages/knowladge/itemDetail/main",
     "pages/knowladge/postQuestion/main",

@@ -1,0 +1,85 @@
+<view id="goinvite">
+    <block v-if="{{init}}">
+        <view class="top-bg">
+
+        </view>
+        <view class="knowladge-info block">
+            <view class="knowladge-avatar">
+                <image src="{{detail.avatar}}"></image>
+            </view>
+            <view class="title">
+                {{detail.name}}
+            </view>
+            <view class="desc-box mx-1px-bottom">
+                <view class="desc">
+                    <view class="text js_desc {{descAll ? 'all' : ''}}">
+                       {{detail.description}}
+                    </view>
+                    <view class="all-btn" wx:if="{{show_desc_btn}}" bindtap="changeDesc">
+                        <block wx:if="{{!descAll}}">展开全部</block>
+                        <block wx:else>收起</block>
+                    </view>
+                </view>
+            </view>
+            <view class="info-box mx-1px-bottom">
+                <view class="info-item ">
+                    <view class="num">
+                        {{detail.content_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        主题
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.member_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        成员
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.recommend_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        精华
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.ask_count}}
+                    </view>
+                    <view class="text">
+                        问答
+                    </view>
+                </view>
+            </view>
+            <view class="invite">
+                <view class="text">
+                    嘉宾特权
+                </view>
+                <view>
+                   · 大咖坐堂，接收提问
+                </view>
+                <view>
+                   · 无需付费，自动加入
+                </view>
+            </view>
+        </view>
+        <button class="btn"  open-type ='share'>
+            去邀请
+        </button>
+        <view class="info">
+            每个链接只能邀请一位嘉宾，嘉宾加入圈子后 会向所有成员推送通知
+
+        </view>
+    </block>
+
+</view>
