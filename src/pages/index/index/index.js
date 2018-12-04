@@ -138,6 +138,12 @@ Page({
     },
     //跳到创建圈子页面
     jumpSet(){
+        /*wx.scanCode({
+            success: res => {
+                console.log(res);
+            }
+        })
+        return*/
         if (this.data.token){
             wx.navigateTo({
                 url:'/pages/index/setUp/main'

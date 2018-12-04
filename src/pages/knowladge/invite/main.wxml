@@ -1,0 +1,88 @@
+<view id="invite">
+    <block v-if="{{init}}">
+        <view class="top-bg">
+
+        </view>
+        <view class="knowladge-info block">
+            <view class="knowladge-avatar">
+                <image src="{{detail.avatar}}"></image>
+            </view>
+            <view class="title">
+                {{detail.name}}
+            </view>
+            <view class="desc-box mx-1px-bottom">
+                <view class="desc">
+                    <view class="text js_desc {{descAll ? 'all' : ''}}">
+                       {{detail.description}}
+                    </view>
+                    <view class="all-btn" wx:if="{{show_desc_btn}}" bindtap="changeDesc">
+                        <block wx:if="{{!descAll}}">展开全部</block>
+                        <block wx:else>收起</block>
+                    </view>
+                </view>
+            </view>
+            <view class="info-box mx-1px-bottom">
+                <view class="info-item ">
+                    <view class="num">
+                        {{detail.content_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        主题
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.member_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        成员
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.recommend_count}}
+                    </view>
+                    <view  class="line mx-1px-right">
+                    </view>
+                    <view class="text">
+                        精华
+                    </view>
+                </view>
+                <view class="info-item">
+                    <view class="num">
+                        {{detail.ask_count}}
+                    </view>
+                    <view class="text">
+                        问答
+                    </view>
+                </view>
+            </view>
+            <view class="invite">
+                <view class="text">
+                    嘉宾特权
+                </view>
+                <view>
+                   · 大咖坐堂，接收提问
+                </view>
+                <view>
+                   · 无需付费，自动加入
+                </view>
+            </view>
+        </view>
+        <view class="btn" bindtap="freeJoin">
+            接受邀请
+            <button wx:if="{{!detail.is_perfect_user_info && token}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="button">
+
+            </button>
+        </view>
+        <view class="info">
+            {{detail.user.nick_name}} 邀请您成为 <span>【{{detail.name}}】</span> 的嘉宾
+
+        </view>
+    </block>
+
+</view>
