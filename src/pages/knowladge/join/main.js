@@ -22,7 +22,10 @@ Page({
               showCancel: false
           })
       }
-        console.log(this.getDomInfo);;
+      var token = cookieStorage.get('user_token');
+      this.setData({
+          token: token
+      })
     },
     changeDesc() {
         this.setData({
@@ -57,8 +60,18 @@ Page({
     },
     //免费加入圈子
     freeJoin(){
+        if (!this.data.token) {
+            wx.navigateTo({
+                url:'/pages/user/login/main?url='+getUrl()
+            })
+            return
+        }
        if (this.data.detail.is_perfect_user_info){
-           this.postfreeMember(this.data.id)
+           if (this.data.detail.cost_type == 'charge')  {
+               this.createOrder(this.data.id);
+           } else {
+               this.postfreeMember(this.data.id)
+           }
        } else {
            return
        }
@@ -83,7 +96,7 @@ Page({
                 res = res.data;
                 if (res.status){
                     //看一下请求成功
-                    wx.navigateTo({
+                    wx.redirectTo({
                         url:'/pages/knowladge/detail/main?id='+this.data.id
                     })
                 } else {
@@ -99,11 +112,13 @@ Page({
                     showCancel: false
                 });
             }
+            wx.hideLoading();
         }).catch(rej=>{
             wx.showModal({
                 content:"服务器开了小差，请重试",
                 showCancel: false
             });
+            wx.hideLoading();
         })
     },
     // 更新用户信息
@@ -175,7 +190,7 @@ Page({
             if(res.statusCode==200){
                 res = res.data;
                 if (res.status) {
-                    // 如果加入过当前课程，需要跳转到详情页面
+                    // 如果加入过当前圈子，需要跳转到详情页面
                     if (res.data.is_coterie_member) {
                         wx.redirectTo({
                             url: '/pages/knowladge/detail/main?id=' + res.data.id
@@ -207,5 +222,187 @@ Page({
                 wx.hideLoading();
             }
         })
-    }
+    },
+    // 获取openid
+    getOpenid() {
+        return new Promise((resolve, reject) => {
+            wx.login({
+                success: (res) => {
+                    sandBox.get({
+                        api: 'api/oauth/miniprogram/openid',
+                        data: {
+                            code: res.code
+                        }
+
+                    }).then((res) => {
+                        res = res.data
+                        resolve(res.data.openid)
+                    }).catch(() => {
+                        reject('获取openid失败')
+                    })
+                },
+                fail: () => {
+                    wx.showModal({
+                        content: "接口请求失败",
+                        showCancel: false
+                    })
+                }
+            })
+        })
+    },
+    // 请求加入付费圈子接口
+    createOrder(id) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        });
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api:'api/order/store',
+            data:{
+                coterie_id:id
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                console.log(res);
+                if (res.status){
+                    this.getOpenid().then(ret => {
+                        var oauth = cookieStorage.get('user_token');
+                        var data = {
+                            openid: ret,
+                            order_no: res.data.order_no
+                        };
+                        sandBox.post({
+                            api: `api/coterie/payment`,
+                            data: data,
+                            header: {
+                                Authorization: oauth
+                            }
+                        }).then((res) => {
+                            res = res.data;
+                            if (res.status) {
+                                this.charge(true, res.data.charge)
+                            } else {
+                                this.charge(false, res.message)
+                            }
+                        }).catch((rej) => {
+                            this.charge(false)
+                        })
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "服务器开了小差，请重试",
+                        showCancel: false
+                    });
+                    wx.hideLoading();
+
+                }
+            } else {
+                wx.showModal({
+                    content:res.message ||  "服务器开了小差，请重试",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        }).catch(rej=>{
+            wx.showModal({
+                content:"服务器开了小差，请重试",
+                showCancel: false
+            });
+            wx.hideLoading();
+        })
+    },
+    // 支付
+    charge(success, charge) {
+        if (success) {
+            var that = this;
+            wx.requestPayment({
+                "timeStamp": charge.credential.wechat.timeStamp,
+                "nonceStr": charge.credential.wechat.nonceStr,
+                "package": charge.credential.wechat.package,
+                "signType": charge.credential.wechat.signType,
+                "paySign": charge.credential.wechat.paySign,
+                success: res => {
+
+                    if (res.errMsg == 'requestPayment:ok') {
+                        this.checkStatus(charge.charge_id);
+                    } else {
+                        wx.showModal({
+                            content: '调用支付失败！',
+                            showCancel: false
+                        })
+                        wx.hideLoading();
+                    }
+                },
+                fail: err => {
+                    console.log(err);
+                    if (err.errMsg == 'requestPayment:fail cancel') {
+                       /* wx.redirectTo({
+                            url: `/pages/order/detail/detail?no=${that.data.order_no}`
+                        })*/
+                    } else {
+                        wx.showModal({
+                            content: '调用支付失败！',
+                            showCancel: false
+                        })
+                    }
+                    wx.hideLoading();
+                }
+            })
+        } else {
+            wx.hideLoading();
+            wx.showModal({
+                content: charge || '请求支付失败，请重试！',
+                showCancel: false
+            })
+        }
+    },
+    // 校验状态
+    checkStatus(id) {
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api:'api/coterie/payment/success',
+            data:{
+                charge_id:id
+            },
+            header:{
+                Authorization:token
+            }
+        }).then(res=>{
+            if (res.statusCode == 200){
+                res = res.data;
+                if (res.status){
+                    //看一下请求成功
+                    wx.redirectTo({
+                        url:'/pages/knowladge/detail/main?id='+this.data.id
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "服务器开了小差，请重试",
+                        showCancel: false
+                    });
+
+                }
+            } else {
+                if (res.data) {
+                    var data = res.data;
+                }
+                wx.showModal({
+                    content:data.message ||  "服务器开了小差，请重试",
+                    showCancel: false
+                });
+            }
+            wx.hideLoading();
+        }).catch(rej=>{
+            wx.showModal({
+                content:"服务器开了小差，请重试",
+                showCancel: false
+            });
+            wx.hideLoading();
+        })
+    },
 })
