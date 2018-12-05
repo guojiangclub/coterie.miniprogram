@@ -544,11 +544,64 @@ Page({
         var coterie_id = this.data.id;
         this.postSetStick(content_id,coterie_id,1);
     },
+
     cancleStick(){
         //type = 0 为取消置顶
         var content_id = this.data.content_id;
         var coterie_id = this.data.id;
         this.postSetStick(content_id,coterie_id,0);
+    },
+    //圈主删除动态或者自己删除动态
+    postDeletecontent(content_id,coterie_id){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token')
+        sandBox.post({
+            api: 'api/content/delete',
+            header:{
+                Authorization: token
+            },
+            data:{
+                content_id: content_id,
+                coterie_id:coterie_id,
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_setting:false
+                    });
+                    wx.navigateTo({
+                        url:'/pages/knowladge/detail/main?id='+coterie_id
+                    })
+                    wx.showToast({
+                        title:'删除动态成功',
+                        icon:'success'
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    deleteContent(){
+        var content_id = this.data.content_id;
+        var coterie_id = this.data.id;
+        this.postDeletecontent(content_id,coterie_id);
     },
     //圈主或者嘉宾推荐精华或者取消精华
     postSetRecommend(content_id,coterie_id,type){

@@ -1,25 +1,53 @@
 <view id="awesome">
     <block>
         <view class="content-ul">
-            <view class="item-li mx-1px-bottom">
-                <view class="avatar">
-                    <image src="http://img0.imgtn.bdimg.com/it/u=350146658,1511234626&fm=200&gp=0.jpg"></image>
-                </view>
-                <view class="infor">
-                    <view class="metion">
-                        油焖番石榴
-                        <span>赞了你的话题</span>
-                    </view>
-                    <!--<view class="describe">这真的很有趣啊！</view>-->
-                    <view class="aite">青梅枯萎竹马老去，从此我爱的人都幸福</view>
-                    <view class="author">
-                        愿作鸳鸯不羡仙
-                        <span></span>
-                        2018-10-10 16:20
-                    </view>
-                </view>
-                <view class="logo">
-                    <image src="http://img4.imgtn.bdimg.com/it/u=2347654393,4095682117&fm=26&gp=0.jpg"></image>
+            <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+                <view class="item-li mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
+                    <!--第一种情况  点赞动态  type = PraiseContent 用户对某个动态点赞后，需要通知发表动态的用户 -->
+                    <block wx:if="{{item.data.type == 'PraiseContent'}}">
+                        <view class="avatar">
+                            <image src="{{item.data.praise.user_meta_info.avatar}}"></image>
+                        </view>
+                        <view class="infor">
+                            <view class="metion">
+                                {{item.data.praise.user_meta_info.nick_name}}
+                                <span>赞了你的内容</span>
+                            </view>
+                            <view class="describe">{{item.data.content.description}}</view>
+                            <!-- <view class="aite">@所有人 分享一个专注商业智能和数分享一个专注商业智能和数</view>-->
+                            <view class="author">
+                                {{item.data.coterie.name}}
+                                <span></span>
+                                {{item.data.praise.created_at}}
+                            </view>
+                        </view>
+                        <view class="logo">
+                            <image src="{{item.data.content.img_list_info[0]}}" wx:if="{{item.data.content.img_list_info.length}}"></image>
+                            <image src="{{item.data.coterie.avatar}} " wx:else></image>
+                        </view>
+                    </block>
+                    <!--第二种情况  点赞动态  type = PraiseComment 点赞某条评论后，通知发表评论的用户 -->
+                    <block wx:if="{{item.data.type == 'PraiseComment'}}">
+                        <view class="avatar">
+                            <image src="{{item.data.comment.coterie_content.meta_info.user.avatar}}"></image>
+                        </view>
+                        <view class="infor">
+                            <view class="metion">
+                                {{item.data.comment.coterie_content.meta_info.user.nick_name}}
+                                <span>赞了你的评论</span>
+                            </view>
+                            <view class="describe">{{item.data.comment.content}}</view>
+                            <!-- <view class="aite">@所有人 分享一个专注商业智能和数分享一个专注商业智能和数</view>-->
+                            <view class="author">
+                                {{item.data.coterie.name}}
+                                <span></span>
+                                {{item.data.comment.coterie_content.created_at}}
+                            </view>
+                        </view>
+                        <view class="logo">
+                            <image src="{{item.data.coterie.avatar}} "></image>
+                        </view>
+                    </block>
                 </view>
             </view>
         </view>

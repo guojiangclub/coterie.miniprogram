@@ -319,23 +319,22 @@ Page({
             show_filter:false
         })
     },
-    //圈主设置置顶动态或者取消动态
-    postSetStick(content_id,coterie_id,type){
+
+    //圈主删除动态或者自己删除动态
+    postDeletecontent(content_id,coterie_id){
         wx.showLoading({
             title: '加载中',
             mask: true
         })
         var token = cookieStorage.get('user_token')
         sandBox.post({
-            api: 'api/content/stick',
+            api: 'api/content/delete',
             header:{
                 Authorization: token
             },
             data:{
                 content_id: content_id,
                 coterie_id:coterie_id,
-                type:type
-
             },
         }).then(res =>{
             if(res.statusCode==200){
@@ -344,19 +343,11 @@ Page({
                     this.setData({
                         show_setting:false
                     });
-                    this.getStick(this.data.id);//重新请求置顶状态
                     this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
-                    if(type == 1){
                         wx.showToast({
-                            title:'置顶成功',
+                            title:'删除动态成功',
                             icon:'success'
                         })
-                    } else {
-                        wx.showToast({
-                            title:'取消置顶',
-                            icon:'success'
-                        })
-                    }
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",
@@ -373,6 +364,11 @@ Page({
                 wx.hideLoading();
             }
         })
+    },
+    deleteContent(){
+        var content_id = this.data.selectItem.id;
+        var coterie_id = this.data.selectItem.coterie_id;
+        this.postDeletecontent(content_id,coterie_id);
     },
     //圈主设置为置顶状态
     setStick(){
@@ -507,7 +503,6 @@ Page({
         wx.navigateTo({
             url:'/pages/knowladge/itemDetail/main?id='+this.data.id + '&content_id='+content_id
         })
-
     },
     //预览图
     preImage(e){

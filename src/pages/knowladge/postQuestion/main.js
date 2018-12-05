@@ -126,7 +126,10 @@ Page({
             if(res.statusCode == 200){
                 res = res.data;
                 if(res.status){
-
+                    cookieStorage.clear('questioner');
+                    wx.navigateTo({
+                        url:'/pages/knowladge/detail/main?id='+coterie_id
+                    })
                 } else {
                     wx.showModal({
                         content: res.message || '加载失败',

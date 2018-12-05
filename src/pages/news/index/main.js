@@ -9,11 +9,24 @@ Page({
     onShow(){
         this.getnotification(1);
     },
+    onReachBottom() {
+        if (this.data.hasMore) {
+            var page = this.data.page + 1;
+            this.getnotification(page);
+        } else {
+            wx.showToast({
+             image: '../../../assets/image/error.png',
+             title: '再拉也没有啦'
+             });
+            return
+        }
+    },
     //获取除了点赞以外的消息通知列表
     getnotification(page) {
         wx.showLoading({
             title: '加载中',
             mask: true
+
         })
         var token = cookieStorage.get('user_token')
         sandBox.get({
@@ -55,5 +68,6 @@ Page({
             }
         })
     },
+
 
 })

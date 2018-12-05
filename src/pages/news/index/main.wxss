@@ -58,6 +58,7 @@ page {
 #message .content-ul .item-li .infor {
   flex: 1;
   overflow: hidden;
+  margin-right: 10px;
 }
 #message .content-ul .item-li .infor .metion {
   font-size: 14px;
@@ -73,6 +74,10 @@ page {
   color: #4A4A4A;
   font-size: 12px;
   line-height: 24px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 #message .content-ul .item-li .infor .aite {
   overflow: hidden;

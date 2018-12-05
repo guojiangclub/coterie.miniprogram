@@ -115,7 +115,7 @@
                 </view>
             </view>
             <view wx:for="{{detail.content}}" wx:key="{{index}}">
-                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'default' && item.img_list_info.length == 1}}">
+                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'default' && item.img_list_info.length == 1 && item.style_type == 'default'}}">
                     <view class="avatar-box">
                         <view class="img">
                             <image src="{{item.user.avatar}}"></image>
@@ -141,7 +141,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1}}">
+                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1 && item.style_type == 'default'}}">
                     <view class="avatar-box">
                         <view class="img">
                             <image src="{{item.user.avatar}}"></image>
@@ -194,7 +194,7 @@
                         </view>
                     </view>
                 </view>-->
-                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'link'}}">
+                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'link' && item.style_type == 'default'}}">
                     <view class="avatar-box">
                         <view class="img">
                             <image src="{{item.user.avatar}}"></image>
@@ -220,6 +220,31 @@
                             <view class="link-right">
                                 <span class="iconfont icon-lianjie"></span>
                             </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="theme-item mx-1px-bottom" wx:if="{{item.content_type == 'default' && item.style_type == 'question'}}">
+                    <view class="avatar-box">
+                        <view class="img">
+                            <image src="{{item.user.avatar}}"></image>
+                        </view>
+                        <view class="info">
+                            <view class="name">
+                                {{item.user.nick_name}}
+                            </view>
+                            <view class="time">
+                                创建于 {{item.created_at}}
+                            </view>
+                        </view>
+                    </view>
+                    <view class="reply-box" wx:if="{{item.content_type == 'default' && item.style_type == 'question'}}">
+                        <view class="ask mx-1px-left">
+                            <view class="text">
+                                {{item.question.user.nick_name}}提问：{{item.question.content}}
+                            </view>
+                        </view>
+                        <view class="reply">
+                            {{item.description}}
                         </view>
                     </view>
                 </view>
