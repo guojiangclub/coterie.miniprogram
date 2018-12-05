@@ -39,6 +39,12 @@
                         嘉宾蕾唧唧
                         <span>加入了</span>
                     </view>
+                    <!--第四种情况  ，评论内容 type = CommentContent -->
+                    <view class="metion">
+                        湘唧唧
+                        <span>评论了你</span>
+                    </view>
+
                     <view class="describe">这真的很有趣啊！</view>
                     <view class="aite">@所有人 分享一个专注商业智能和数分享一个专注商业智能和数</view>
                     <view class="author">
