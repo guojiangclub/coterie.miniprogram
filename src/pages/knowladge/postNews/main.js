@@ -263,7 +263,6 @@ Page({
         } else {
             var reg = /@\S+\s+/;
             var arr = this.data.describe.match(reg);
-            console.log(arr[0]);
             var aite = cookieStorage.get('aite_person');
             if(aite){
                 var nick_name = '@'+aite.user_meta_info.nick_name+ ' ';
@@ -272,6 +271,8 @@ Page({
                 } else {
                     this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.id,'',this.data.tags_list);
                 }
+            } else {
+                this.postContent(this.data.img_list,this.data.describe,this.data.urlDetail.link_info,this.data.id,'',this.data.tags_list);
             }
 
         }
