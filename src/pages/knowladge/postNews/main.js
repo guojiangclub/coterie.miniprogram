@@ -301,7 +301,6 @@ Page({
                 link:link || '',
                 style_type:'default',
                 at_user_id:at_user_id || '',
-                tags_list:tags_list || ''
 
             },
             header:{

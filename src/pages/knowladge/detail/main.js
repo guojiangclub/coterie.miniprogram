@@ -62,6 +62,12 @@ Page({
             url:'/pages/user/personal/main?id='+this.data.id + '&user_id='+user_id
         })
     },
+    jumpPath(e) {
+      var url = e.currentTarget.dataset.url;
+        wx.navigateTo({
+            url: url + '?id='+this.data.id
+        })
+    },
     //热门标签scroll-view底部滑动
     scrolltolower(){
         if (this.data.tagMore) {

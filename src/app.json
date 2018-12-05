@@ -11,6 +11,7 @@
     "pages/knowladge/detail/main",
     "pages/knowladge/itemDetail/main",
     "pages/knowladge/postQuestion/main",
+    "pages/knowladge/replyQuestion/main",
     "pages/knowladge/manList/main",
     "pages/knowladge/postNews/main",
     "pages/knowladge/setting/main",

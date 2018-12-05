@@ -322,10 +322,10 @@
             <view class="title">
                 请选择您要发表的类型
             </view>
-            <view class="btn avtive">
+            <view class="btn avtive" data-url="/pages/knowladge/postNews/main" bindtap="jumpPath">
                 发表动态
             </view>
-            <view class="btn problem">
+            <view class="btn problem" data-url="/pages/knowladge/postQuestion/main" bindtap="jumpPath">
                 发表提问
             </view>
 
