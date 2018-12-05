@@ -24,8 +24,8 @@ Page({
         var txt = this.data.describe;
         var reg = /@\S+\s+/;
         //利用对象的属性去重
-       if(topic_list){
-           if(topic_list.length != 0 || topic_list.length != 1){
+       if(topic_list && topic_list.length){
+           if(topic_list.length != 0 && topic_list.length != 1){
                var res = [];
                var obj = {};
                for(var i = 0;i < topic_list.length;i++){
