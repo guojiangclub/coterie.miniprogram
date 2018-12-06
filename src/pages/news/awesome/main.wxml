@@ -4,7 +4,7 @@
             <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
                 <view class="item-li mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
                     <!--第一种情况  点赞动态  type = PraiseContent 用户对某个动态点赞后，需要通知发表动态的用户 -->
-                    <block wx:if="{{item.data.type == 'PraiseContent'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'PraiseContent'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}">
                         <view class="avatar">
                             <image src="{{item.data.praise.user_meta_info.avatar}}"></image>
                         </view>
@@ -25,9 +25,9 @@
                             <image src="{{item.data.content.img_list_info[0]}}" wx:if="{{item.data.content.img_list_info.length}}"></image>
                             <image src="{{item.data.coterie.avatar}} " wx:else></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第二种情况  点赞动态  type = PraiseComment 点赞某条评论后，通知发表评论的用户 -->
-                    <block wx:if="{{item.data.type == 'PraiseComment'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'PraiseComment'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.comment.content_id}}" data-mid="{{item.data.comment.id}}">
                         <view class="avatar">
                             <image src="{{item.data.comment.coterie_content.meta_info.user.avatar}}"></image>
                         </view>
@@ -47,7 +47,7 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}} "></image>
                         </view>
-                    </block>
+                    </view>
                 </view>
             </view>
         </view>

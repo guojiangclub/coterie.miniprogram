@@ -215,7 +215,8 @@ Page({
               if (res.status){
                   this.setData({
                       urlDetail:res.data,
-                      is_grey:true
+                      is_grey:true,
+                      url:''
                   })
 
               } else{

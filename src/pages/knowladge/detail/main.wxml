@@ -6,7 +6,7 @@
         <view class="knowladge-avatar">
             <image src="{{detail.avatar}}"></image>
         </view>
-        <view class="see-more">
+        <view class="see-more" bindtap="jumpSetting">
             <i class="iconfont icon-gengduo"></i>
             <view>更多</view>
         </view>

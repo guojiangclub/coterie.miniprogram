@@ -68,6 +68,45 @@ Page({
             }
         })
     },
+    //跳转链接 跳到itemdetail 详情页 有关评论的就要带评论id
+    jumpItem(e){
+        var id = e.currentTarget.dataset.id;//圈子id
+        var content_id = e.currentTarget.dataset.cid;//内容id
+        var comment_id; //评论id
+        if(e.currentTarget.dataset.mid){
+            comment_id = e.currentTarget.dataset.mid
+        } else {
+            comment_id = ''
+        }
+        wx.navigateTo({
+            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id
+        })
+
+    },
+    //跳到圈子列表页
+    jumpDetail(e){
+        var id = e.currentTarget.dataset.id;//圈子id
+        wx.navigateTo({
+            url:'/pages/knowladge/detail/main?id='+id
+        })
+
+    },
+    //发表问题之后跳到回答问题的页面去
+    jumpReply(e){
+        var id = e.currentTarget.dataset.id;//圈子id
+        var qid = e.currentTarget.dataset.qid;//问题的id
+        wx.navigateTo({
+            url:'/pages/knowladge/replyQuestion/main?id='+id+'&question_id='+qid
+        })
+    },
+    //跳到点赞列表页
+    jumpAwesome(){
+        wx.navigateTo({
+            url:'/pages/news/awesome/main'
+        })
+    }
+
+
 
 
 })

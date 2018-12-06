@@ -1,6 +1,6 @@
 <view id="message">
     <block>
-        <view class="list-li mx-1px-bottom">
+        <view class="list-li mx-1px-bottom" bindtap="jumpAwesome">
             <view class="icon awesome">
                 <span class="iconfont icon-dianzan"></span>
             </view>
@@ -18,7 +18,7 @@
             <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
                 <view class="item-li mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
                     <!--第一种情况  当用户发表动态时，通知圈主  type = PublishContent-->
-                    <block wx:if="{{item.data.type == 'PublishContent'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'PublishContent'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}">
                         <view class="avatar">
                             <image src="{{item.data.user.avatar}}"></image>
                         </view>
@@ -39,9 +39,9 @@
                             <image class="u" src="{{item.data.content.img_list_info[0]}}" wx:if="{{item.data.content.img_list_info.length}}"></image>
                             <image src="{{item.data.coterie.avatar}} " wx:else></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第二种情况  当普通用户加入圈子，通知圈主  type = JoinCoterie user_type == normal-->
-                    <block wx:if="{{item.data.type == 'JoinCoterie' && item.data.member.user_type == 'normal'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'JoinCoterie' && item.data.member.user_type == 'normal'}}" bindtap="jumpDetail" data-id="{{item.data.coterie.id}}">
                         <view class="avatar">
                             <image src="{{item.data.member.user_meta_info.avatar}}"></image>
                         </view>
@@ -59,9 +59,9 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第三种情况 ，嘉宾加入圈子 type = JoinCoterie user_type == guest -->
-                    <block  wx:if="{{item.data.type == 'JoinCoterie' && item.data.member.user_type == 'guest'}}">
+                    <view class="list-li"  wx:if="{{item.data.type == 'JoinCoterie' && item.data.member.user_type == 'guest'}}" bindtap="jumpDetail" data-id="{{item.data.coterie.id}}">
                         <view class="avatar">
                             <image src="{{item.data.member.user_meta_info.avatar}}"></image>
                         </view>
@@ -79,9 +79,9 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第四种情况  ，评论动态 type = CommentContent 用户评论某个动态后，需要通知发表动态的用户-->
-                    <block wx:if="{{item.data.type == 'CommentContent'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'CommentContent'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}" data-mid="{{item.data.comment.id}}">
                         <view class="avatar">
                             <image src="{{item.data.comment.user_meta_info.avatar}}"></image>
                         </view>
@@ -100,9 +100,9 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第五种情况，回复评论  type= ReplyComment  当用户回复某条评论后，通知发表评论的用户，并且通知发表动态的用户-->
-                    <block wx:if="{{item.data.type == 'ReplyComment'}}">
+                    <view  class="list-li" wx:if="{{item.data.type == 'ReplyComment'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}" data-mid="{{item.data.comment.id}}">
                         <view class="avatar">
                             <image src="{{item.data.reply.user_meta_info.avatar}}"></image>
                         </view>
@@ -121,9 +121,9 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第六种情况 发表问题  type= PublishQuestion 当用户向圈主或者嘉宾提问后，通知圈主或者嘉宾。-->
-                    <block wx:if="{{item.data.type == 'PublishQuestion'}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'PublishQuestion'}}" bindtap="jumpReply" data-id="{{item.data.coterie.id}}" data-qid = "{{item.data.question.id}}">
                         <view class="avatar">
                             <image src="{{item.data.user.avatar}}"></image>
                         </view>
@@ -143,9 +143,9 @@
                             <image src="{{item.data.coterie.avatar}}" wx:if="{{item.data.question.img_list_info.length == 0}}"></image>
                             <image src="{{item.data.question.img_list_info[0]}}" wx:else></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第7种情况  @某人  type = AtUser  在发表内容，回复时，@了某个用户后，主动通知。-->
-                    <block  wx:if="{{item.data.type == 'AtUser'}}">
+                    <view class="list-li"  wx:if="{{item.data.type == 'AtUser'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}">
                         <view class="avatar">
                             <image src="{{item.data.at_user.avatar}}"></image>
                         </view>
@@ -165,9 +165,9 @@
                             <image src="{{item.data.coterie.avatar}}" wx:if="{{item.data.content.img_list_info.length == 0}}"></image>
                             <image src="{{item.data.content.img_list_info[0]}}" wx:else></image>
                         </view>
-                    </block>
+                    </view>
                     <!--第八种情况  回复问题 type= AnswerQuestion 当用户回答提问后，通知提问者-->
-                    <block  wx:if="{{item.data.type == 'AnswerQuestion'}}">
+                    <view  class="list-li"  wx:if="{{item.data.type == 'AnswerQuestion'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}">
                         <view class="avatar">
                             <image src="{{item.data.user.avatar}}"></image>
                         </view>
@@ -186,7 +186,7 @@
                         <view class="logo">
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
-                    </block>
+                    </view>
                 </view>
             </view>
         </view>

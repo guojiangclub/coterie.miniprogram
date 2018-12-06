@@ -41,6 +41,8 @@ page {
 }
 #message .content-ul .item-li {
   padding: 20px 15px 20px 0;
+}
+#message .content-ul .item-li .list-li {
   display: flex;
   align-items: flex-start;
 }

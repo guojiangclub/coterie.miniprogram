@@ -21,6 +21,19 @@ Page({
             return
         }
     },
+    jumpItem(e){
+        var id = e.currentTarget.dataset.id;//圈子id
+        var content_id = e.currentTarget.dataset.cid;//内容id
+        var comment_id; //评论id
+        if(e.currentTarget.dataset.mid){
+            comment_id = e.currentTarget.dataset.mid
+        } else {
+            comment_id = ''
+        }
+        wx.navigateTo({
+            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id
+        })
+    },
     //获取除了点赞以外的消息通知列表
     getpraoiseList(page) {
         wx.showLoading({

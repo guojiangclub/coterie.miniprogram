@@ -67,6 +67,9 @@ Page({
         wx.navigateTo({
             url: url + '?id='+this.data.id
         })
+        this.setData({
+            show_publish:false
+        })
     },
     //热门标签scroll-view底部滑动
     scrolltolower(){
@@ -319,6 +322,13 @@ Page({
             show_filter:false
         })
     },
+    //跳到圈子设置页面去
+    jumpSetting(){
+        wx.navigateTo({
+            url:'/pages/knowladge/setting/main?id='+this.data.id
+        })
+
+    },
 
     //圈主删除动态或者自己删除动态
     postDeletecontent(content_id,coterie_id){
@@ -502,7 +512,7 @@ Page({
         var content_id =  e.currentTarget.dataset.id;
         wx.navigateTo({
             url:'/pages/knowladge/itemDetail/main?id='+this.data.id + '&content_id='+content_id
-        })
+        });
     },
     //预览图
     preImage(e){

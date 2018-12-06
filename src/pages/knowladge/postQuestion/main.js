@@ -127,7 +127,7 @@ Page({
                 res = res.data;
                 if(res.status){
                     cookieStorage.clear('questioner');
-                    wx.navigateTo({
+                    wx.redirectTo({
                         url:'/pages/knowladge/detail/main?id='+coterie_id
                     })
                 } else {

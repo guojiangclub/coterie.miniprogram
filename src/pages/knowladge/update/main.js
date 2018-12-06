@@ -2,6 +2,7 @@ import {config,pageLogin,sandBox,getUrl,cookieStorage} from '../../../lib/myapp.
 
 Page({
     data:{
+        id:'',
         knowObj:{
             avatar:"",//头像url
             name:"",//数据圈名称
@@ -9,8 +10,14 @@ Page({
             cost_type: 'free'
         }
     },
+    onload(e){
+        var id = e.id
+        this.setData({
+            id:id
+        })
+    },
     onShow(){
-        this.getCoterie(3)
+        this.getCoterie(this.data.id)
     },
     //数据圈名称
     changeName(e){

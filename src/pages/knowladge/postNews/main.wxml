@@ -45,7 +45,7 @@
                     插入链接
                 </view>
                 <view class="ipt-box">
-                    <input type="text" placeholder="请插入链接" placeholder-class="input-placeholder" bindinput="linkInfo"/>
+                    <input type="text" placeholder="请插入链接" placeholder-class="input-placeholder" bindinput="linkInfo" value="{{url}}"/>
                 </view>
                 <view class="btn-box mx-1px-top">
                     <view class="item cancel"  bindtap="changeLink">取消</view>
