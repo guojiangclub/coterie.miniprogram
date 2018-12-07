@@ -210,6 +210,11 @@
   color: #202020;
   line-height: 24px;
 }
+#join .block.knowladge-item .theme-item .text .aite-name {
+  color: #004E9D;
+  display: inline-block;
+  padding: 0 3px;
+}
 #join .block.knowladge-item .theme-item .word {
   display: flex;
   align-items: center;

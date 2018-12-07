@@ -158,7 +158,22 @@
                     </view>
                 </view>
                 <view class="text" bindtap="jumpItemDetail" data-id="{{item.id}}" wx:if="{{item.style_type == 'default'}}">
-                    {{item.description}}
+                    <span wx:if="{{item.meta_info.at_user}}">
+                        <span wx:if="{{item.describeArr.length == 2 && item.describeArr[0] == ''}}">
+                            <span class="aite-name" bindtap="jumpPersonal" data-userid="{{item.meta_info.at_user.id}}">@{{item.meta_info.at_user.nick_name}}</span>{{item.describeArr[1]}}
+                        </span>
+                        <span wx:if="{{item.describeArr.length == 2 && item.describeArr[1] == ''}}">
+                            {{item.describeArr[0]}}<span class="aite-name" bindtap="jumpPersonal" data-userid="{{item.meta_info.at_user.id}}">@{{item.meta_info.at_user.nick_name}}</span>
+                        </span>
+                         <span wx:if="{{item.describeArr.length == 2 && item.describeArr[0] != '' && item.describeArr[1] != ''}}">
+                            {{item.describeArr[0]}}
+                             <span class="aite-name" bindtap="jumpPersonal" data-userid="{{item.meta_info.at_user.id}}">@{{item.meta_info.at_user.nick_name}}</span>
+                             {{item.describeArr[1]}}
+                        </span>
+                    </span>
+                    <span wx:else>
+                        {{item.description}}
+                    </span>
                 </view>
 
                 <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1 && item.style_type == 'default'}}">

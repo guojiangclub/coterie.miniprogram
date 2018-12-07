@@ -1,7 +1,7 @@
 import {config,getUrl,pageLogin,sandBox,cookieStorage} from '../../../lib/myapp.js';
 Page({
     data: {
-        id:8,//圈子id
+        id:'',//圈子id
         page:0,
         hasMore:true,
         user_id:16,//用户id
@@ -20,7 +20,7 @@ Page({
     },
     onShow(){
         this.getContnetList(this.data.id,1,'user',this.data.user_id);
-        this.getDetail(8);
+        this.getDetail(this.data.id);
 
     },
     onReachBottom() {

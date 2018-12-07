@@ -97,7 +97,23 @@
             </view>
             <view class="content-box">
                 <view class="text" wx:if="{{itemdetail.style_type == 'default'}}">
-                    {{itemdetail.description}}
+                     <span wx:if="{{itemdetail.meta_info.at_user}}">
+                        <span wx:if="{{itemdetail.describeArr.length == 2 && itemdetail.describeArr[0] == ''}}">
+                            <span class="aite-name" bindtap="jumpPersonal" data-userid="{{itemdetail.meta_info.at_user.id}}">@{{itemdetail.meta_info.at_user.nick_name}}</span>{{itemdetail.describeArr[1]}}
+                        </span>
+                        <span wx:if="{{itemdetail.describeArr.length == 2 && itemdetail.describeArr[1] == ''}}">
+                            {{itemdetail.describeArr[0]}}<span class="aite-name" bindtap="jumpPersonal" data-userid="{{itemdetail.meta_info.at_user.id}}">@{{itemdetail.meta_info.at_user.nick_name}}</span>
+                        </span>
+                         <span wx:if="{{itemdetail.describeArr.length == 2 && itemdetail.describeArr[0] != '' && itemdetail.describeArr[1] != ''}}">
+                            {{itemdetail.describeArr[0]}}
+                             <span class="aite-name" bindtap="jumpPersonal" data-userid="{{itemdetail.meta_info.at_user.id}}">@{{itemdetail.meta_info.at_user.nick_name}}</span>
+                             {{itemdetail.describeArr[1]}}
+                        </span>
+                    </span>
+                    <span wx:else>
+                        {{itemdetail.description}}
+                    </span>
+
                 </view>
                 <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length != 1 && itemdetail.style_type == 'default'}}">
                     <view class="item__list more">

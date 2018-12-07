@@ -140,8 +140,14 @@ Page({
             if(res.statusCode==200){
                 res = res.data;
                 if (res.status) {
+                    var detail = res.data;
+                    if(detail.meta_info.at_user){
+                        var reg = '@'+detail.meta_info.at_user.nick_name;
+                        var describeArr = detail.description.split(reg);
+                        detail.describeArr = describeArr;
+                    }
                     this.setData({
-                        itemdetail:res.data
+                        itemdetail:detail
                     })
                 } else {
                     wx.showModal({
