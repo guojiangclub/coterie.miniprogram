@@ -160,6 +160,7 @@
                 <view class="text" bindtap="jumpItemDetail" data-id="{{item.id}}" wx:if="{{item.style_type == 'default'}}">
                     {{item.description}}
                 </view>
+
                 <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1 && item.style_type == 'default'}}">
                     <view class="item__list more">
                         <view class="list__li" bindtap="preImage" wx:for="{{item.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" data-url="{{url}}" data-urlList="{{item.img_list_info}}">

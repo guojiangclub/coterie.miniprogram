@@ -7,7 +7,7 @@ import  { getUrl }  from "./myapp.js"
 // const {Http} = weapp(wx);
 // const http = Http(config.GLOBAL.baseUrl);
 var gbConfig = {
-    appid: 'wx3d8e82124644cfac'
+    appid: 'LZBArz5DGgxwoa1'
 };
 export const sandBox = {
     get({api, data, header}){

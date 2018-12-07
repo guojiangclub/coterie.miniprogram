@@ -10,7 +10,7 @@ Page({
             cost_type: 'free'
         }
     },
-    onload(e){
+    onLoad(e){
         var id = e.id
         this.setData({
             id:id

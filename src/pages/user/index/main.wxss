@@ -4,6 +4,12 @@
   display: flex;
   align-items: center;
 }
+#personal-center .header .txt {
+  font-size: 24px;
+  width: 100%;
+  color: #FFFFFF;
+  height: 72px;
+}
 #personal-center .header .avatar {
   width: 72px;
   height: 72px;

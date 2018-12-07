@@ -111,7 +111,7 @@ Page({
             url:'/pages/knowladge/memberManage/main?id='+this.data.id
         })
     },
-    //点击数据圈设置
+    //点击数据圈设置更新信息
     jumpchangeSet(){
         wx.navigateTo({
             url:'/pages/knowladge/update/main?id='+this.data.id

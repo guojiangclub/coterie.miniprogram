@@ -224,8 +224,19 @@ Page({
                     var pages = res.meta.pagination;
                     var current_page = pages.current_page;
                     var total_pages = pages.total_pages;
+                    //给数据做处理
+                    if(res.data){
+                        var list = res.data;
+                        list.forEach((val,index)=>{
+                            if(val.meta_info.at_user){
+                                var reg = '@'+val.meta_info.at_user.nick_name;
+                                var describeArr = val.description.split(reg);
+                                val.describeArr = describeArr;
+                            }
+                        })
+                    }
                     this.setData({
-                        [`contentList[${page-1}]`]:res.data,
+                        [`contentList[${page-1}]`]:list,
                         page:current_page,
                         hasMore:current_page < total_pages
                     })
