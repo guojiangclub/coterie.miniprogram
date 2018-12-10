@@ -119,5 +119,5 @@
   border-bottom: 6px solid #E6E6E6;
 }
 #member-manage .permission.cur {
-  height: 206px;
+  height: auto;
 }

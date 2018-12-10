@@ -9,7 +9,7 @@
         </view>
         <view class="content">
             <view class="guest manage-item">
-                <view class="title" wx:if="{{memberList[0].length}}">圈主/嘉宾</view>
+                <view class="title">圈主/嘉宾</view>
                 <view class="member-list">
                     <view class="item mx-1px-bottom" wx:for="{{owner_list}}" wx:key="{{index}}" bindtap="showSet" data-item="{{item}}">
                         <view class="avatar">
@@ -53,8 +53,8 @@
         <!-- 弹出权限设置-->
         <view class="mask {{is_show ? 'cur' :''}}" bindtap="cancle"></view>
         <view class="permission {{is_show ? 'cur': '' }}">
-            <view class="item mx-1px-bottom" bindtap="setGuest">设为嘉宾</view>
-            <view class="item mx-1px-bottom" bindtap="cancleGuest">取消嘉宾</view>
+            <view class="item mx-1px-bottom" bindtap="setGuest" wx:if="{{activeItem.user_type == 'normal'}}">设为嘉宾</view>
+            <view class="item mx-1px-bottom" bindtap="cancleGuest" wx:if="{{activeItem.user_type == 'guest'}}">取消嘉宾</view>
            <!-- <view class="item mx-1px-bottom">禁言</view>-->
             <view class="item bor" bindtap="delete">踢出数据圈</view>
             <view class="item mx-1px-bottom cancel" bindtap="cancle">取消</view>

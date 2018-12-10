@@ -37,9 +37,15 @@ Page({
     //点击每个item弹出设置
     showSet(e){
         this.setData({
-            activeItem:e.currentTarget.dataset.item,
-            is_show:true
+            activeItem:e.currentTarget.dataset.item
         })
+         if(this.data.activeItem.user_type == 'owner'){
+            return
+         } else {
+             this.setData({
+                 is_show:true
+             })
+         }
     },
     //设为嘉宾
     setGuest(){
@@ -52,6 +58,8 @@ Page({
         }
 
     },
+    //邀请嘉宾
+
     //踢出数据圈数据
     delete(){
         this.postDelete(this.data.activeItem.id,this.data.activeItem.coterie_id)
@@ -88,6 +96,9 @@ Page({
             if (res.statusCode == 200){
                 res = res.data;
                 if(res.status){
+                    WX.showToast({
+                        titel:'成功踢出数据圈'
+                    })
                     this.getMember(this.data.id,1,this.data.name);
                 } else {
                     wx.showModal({
@@ -141,6 +152,15 @@ Page({
                 res = res.data;
                 if(res.status){
                     this.getMember(this.data.id,1,this.data.name);
+                    if(user_type == 'normal'){
+                        wx.showToast({
+                            title:'取消嘉宾成功'
+                        })
+                    } else if(user_type == 'guest'){
+                        wx.showToast({
+                            titel:'设置嘉宾成功'
+                        })
+                    }
                 } else {
                     wx.showModal({
                         content:res.message ||  "服务器开了小差，请重试",

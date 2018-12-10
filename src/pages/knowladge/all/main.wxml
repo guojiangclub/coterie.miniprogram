@@ -4,18 +4,17 @@
     </view>
     <view class="knowladge-info block">
         <view class="knowladge-avatar">
-            <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            <image src="{{detail.avatar}}"></image>
         </view>
         <view class="title">
-            愿作鸳鸯不羡仙。
+            {{detail.name}}
         </view>
         <view class="desc-box mx-1px-bottom">
             <view class="desc">
-                <view class="text {{descAll ? 'all' : ''}}">
-                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
-                    2018年6月最优质星球评选第一名 ，汇聚腾讯、阿里、百度等20位互联网一线设计大咖，以超7年行业经验，与你交流讨论、为你答疑解惑。
+                <view class="text js_desc {{descAll ? 'all' : ''}}">
+                    {{detail.description}}
                 </view>
-                <view class="all-btn" bindtap="changeDesc">
+                <view class="all-btn" bindtap="changeDesc" wx:if="{{show_desc_btn}}" >
                     <block wx:if="{{!descAll}}">展开全部</block>
                     <block wx:else>收起</block>
                 </view>
@@ -23,86 +22,32 @@
         </view>
         <view class="lord-box">
             <view class="img">
-                <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+                <image src="{{detail.user.avatar || 'https://ibrand-miniprogram.oss-cn-hangzhou.aliyuncs.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%A4%B4%E5%83%8F.png'}}"></image>
             </view>
             <view class="info">
                 <view class="name">
-                    圈主：水煮哈密瓜
+                    圈主：{{detail.user.nick_name}}
                 </view>
                 <view class="time">
-                    创建于 2018-10-08
+                    创建于 {{detail.created_at}}
                 </view>
             </view>
         </view>
-        <view class="guest-box">
+        <view class="guest-box" wx:if="{{detail.member_guest.length != 0}}">
             <view class="guest-title mx-1px-bottom">
                 <view class="text">
                     嘉宾
                 </view>
             </view>
-            <view class="guest-avatar {{guestAll ? 'all' : ''}}" >
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
+            <view class="guest-avatar js_guest {{guestAll ? 'all' : ''}}" >
+                <view class="item" wx:for="{{detail.member_guest}}" wx:key="{{index}}">
+                    <image src="{{item.user_meta_info.avatar}}"></image>
                     <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
-                    </view>
-                </view>
-                <view class="item">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    <view>
-                        水煮哈密瓜
+                        {{item.nick_name}}
                     </view>
                 </view>
             </view>
-            <view class="all-btn" bindtap="changeGuest">
+            <view class="all-btn" bindtap="changeGuest" wx:if="{{show_guest_btn}}" >
                 <block wx:if="{{!guestAll}}">展开全部</block>
                 <block wx:else>收起</block>
             </view>
@@ -111,7 +56,7 @@
         <view class="info-box mx-1px-top">
             <view class="info-item ">
                 <view class="num">
-                    1000
+                    {{detail.content_count}}
                 </view>
                 <view  class="line mx-1px-right">
                 </view>
@@ -121,7 +66,7 @@
             </view>
             <view class="info-item">
                 <view class="num">
-                    1000
+                    {{detail.member_count}}
                 </view>
                 <view  class="line mx-1px-right">
                 </view>
@@ -131,7 +76,7 @@
             </view>
             <view class="info-item">
                 <view class="num">
-                    1000
+                    {{detail.recommend_count}}
                 </view>
                 <view  class="line mx-1px-right">
                 </view>
@@ -141,7 +86,7 @@
             </view>
             <view class="info-item">
                 <view class="num">
-                    1000
+                    {{detail.ask_count}}
                 </view>
                 <view class="text">
                     问答

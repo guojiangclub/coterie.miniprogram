@@ -15,13 +15,13 @@
                 <view class="describle">
                     {{detail.description}}
                 </view>
-                <view class="check-information">
+                <view class="check-information" bindtap="jumpAll">
                     查看详细信息
                 </view>
             </view>
-            <view class="business-card set-item">
+            <view class="business-card set-item" bindtap="jumpPersonal">
                 <view class="title">我的名片</view>
-                <view class="name">{{detail.user.nick_name}}</view>
+                <view class="name">{{info.nick_name}}</view>
                 <view class="iconfont icon-jiantou"></view>
             </view>
             <view class="data-set set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="jumpchangeSet">
@@ -31,6 +31,10 @@
             <view class="drop-out set-item" wx:if="{{detail.coterie_user_type != 'owner'}}">退出圈子</view>
             <view class="member-manage set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="jumpManage">
                 <view class="title">成员管理</view>
+                <view class="iconfont icon-jiantou"></view>
+            </view>
+            <view class="member-manage set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="jumpInvite">
+                <view class="title">邀请嘉宾</view>
                 <view class="iconfont icon-jiantou"></view>
             </view>
             <view class="disbanding set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="disMiss">解散圈子</view>

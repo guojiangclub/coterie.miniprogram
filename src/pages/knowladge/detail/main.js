@@ -29,16 +29,16 @@ Page({
       this.setData({
           id:e.id
       })
+        this.getTags(this.data.id,1);
+        this.getDetail(this.data.id);
     },
     onShow(){
         if(a){
             a = false;
             return
         }
-        this.getDetail(this.data.id);
         this.getStick(this.data.id);
         this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
-        this.getTags(this.data.id,1);
     },
     onReachBottom() {
         if (this.data.hasMore) {

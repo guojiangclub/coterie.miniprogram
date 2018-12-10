@@ -1,5 +1,5 @@
 <view id="join">
-    <block v-if="{{init}}">
+    <block>
         <view class="top-bg">
 
         </view>

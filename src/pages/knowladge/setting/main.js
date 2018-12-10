@@ -2,17 +2,30 @@ import {config,getUrl,pageLogin,sandBox,cookieStorage} from '../../../lib/myapp.
 Page({
     data:{
         id:'',//圈子id
-        detail:''
+        detail:'',
+        info:'',//个人信息
 
-
-    },
-    onShow(){
-        this.getDetail(this.data.id)
 
     },
     onLoad(e){
         this.setData({
             id:e.id
+        })
+        this.getmeInfo();
+    },
+    onShow(){
+        this.getDetail(this.data.id);
+    },
+    //跳到邀请嘉宾页面去
+    jumpInvite(){
+        wx.navigateTo({
+            url:'/pages/knowladge/goInvite/main?id='+this.data.id
+        })
+    },
+    //跳到查看详细信息去
+    jumpAll(){
+        wx.navigateTo({
+            url:'/pages/knowladge/all/main?id='+this.data.id
         })
     },
     // 获取圈子详情
@@ -28,7 +41,7 @@ Page({
                 Authorization: token
             },
             data:{
-                id: id
+                id:id
             },
         }).then(res =>{
             if(res.statusCode==200){
@@ -111,12 +124,59 @@ Page({
             url:'/pages/knowladge/memberManage/main?id='+this.data.id
         })
     },
+    //邀请嘉宾
+
     //点击数据圈设置更新信息
     jumpchangeSet(){
         wx.navigateTo({
             url:'/pages/knowladge/update/main?id='+this.data.id
         })
-    }
+    },
+    //点击跳到个人中心页
+    jumpPersonal(){
+        wx.switchTab({
+            url:'/pages/user/index/main'
+        })
+
+    },
+    //请求me接口
+    getmeInfo() {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token')
+        sandBox.get({
+            api: 'api/me',
+            header:{
+                Authorization: token
+            },
+            data:{
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        info:res.data
+                    })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
 
 
 })
