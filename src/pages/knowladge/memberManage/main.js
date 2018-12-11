@@ -86,7 +86,7 @@ Page({
         sandBox.post({
             api:'api/member/delete',
             data:{
-                id:id,
+                member_id:id,
                 coterie_id:coterie_id
             },
             header:{
@@ -140,7 +140,7 @@ Page({
         sandBox.post({
             api:'api/member/user',
             data:{
-                id:id,
+                member_id:id,
                 user_type:user_type,
                 coterie_id:coterie_id
             },

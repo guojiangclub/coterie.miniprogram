@@ -125,7 +125,7 @@ Page({
                 Authorization: token
             },
             data:{
-                id: id
+                coterie_id: id
             },
         }).then(res =>{
             if(res.statusCode==200){

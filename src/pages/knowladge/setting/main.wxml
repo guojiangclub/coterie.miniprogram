@@ -28,7 +28,7 @@
                 <view class="title">数据圈设置</view>
                 <view class="iconfont icon-jiantou"></view>
             </view>
-            <view class="drop-out set-item" wx:if="{{detail.coterie_user_type != 'owner'}}">退出圈子</view>
+            <view class="drop-out set-item" wx:if="{{detail.coterie_user_type != 'owner'}}" bindtap="dropOut">退出圈子</view>
             <view class="member-manage set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="jumpManage">
                 <view class="title">成员管理</view>
                 <view class="iconfont icon-jiantou"></view>
