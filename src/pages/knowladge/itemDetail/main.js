@@ -14,13 +14,19 @@ Page({
         hasMore:true,
         commentId:'',
         to_meta:{},
-        replyType:''
+        replyType:'',
+        comment_id:'',//从消息通知带来的id
     },
     onLoad(e){
         this.setData({
             id:e.id,
             content_id:e.content_id
-        })
+        });
+        if(e.comment_id){
+            this.setData({
+                comment_id:e.comment_id
+            })
+        }
     },
     onShow(){
         if(a){
@@ -28,12 +34,14 @@ Page({
             return
         }
         this.postContent(this.data.id,this.data.content_id);
-        this.getcomment(this.data.content_id,1);
+        var comment_id = this.data.comment_id || '';
+        this.getcomment(this.data.content_id,comment_id,1);
     },
     onReachBottom() {
         if (this.data.hasMore) {
             var page = this.data.page + 1;
-            this.getcomment(this.data.content_id,page);
+            var comment_id = this.data.comment_id || '';
+            this.getcomment(this.data.content_id,comment_id,page);
         } else {
             /*wx.showToast({
              image: '../../../assets/image/error.png',
@@ -243,7 +251,7 @@ Page({
       })
     },
     //请求评论列表
-    getcomment(content_id,page){
+    getcomment(content_id,comment_id,page){
         wx.showLoading({
             title: '加载中',
             mask: true
@@ -256,6 +264,7 @@ Page({
             },
             data:{
                 content_id:content_id,
+                comment_id:comment_id,
                 page:page
             },
         }).then(res =>{
@@ -266,6 +275,9 @@ Page({
                     var pages = res.meta.pagination;
                     var current_page = pages.current_page;
                     var total_pages = pages.total_pages;
+                    if (res.meta.comment && current_page == '1') {
+                        res.data.unshift(res.meta.comment)
+                    }
                     this.setData({
                         [`commentList[${page-1}]`]:res.data,
                         page:current_page,

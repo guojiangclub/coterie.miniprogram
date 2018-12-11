@@ -177,7 +177,7 @@ Page({
             title: '加载中',
             mask: true
         })
-        var token = cookieStorage.get('user_token')
+        var token = cookieStorage.get('user_token') || '';
         sandBox.get({
             api: 'api/coterie',
             header:{

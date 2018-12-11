@@ -1,0 +1,9 @@
+<view id="share_coterie">
+    <view class="img-box">
+        <image src="" mode="widthFix">
+
+        </image>
+    </view>
+    <view class="btn">保存分享</view>
+
+</view>
