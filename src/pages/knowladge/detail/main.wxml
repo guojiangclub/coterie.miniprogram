@@ -22,7 +22,7 @@
                     共{{detail.member_count}}个成员
                 </view>
             </view>
-            <view class="right">
+            <view class="right" bindtap="invitePerson">
                 <i class="iconfont icon-yaoqinghaoyou"></i>
                 <view>
                     邀请好友
@@ -226,7 +226,7 @@
                         <i class="iconfont icon-dashang1"></i>
                         <view>打赏</view>
                     </view>-->
-                    <view class="item">
+                    <view class="item" bindtap="shareSome" data-item="{{item}}">
                         <i class="iconfont icon-fenxiang"></i>
                         <view>分享</view>
                     </view>

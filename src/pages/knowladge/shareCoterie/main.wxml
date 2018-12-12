@@ -1,9 +1,8 @@
 <view id="share_coterie">
     <view class="img-box">
-        <image src="" mode="widthFix">
+        <image src="{{imgurl}}" mode="widthFix">
 
         </image>
     </view>
-    <view class="btn">保存分享</view>
-
+    <view class="btn" bindtap="downImg">保存分享</view>
 </view>

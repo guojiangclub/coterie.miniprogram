@@ -16,6 +16,8 @@ Page({
         to_meta:{},
         replyType:'',
         comment_id:'',//从消息通知带来的id
+        content_url:''
+
     },
     onLoad(e){
         this.setData({
@@ -48,6 +50,21 @@ Page({
              title: '再拉也没有啦'
              });*/
             return
+        }
+    },
+    onShareAppMessage(){
+        var title = '';
+        var path = '';
+        var imageUrl = '';
+        if(this.data.content_url){
+            title = '来自'+ this.data.itemdetail.coterie.name + this.data.itemdetail.user.nick_name+'的主题分享';
+            path = '/pages/knowladge/shareItem/main?id='+this.data.id+'&content_id='+this.data.content_id+'&invite_user_code='+this.data.itemdetail.invite_user_code;
+            imageUrl = this.data.content_url
+        }
+        return{
+            title:title,
+            path:path,
+            imageUrl:imageUrl
         }
     },
     changeSetting() {
@@ -115,8 +132,18 @@ Page({
     },
     changeShare() {
         this.setData({
-            show_share: !this.data.show_share
+            show_share: !this.data.show_share,
+            content_url:''
         })
+    },
+    //跳到朋友圈生成海报
+    getShearImg(){
+        if(this.data.content_url){
+            wx.navigateTo({
+                url:'/pages/knowladge/shareCoterie/main?url='+this.data.content_url
+            })
+        }
+        this.changeShare();
     },
     //预览图
     preImage(e){
@@ -374,6 +401,51 @@ Page({
                     wx.showToast({
                         title:'删除成功'
                     })
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    shareSome(e){
+        this.postContentUrl(this.data.itemdetail.invite_user_code,this.data.content_id)
+    },
+    //请求content图片的url
+    postContentUrl(code,content_id) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/content/share',
+            header:{
+                Authorization: token
+            },
+            data:{
+                invite_user_code:code,
+                content_id:content_id
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_share:!this.data.show_share,
+                        content_url:res.data.url
+                    })
+
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",

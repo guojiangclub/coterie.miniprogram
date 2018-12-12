@@ -1,6 +1,6 @@
 <view id="personal-center">
     <block>
-        <view class="header" wx:if="{{token}}">
+        <view class="header" wx:if="{{token && info.nick_name}}">
             <view class="avatar">
                 <image src="{{info.avatar}}" alt=""></image>
             </view>
@@ -8,7 +8,10 @@
                 {{info.nick_name}}
             </view>
         </view>
-        <view class="header" bindtap="jumpLogin" wx:else>
+        <view class="header" wx:if="{{token && !info.nick_name}}">
+            <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="btn">点击完善信息</button>
+        </view>
+        <view class="header" bindtap="jumpLogin" wx:if="{{!token}}">
             <view class="txt">注册/登录</view>
         </view>
         <!--<view class="content">

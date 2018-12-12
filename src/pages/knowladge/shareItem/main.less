@@ -1,0 +1,452 @@
+@import "../../../assets/css/global";
+#shareItem{
+  padding-bottom: 70px;
+  //padding: 0 15px 20px 15px;
+  .knowladge-item {
+    .theme-item {
+      .avatar-box {
+        background: #ffffff;
+        display: flex;
+        align-content: center;
+        padding: 15px;
+
+        .img {
+          width: 36px;
+          height: 36px;
+          border-radius: 100%;
+          overflow: hidden;
+          image {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .info {
+          overflow: hidden;
+          flex: 1;
+          margin-left: 15px;
+          .name {
+            font-weight: bold;
+            font-size: 14px;
+          }
+          .time {
+            font-size: 11px;
+            color: #909090;
+          }
+        }
+        .option {
+          color: #4A4A4A;
+          font-size: 25px;
+        }
+      }
+      .content-box {
+        background: #ffffff;
+        padding: 15px;
+
+        //图片
+        .img {
+          .item__list{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 0 0 0;
+            ::after{
+              content: "";
+              display: block;
+              clear: both;
+              height: 0;
+              overflow: hidden;
+              visibility: hidden;
+            }
+            .img{
+              width: 100%;
+              image{
+                width: 100%;
+              }
+            }
+            .list__li{
+              width: 33.33%;
+              padding: 1%;
+
+              .more {
+                margin: 0 -1%;
+              }
+              view{
+                position: relative;
+                width: 100%;
+                height: 0;
+                overflow: hidden;
+                margin: 0;
+                padding-bottom: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                span{
+                  display: block;
+                  position: absolute;
+                  width: 100%;
+                  top: 0;
+                  bottom: 0;
+                }
+              }
+            }
+          }
+        }
+        //文字
+        .text {
+          color: #202020;
+          line-height: 24px;
+          .aite-name{
+            color: @globalColor;
+            display: inline-block;
+            padding: 0 3px;
+          }
+        }
+        //文档
+        .word {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          line-height: 40px;
+          background: #F8F8F8;
+          border-radius: 2px;
+          margin-top: 10px;
+          .ico-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 2px;
+            background: #FB5054;
+          }
+          .text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-left: 15px;
+            flex: 1;
+          }
+        }
+        //url
+        .url {
+          .edit-link{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color:#F3F3F3;
+            padding:10px;
+            position: relative;
+            .link-left{
+              flex: 1;
+              overflow: hidden;
+              .title{
+                color: #4A4A4A;
+                font-size: 12px;
+                line-height: 17px;
+                padding-bottom: 16px;
+              }
+              .txt{
+                color: #909090;
+                font-size: 12px;
+                line-height: 17px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+            }
+            .link-right{
+              width:50px;
+              height: 50px;
+              background-color: @globalColor;
+              line-height: 50px;
+              text-align: center;
+              span{
+                display: inline-block;
+                color:#ffffff;
+                font-size: 19px;
+              }
+            }
+          }
+        }
+        //回复
+        .reply-box {
+          .ask {
+            background: #F8F8F8;
+            border-radius: 2px;
+            color: #4A4A4A;
+            margin-bottom: 10px;
+            .text {
+              padding: 5px 10px;
+            }
+
+          }
+        }
+
+        //标签
+        .tag-box {
+          margin-top: 20px;
+          color: @globalColor;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    //点赞
+    .awesome-box {
+      display: flex;
+      align-items: flex-start;
+      padding: 15px;
+      color: @globalColor;
+      .iconfont {
+        margin-right: 5px;
+      }
+      .text-box {
+        padding-top: 2px;
+      }
+
+    }
+    //评论
+    .comment-box {
+      .comment-item {
+        margin-left: 15px;
+        padding-bottom: 15px;
+        .avatar-box {
+          display: flex;
+          align-content: center;
+          padding: 15px 15px 10px 0;
+
+          .img {
+            width: 36px;
+            height: 36px;
+            border-radius: 100%;
+            overflow: hidden;
+            image {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .info {
+            overflow: hidden;
+            flex: 1;
+            margin-left: 15px;
+            .name {
+              font-weight: bold;
+              font-size: 14px;
+            }
+            .time {
+              font-size: 11px;
+              color: #909090;
+            }
+          }
+          .option {
+            display: flex;
+            align-items: center;
+            color: #4A4A4A;
+            i {
+              margin: -1px 0 0 5px;
+            }
+
+            &.active {
+              color: @globalColor;
+            }
+            .delete{
+              color: #909090;
+              font-size: 13px;
+              span{
+                display: inline-block;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background-color:#D8D8D8;
+                margin: 0 5px;
+              }
+            }
+          }
+        }
+        .comment-text {
+          margin-left: 51px;
+          padding-right: 15px;
+          margin-bottom: 15px;
+        }
+        .child-item-box {
+          margin-left: 51px;
+          padding-right: 15px;
+          .child-item {
+            position: relative;
+            /*display: flex;*/
+            background: #E7E7E7;
+            color: #4A4A4A;
+            border-radius: 2px;
+            padding: 10px;
+           /* margin-top: 10px;*/
+
+            &:after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              margin: 0!important;
+              line-height: 0;
+              border-style: solid;
+              z-index: 2;
+              top: -15px;
+              left: 8px;
+              border-color: transparent transparent  #E7E7E7 transparent;
+              border-width: 8px;
+            }
+            .left {
+              span{
+                color:#4A4A4A;
+                &.txt{
+                  display: inline-block;
+                  color:@globalColor;
+                  margin-right: 5px;
+
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .operating-box {
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 0;
+    background: #ffffff;
+    box-shadow:0px 2px 4px 0px rgba(0,0,0,0.5);
+    background-color: @globalColor;
+    text-align: center;
+    color: #FFFFFF;
+
+  }
+
+  .no-more {
+    font-size:12px;
+    color:#999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin: 20px 0 0 0;
+    padding:0 40px;
+  }
+
+  .no-more::before,.no-more::after {
+    content: '';
+    height: 1rpx;
+    background: #e4e4e4;
+    flex: 1;
+  }
+
+  .no-more::before {
+    margin-right: 10px;
+  }
+
+  .no-more::after {
+    margin-left: 10px;
+  }
+
+
+  .publish-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    background: @globalColor;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #ffffff;
+    i{
+      margin-right: 5px;
+    }
+  }
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: rgba(0,0,0,.4);
+    display: none;
+
+    &.cur {
+      display: block;
+    }
+    &.is_share {
+      background: none;
+    }
+  }
+  .comment{
+    background:#F3F3F3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 50;
+    .small-box{
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      input{
+        flex: 1;
+        border-radius:3px;
+        height: 40px;
+        background-color: #FFFFFF;
+        line-height: 40px;
+      }
+      .send{
+        color: #4A4A4A;
+        font-size: 12px;
+        line-height: 40px;
+        padding-left: 10px;
+      }
+
+    }
+
+    &.cur{
+      height: 60px;
+    }
+  }
+  .share-box {
+    background: #CDCDD1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 50;
+    transition:all .3s linear;
+    .shaer-item {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 18px;
+      color: #2E2D2D;
+      background: #ffffff;
+      border-radius: 0;
+      &:after {
+        border: none;
+      }
+      &.clear {
+        margin-top: 5px;
+        color: #9B9B9B;
+      }
+    }
+
+    &.cur{
+      height:auto;
+    }
+
+    &.setting {
+    }
+  }
+
+}

@@ -6,13 +6,13 @@ Page({
 
     },
     onLoad(){
+
+    },
+    onShow(){
         var token = cookieStorage.get('user_token');
         this.setData({
             token :token
         })
-
-    },
-    onShow(){
         if(this.data.token){
             this.getmeInfo();
         }
@@ -50,6 +50,48 @@ Page({
             else{
                 wx.showModal({
                     content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    bindgetuserinfo(e){
+        this.updateUserInfo(e.detail.userInfo);
+    },
+    //将得到的信息发送给后台
+    updateUserInfo(info){
+        wx.showLoading({
+            title: '更新中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token')
+        sandBox.post({
+            api: 'api/users/update/info',
+            header:{
+                Authorization: token
+            },
+            data:{
+                nick_name:info.nickName,
+                sex:info.gender == 1 ? '男' : '女',
+                avatar:info.avatarUrl,
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                   this.getmeInfo();
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "更新失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"更新失败",
                     showCancel: false
                 });
                 wx.hideLoading();

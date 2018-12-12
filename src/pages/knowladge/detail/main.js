@@ -3,6 +3,8 @@ var a;
 Page({
     data: {
         show_share: false,  // 分享
+        coterie_url:'',//圈子分享图片的url
+        content_url:'',//圈子content 分享图片的信息
         show_setting: false, // 设置
         show_publish: false, // 发表
         show_filter: false, // 筛选
@@ -23,7 +25,8 @@ Page({
         selectItem:{
             is_stick:'',
             is_recommend:''
-        },//选中的item
+        },//举报标记精华选中的item
+        activeItem:'',//分享选中的item
     },
     onLoad(e){
       this.setData({
@@ -51,6 +54,132 @@ Page({
             });*/
             return
         }
+    },
+    onShareAppMessage(){
+        var title = '';
+        var path = '';
+        var imageUrl = '';
+        if(this.data.coterie_url){
+            title = this.data.detail.login_user_meta.nick_name + '向你推荐' + this.data.detail.name;
+            path = '/pages/knowladge/join/main?id='+this.data.id+'&invite_user_code='+this.data.detail.invite_user_code;
+            imageUrl = this.data.coterie_url
+        } else if(this.data.content_url){
+            title = '来自'+ this.data.detail.name + this.data.activeItem.user.nick_name+'的主题分享';
+            path = '/pages/knowladge/shareItem/main?id='+this.data.id+'&content_id='+this.data.activeItem.id+'&invite_user_code='+this.data.detail.invite_user_code;
+            imageUrl = this.data.content_url
+        }
+        return{
+            title:title,
+            path:path,
+            imageUrl:imageUrl
+        }
+    },
+    //跳到朋友圈生成海报
+    getShearImg(){
+      if(this.data.coterie_url){
+          wx.navigateTo({
+              url:'/pages/knowladge/shareCoterie/main?url='+this.data.coterie_url
+          })
+      } else if(this.data.content_url){
+          wx.navigateTo({
+              url:'/pages/knowladge/shareCoterie/main?url='+this.data.content_url
+          })
+      }
+        this.changeShare();
+    },
+    invitePerson(){
+        this.postImgUrl(this.data.detail.invite_user_code);
+    },
+    shareSome(e){
+        this.setData({
+            activeItem:e.currentTarget.dataset.item
+        },()=>{
+            this.postContentUrl(this.data.detail.invite_user_code,this.data.activeItem.id)
+        })
+
+    },
+    //请求圈子图片的url
+    postImgUrl(code) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/coterie/share',
+            header:{
+                Authorization: token
+            },
+            data:{
+                invite_user_code:code
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_share:!this.data.show_share,
+                        coterie_url:res.data.url
+                    })
+
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
+    },
+    //请求content图片的url
+    postContentUrl(code,content_id) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/content/share',
+            header:{
+                Authorization: token
+            },
+            data:{
+                invite_user_code:code,
+                content_id:content_id
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_share:!this.data.show_share,
+                        content_url:res.data.url
+                    })
+
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
     },
     //跳到个人页
     jumpPersonal(e){
@@ -94,12 +223,17 @@ Page({
     },
     changeSet(){
         this.setData({
-            show_setting: !this.data.show_setting
+            show_setting: !this.data.show_setting,
+            selectItem:''
         })
     },
     changeShare() {
         this.setData({
-            show_share: !this.data.show_share
+            show_share: !this.data.show_share,
+            coterie_url:'',
+            content_url:'',
+            activeItem:''
+
         })
     },
     changePublish() {

@@ -83,10 +83,12 @@ Page({
             mask: true
         });
         var token = cookieStorage.get('user_token');
+        var invite_user_code = cookieStorage.get('invite_user_code') || '';
         sandBox.post({
             api:'api/member/store',
             data:{
-                coterie_id:id
+                coterie_id:id,
+                invite_user_code:invite_user_code
             },
             header:{
                 Authorization:token
@@ -260,7 +262,8 @@ Page({
         sandBox.post({
             api:'api/order/store',
             data:{
-                coterie_id:id
+                coterie_id:id,
+
             },
             header:{
                 Authorization:token
@@ -271,10 +274,13 @@ Page({
                 console.log(res);
                 if (res.status){
                     this.getOpenid().then(ret => {
+                        var invite_user_code = cookieStorage.get('invite_user_code') || '';
+
                         var oauth = cookieStorage.get('user_token');
                         var data = {
                             openid: ret,
-                            order_no: res.data.order_no
+                            order_no: res.data.order_no,
+                            invite_user_code:invite_user_code
                         };
                         sandBox.post({
                             api: `api/coterie/payment`,

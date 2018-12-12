@@ -7,7 +7,7 @@
         </view>
         <view class="content">
             <view class="container">
-                <view class="share">
+                <view class="share" bindtap="shareSome">
                     <span class="iconfont icon-fenxiang"></span>
                     分享数据圈
                 </view>
@@ -38,6 +38,23 @@
                 <view class="iconfont icon-jiantou"></view>
             </view>
             <view class="disbanding set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="disMiss">解散圈子</view>
+        </view>
+    </block>
+    <!--分享部分-->
+    <block>
+        <view class="mask is_share {{show_share ? 'cur' : ''}}" bindtap="changeShare">
+
+        </view>
+        <view class="share-box {{show_share ? 'cur' : ''}}">
+            <button class="shaer-item" open-type="share">
+                分享给好友
+            </button>
+            <view class="shaer-item mx-1px-top" bindtap="getShearImg">
+                生成海报
+            </view>
+            <view class="shaer-item clear" bindtap="changeShare">
+                取消
+            </view>
         </view>
     </block>
 </view>

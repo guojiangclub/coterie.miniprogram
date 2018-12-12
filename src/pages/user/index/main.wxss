@@ -30,6 +30,16 @@
   line-height: 22px;
   font-weight: bold;
 }
+#personal-center .header button {
+  background-color: #004E9D;
+  color: #FFFFFF;
+  font-size: 24px;
+  height: 72px;
+  line-height: 72px;
+}
+#personal-center .header button::after {
+  border: none;
+}
 #personal-center .content {
   margin-top: 10px;
 }

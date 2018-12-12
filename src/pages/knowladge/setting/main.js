@@ -4,6 +4,8 @@ Page({
         id:'',//圈子id
         detail:'',
         info:'',//个人信息
+        show_share:false,//分享
+        coterie_url:'',//圈子url
 
 
     },
@@ -16,10 +18,83 @@ Page({
     onShow(){
         this.getDetail(this.data.id);
     },
+    onShareAppMessage(){
+        var title = '';
+        var path = '';
+        var imageUrl = '';
+        if(this.data.coterie_url){
+            title = this.data.detail.login_user_meta.nick_name + '向你推荐' + this.data.detail.name;
+            path = '/pages/knowladge/join/main?id='+this.data.id+'&invite_user_code='+this.data.detail.invite_user_code;
+            imageUrl = this.data.coterie_url
+        }
+        return{
+            title:title,
+            path:path,
+            imageUrl:imageUrl
+        }
+    },
+    //跳到朋友圈生成海报
+    getShearImg(){
+        if(this.data.coterie_url){
+            wx.navigateTo({
+                url:'/pages/knowladge/shareCoterie/main?url='+this.data.coterie_url
+            })
+        }
+        this.changeShare();
+    },
+    changeShare(){
+        this.setData({
+            show_share:!this.data.show_share
+        })
+    },
     //跳到邀请嘉宾页面去
     jumpInvite(){
         wx.navigateTo({
             url:'/pages/knowladge/goInvite/main?id='+this.data.id
+        })
+    },
+    shareSome(e){
+        this.postImgUrl(this.data.detail.invite_user_code)
+    },
+    //请求圈子图片的url
+    postImgUrl(code) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token');
+        sandBox.post({
+            api: 'api/coterie/share',
+            header:{
+                Authorization: token
+            },
+            data:{
+                invite_user_code:code
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_share:!this.data.show_share,
+                        coterie_url:res.data.url
+                    })
+
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
         })
     },
     //跳到查看详细信息去

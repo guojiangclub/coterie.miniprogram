@@ -7,7 +7,8 @@ import  { getUrl }  from "./myapp.js"
 // const {Http} = weapp(wx);
 // const http = Http(config.GLOBAL.baseUrl);
 var gbConfig = {
-    appid: 'LZBArz5DGgxwoa1'
+    appid: 'LZBArz5DGgxwoa1',
+    wechatappid:'wx6f54b9a50feda087'
 };
 export const sandBox = {
     get({api, data, header}){
@@ -17,9 +18,11 @@ export const sandBox = {
         }
         if (header) {
             header.appid = gbConfig.appid
+            header.wechatappid = gbConfig.wechatappid
         } else {
             header = {};
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
         }
         return new Promise((resolve, reject) => {
 
@@ -48,10 +51,14 @@ export const sandBox = {
             gbConfig = extConfig
         }
         if (header) {
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         } else {
             header = {};
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         }
         return new Promise((resolve, reject) => {
             wx.request({
@@ -113,10 +120,12 @@ export const sandBox = {
             gbConfig = extConfig
         }
         if (header) {
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
         } else {
             header = {};
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
         }
         return new Promise((resolve,reject) => {
             wx.request({
@@ -142,10 +151,14 @@ export const sandBox = {
             gbConfig = extConfig
         }
         if (header) {
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         } else {
             header = {};
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         }
         return new Promise((resolve,reject) =>{
             wx.uploadFile({
@@ -168,10 +181,14 @@ export const sandBox = {
             gbConfig = extConfig
         }
         if (header) {
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         } else {
             header = {};
-            header.appid = gbConfig.appid
+            header.appid = gbConfig.appid;
+            header.wechatappid = gbConfig.wechatappid
+
         }
         return new Promise((resolve, reject) => {
             wx.downloadFile({

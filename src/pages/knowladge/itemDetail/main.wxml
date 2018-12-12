@@ -1,82 +1,4 @@
 <view id="itemDetail">
-    <!--<view class="block knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box">
-                <view class="img">
-                    <image src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                </view>
-                <view class="info">
-                    <view class="name">
-                        圈主：水煮哈密瓜
-                    </view>
-                    <view class="time">
-                        创建于 2018-10-08
-                    </view>
-                </view>
-            </view>
-            <view class="text">
-                分享一个 专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-            </view>
-            <view class="img">
-                <view class="item__list">
-                    &lt;!&ndash;如果图片长度为1，显示一张&ndash;&gt;
-                    <view class="img" bindtap="preImage">
-                        <image mode="widthFix" bindload="imgLoad"  src="https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132"></image>
-                    </view>
-                    <view class="img">
-                        <view class="item__list more">
-                            <view class="list__li" bindtap="preImage">
-                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                    <span></span>
-                                </view>
-                            </view>
-                            <view class="list__li" bindtap="preImage">
-                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                    <span></span>
-                                </view>
-                            </view>
-                            <view class="list__li" bindtap="preImage">
-                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                    <span></span>
-                                </view>
-                            </view>
-                            <view class="list__li" bindtap="preImage">
-                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                    <span></span>
-                                </view>
-                            </view>
-                            <view class="list__li" bindtap="preImage">
-                                <view style="background: url('https://wx.qlogo.cn/mmopen/vi_32/QvyPibAqLH5uEr7GNL6Lg9gvZxLYoARiawTicOVLySNYh7ABJYH2GPRLbX54F4jUHibag5QIrRbwKCS0ibYWmNUL8VA/132'); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                    <span></span>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="word">
-                        <view class="ico-img">
-
-                        </view>
-                        <view class="text">
-                            天善智能https://edu.hellobi.com/
-                        </view>
-                    </view>
-                    <view class="url">
-                        www.ibran.cc
-                    </view>
-                    <view class="reply-box">
-                        <view class="ask mx-1px-left">
-                            <view class="text">
-                                阳澄湖大闸蟹提问：分享一个专注商业智能和数据库性能优化，是中国目前最专业的商业智能团队。
-                            </view>
-                        </view>
-                        <view class="reply">
-                            2011年9月，天善智能由3位从事商业智能工作的技术人员组织成立，每位成员都非常热爱商业智能技术，并且看好商业智能在中国发展的巨大潜力，从最初的3人发展至今，已经拥有15位成员。如今，天善智能已经成为中国最受欢迎，影响力最大的商业智能团队。
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>-->
     <view class="knowladge-item">
         <view class="theme-item">
             <view class="avatar-box mx-1px-bottom">
@@ -224,7 +146,7 @@
             <i class="iconfont icon-dashang1"></i>
             <view>打赏</view>
         </view>-->
-        <view class="item"  bindtap="changeShare">
+        <view class="item"  bindtap="shareSome">
             <i class="iconfont icon-fenxiang"></i>
             <view>分享</view>
         </view>

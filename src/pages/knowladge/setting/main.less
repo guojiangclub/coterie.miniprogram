@@ -84,4 +84,54 @@
       }
     }
   }
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: rgba(0,0,0,.4);
+    display: none;
+
+    &.cur {
+      display: block;
+    }
+    &.is_share {
+      background: none;
+    }
+  }
+  .share-box {
+    background: #CDCDD1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 50;
+    transition:all .3s linear;
+    .shaer-item {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 18px;
+      color: #2E2D2D;
+      background: #ffffff;
+      border-radius: 0;
+      &:after {
+        border: none;
+      }
+      &.clear {
+        margin-top: 5px;
+        color: #9B9B9B;
+      }
+    }
+
+    &.cur{
+      height:auto;
+    }
+
+    &.setting {
+    }
+  }
 }

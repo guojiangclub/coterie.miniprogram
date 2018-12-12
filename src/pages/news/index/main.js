@@ -3,11 +3,21 @@ Page({
     data:{
         contentList:[],
         hasMore:true,
-        page:0
+        page:0,
+        token:''
 
     },
+    onLoad(){
+      var token = cookieStorage.get('user_token');
+      this.setData({
+          token:token
+
+      })
+    },
     onShow(){
-        this.getnotification(1);
+       if(token){
+           this.getnotification(1);
+       }
     },
     onReachBottom() {
         if (this.data.hasMore) {
