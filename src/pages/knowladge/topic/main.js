@@ -28,8 +28,10 @@ Page({
         this.setData({
             title:e.detail.value
         });
-    this.getTags(this.data.id,1,e.detail.value)
-
+    },
+    //点击搜索按钮搜索
+    searchTags(e){
+        this.getTags(this.data.id,1,e.detail.value)
     },
     //点击热门标签
     selectTags(e){

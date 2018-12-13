@@ -4,11 +4,11 @@
             <span>
                 #
             </span>
-            <input type="text" bindinput="getTitle"/>
+            <input type="text" bindinput="getTitle" confirm-type="search" bindconfirm="searchTags"/>
         </view>
         <view class="btn" bindtap="addTags">添加</view>
     </view>
-    <view class="content mx-1px-top">
+    <view class="content mx-1px-top" wx:if="{{hotTagList[0].length}}">
         <view class="title">热门标签</view>
         <view wx:for="{{hotTagList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
             <view class="list" wx:for="{{items}}" wx:key="{{index}}" bindtap="selectTags" data-title="{{item.title}}" data-idx="{{idx}}" data-index="{{index}}">

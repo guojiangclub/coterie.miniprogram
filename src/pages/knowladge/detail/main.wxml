@@ -239,7 +239,7 @@
                 </view>
 
                 <!--评论-->
-                <view class="comment-box">
+                <view class="comment-box" bindtap="jumpItemDetail" data-id="{{item.id}}">
                     <view class="comment-item" wx:for="{{item.comment}}" wx:for-item="comment" wx:for-index="ckey" wx:key="{{ckey}}">
                         <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{comment.user_id}}">
                             {{comment.user_meta_info.nick_name}}:
