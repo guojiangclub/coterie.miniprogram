@@ -191,7 +191,14 @@ Page({
     },
     //点击解散圈子按钮
     disMiss(){
-        this.postDismiss(this.data.id)
+        wx.showModal({
+            content:'您确定解散圈子吗？',
+            success:res=>{
+                if (res.confirm || (!res.confirm && !res.cancel)){
+                    this.postDismiss(this.data.id)
+                }
+            }
+        })
     },
     //请求退出圈子的接口
     postDropout(id) {
