@@ -18,30 +18,32 @@ Page({
         var id = '';
         var content_id = '';
         var invite_user_code = '';
+        if(e.id){
+            id = e.id
+        }
+        if(e.content_id){
+            content_id = e.content_id
+        }
+        if(e.invite_user_code){
+            invite_user_code = e.invite_user_code;
+
+        }
         if(e.scene){
             var scene = decodeURIComponent(e.scene);
             var sceneArr = scene.split('_');
             if(sceneArr.length > 0){
                 id = sceneArr[0];
-                this.setData({
-                    id:id
-                })
             }
             if(sceneArr.length>1){
                 content_id = sceneArr[1];
-                this.setData({
-                    content_id:content_id
-                })
             }
             if(sceneArr.length>2){
                 invite_user_code = sceneArr[2];
-                this.setData({
-                    invite_user_code:invite_user_code
-                })
-                cookieStorage.set('invite_user_code',invite_user_code,'30n');
             }
-            this.getContent(this.data.id,this.data.content_id)
         }
+        cookieStorage.set('invite_user_code',invite_user_code,'30n');
+        this.getContent(id,content_id)
+
     },
     onShow(){
         if(a){
