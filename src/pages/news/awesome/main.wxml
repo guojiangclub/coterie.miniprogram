@@ -51,5 +51,6 @@
                 </view>
             </view>
         </view>
+        <view class="more-txt" wx:if="{{contentList[0].length == 0}}">暂无数据！！！</view>
     </block>
 </view>

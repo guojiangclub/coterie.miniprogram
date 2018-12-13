@@ -85,3 +85,7 @@ page {
   height: 100%;
   border-radius: 2px;
 }
+#awesome .more-txt {
+  font-size: 14px;
+  text-align: center;
+}

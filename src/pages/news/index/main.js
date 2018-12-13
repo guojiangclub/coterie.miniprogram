@@ -15,7 +15,7 @@ Page({
       })
     },
     onShow(){
-       if(token){
+       if(this.data.token){
            this.getnotification(1);
        }
     },
