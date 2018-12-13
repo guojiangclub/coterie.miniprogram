@@ -111,7 +111,7 @@ Page({
     },
     //跳到点赞列表页
     jumpAwesome(){
-       if(token){
+       if(this.data.token){
            wx.navigateTo({
                url:'/pages/news/awesome/main'
            })
