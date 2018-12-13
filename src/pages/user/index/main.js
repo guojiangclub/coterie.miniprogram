@@ -57,7 +57,9 @@ Page({
         })
     },
     bindgetuserinfo(e){
-        this.updateUserInfo(e.detail.userInfo);
+        if (e.detail.userInfo) {
+            this.updateUserInfo(e.detail.userInfo)
+        }
     },
     //将得到的信息发送给后台
     updateUserInfo(info){
