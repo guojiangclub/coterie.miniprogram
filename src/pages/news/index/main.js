@@ -111,9 +111,16 @@ Page({
     },
     //跳到点赞列表页
     jumpAwesome(){
-        wx.navigateTo({
-            url:'/pages/news/awesome/main'
-        })
+       if(token){
+           wx.navigateTo({
+               url:'/pages/news/awesome/main'
+           })
+       } else {
+           var url = getUrl();
+           wx.navigateTo({
+               url: '/pages/user/login/main?url=' + url
+           })
+       }
     }
 
 
