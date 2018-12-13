@@ -32,6 +32,7 @@ Page({
       this.setData({
           id:e.id
       })
+        wx.hideShareMenu();
     },
     onShow(){
         if(a){
@@ -68,11 +69,19 @@ Page({
             path = '/pages/knowladge/shareItem/main?id='+this.data.id+'&content_id='+this.data.activeItem.id+'&invite_user_code='+this.data.detail.invite_user_code;
             imageUrl = this.data.content_url
         }
+        console.log('这个是路径：', path);
         return{
             title:title,
             path:path,
             imageUrl:imageUrl
         }
+    },
+    //回到首页
+    backHome(){
+        wx.switchTab({
+            url:'/pages/index/index/index'
+        })
+
     },
     //跳到朋友圈生成海报
     getShearImg(){
@@ -121,7 +130,7 @@ Page({
                         show_share:!this.data.show_share,
                         coterie_url:res.data.url
                     })
-
+                    wx.showShareMenu();
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",
@@ -163,7 +172,7 @@ Page({
                         show_share:!this.data.show_share,
                         content_url:res.data.url
                     })
-
+                    wx.showShareMenu()
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",
@@ -233,8 +242,8 @@ Page({
             coterie_url:'',
             content_url:'',
             activeItem:''
-
         })
+        wx.hideShareMenu();
     },
     changePublish() {
         this.setData({
@@ -537,6 +546,62 @@ Page({
         var content_id = this.data.selectItem.id;
         var coterie_id = this.data.selectItem.coterie_id;
         this.postSetStick(content_id,coterie_id,0);
+    },
+    //圈主设置置顶动态或者取消动态
+    postSetStick(content_id,coterie_id,type){
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        var token = cookieStorage.get('user_token')
+        sandBox.post({
+            api: 'api/content/stick',
+            header:{
+                Authorization: token
+            },
+            data:{
+                content_id: content_id,
+                coterie_id:coterie_id,
+                type:type
+
+            },
+        }).then(res =>{
+            if(res.statusCode==200){
+                res = res.data;
+                if (res.status) {
+                    this.setData({
+                        show_setting:false
+                    });
+                    if(type == 1){
+                        wx.showToast({
+                            title:'置顶成功',
+                            icon:'success'
+                        })
+                        this.getStick(coterie_id);
+                        this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
+
+                    } else {
+                        wx.showToast({
+                            title:'取消置顶',
+                            icon:'success'
+                        })
+                    }
+                } else {
+                    wx.showModal({
+                        content:res.message ||  "请求失败",
+                        showCancel: false
+                    });
+                }
+                wx.hideLoading();
+            }
+            else{
+                wx.showModal({
+                    content:"请求失败",
+                    showCancel: false
+                });
+                wx.hideLoading();
+            }
+        })
     },
     //圈主或者嘉宾推荐精华或者取消精华
     postSetRecommend(content_id,coterie_id,type){

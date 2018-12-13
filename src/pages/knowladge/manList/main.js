@@ -20,6 +20,12 @@ Page({
         if (token){
             this.getMember(this.data.id,1,this.data.name)
         }
+        if(this.data.type == 'news'){
+            wx.setNavigationBarTitle('@')
+        }
+        if(this.data.type == 'question'){
+            wx.setNavigationBarTitle('向TA提问')
+        }
     },
     onReachBottom() {
         if (this.data.hasMore) {

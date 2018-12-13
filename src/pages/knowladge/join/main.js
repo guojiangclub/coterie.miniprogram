@@ -11,12 +11,27 @@ Page({
         show_guest_btn: false
     },
     onLoad(e) {
-      if (e.id) {
+        console.log('这个是参数', e);
+        if (e.id) {
           this.setData({
               id: e.id
           })
           this.getDetail(e.id)
-      } else {
+      } else if(e.scene){
+            var scene = decodeURIComponent(e.scene);
+            var sceneArr = scene.split('_');
+            if(sceneArr.length > 0){
+                this.setData({
+                    id:sceneArr[0]
+                })
+
+            }
+            if(sceneArr.length>1){
+                var invite_user_code = sceneArr[1];
+                cookieStorage.set('invite_user_code',invite_user_code,'30n');
+            }
+            this.getDetail(this.data.id);
+        } else {
           wx.showModal({
               content: '参数错误',
               showCancel: false

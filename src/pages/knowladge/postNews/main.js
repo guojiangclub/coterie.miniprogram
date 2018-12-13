@@ -38,6 +38,10 @@ Page({
                    tags_list:res
                })
                cookieStorage.set('topic_list',this.data.tags_list);
+           } else if(topic_list.length == 1){
+               this.setData({
+                   tags_list:topic_list
+               })
            }
        }
 

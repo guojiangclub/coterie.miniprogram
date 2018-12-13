@@ -369,6 +369,16 @@
 #join .publish-btn i {
   margin-right: 5px;
 }
+#join .back-home {
+  position: fixed;
+  right: 10px;
+  bottom: 165px;
+  font-size: 10px;
+  background: #004E9D;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
 #join .mask {
   position: fixed;
   top: 0;

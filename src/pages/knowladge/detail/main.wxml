@@ -334,6 +334,10 @@
         <i class="iconfont icon-fabu"></i>
         <view>发表</view>
     </view>
+    <view class="back-home" bindtap="backHome">
+        <i class="iconfont icon-Home"></i>
+        <view>首页</view>
+    </view>
 
     <view class="no-more">
         没有更多了~

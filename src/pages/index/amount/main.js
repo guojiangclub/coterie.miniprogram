@@ -48,7 +48,7 @@ Page({
                     })
                     cookieStorage.clear('knowObj');
                     setTimeout(() => {
-                        wx.redirectTo({
+                        wx.reLaunch({
                             url: '/pages/knowladge/detail/main?id=' + res.data.id
                         })
                     }, 1000)
