@@ -29,7 +29,6 @@ Page({
                 comment_id:e.comment_id
             })
         }
-        wx.hideShareMenu()
     },
     onShow(){
         if(a){
@@ -60,12 +59,10 @@ Page({
         if(this.data.content_url){
             title = '来自'+ this.data.itemdetail.coterie.name + this.data.itemdetail.user.nick_name+'的主题分享';
             path = '/pages/knowladge/shareItem/main?id='+this.data.id+'&content_id='+this.data.content_id+'&invite_user_code='+this.data.itemdetail.invite_user_code;
-            imageUrl = this.data.content_url
         }
         return{
             title:title,
-            path:path,
-            imageUrl:imageUrl
+            path:path
         }
     },
     changeSetting() {
@@ -447,8 +444,6 @@ Page({
                         show_share:!this.data.show_share,
                         content_url:res.data.url
                     })
-                    wx.showShareMenu()
-
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",
