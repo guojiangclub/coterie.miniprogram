@@ -81,6 +81,7 @@ Page({
     //跳转链接 跳到itemdetail 详情页 有关评论的就要带评论id
     jumpItem(e){
         var id = e.currentTarget.dataset.id;//圈子id
+        var notification_id;//消息通知id
         var content_id = e.currentTarget.dataset.cid;//内容id
         var comment_id; //评论id
         if(e.currentTarget.dataset.mid){
@@ -88,16 +89,22 @@ Page({
         } else {
             comment_id = ''
         }
+        if(e.currentTarget.dataset.nid){
+            notification_id = e.currentTarget.dataset.nid
+        } else {
+            notification_id = ''
+        }
         wx.navigateTo({
-            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id
+            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id + '&notification_id'+notification_id
         })
 
     },
     //跳到圈子列表页
     jumpDetail(e){
         var id = e.currentTarget.dataset.id;//圈子id
+        var notification_id = e.currentTarget.dataset.nid;
         wx.navigateTo({
-            url:'/pages/knowladge/detail/main?id='+id
+            url:'/pages/knowladge/detail/main?id='+id+'&notification_id'+notification_id
         })
 
     },
@@ -105,8 +112,9 @@ Page({
     jumpReply(e){
         var id = e.currentTarget.dataset.id;//圈子id
         var qid = e.currentTarget.dataset.qid;//问题的id
+        var notification_id = e.currentTarget.dataset.nid;
         wx.navigateTo({
-            url:'/pages/knowladge/replyQuestion/main?id='+id+'&question_id='+qid
+            url:'/pages/knowladge/replyQuestion/main?id='+id+'&question_id='+qid+'&notification_id'+notification_id
         })
     },
     //跳到点赞列表页

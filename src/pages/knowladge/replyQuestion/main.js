@@ -18,7 +18,12 @@ Page({
             id:e.id,
             question_id:e.question_id
         })
-        this.getQuestionContent(this.data.id,this.data.question_id);
+        if(e.notification_id){
+            this.setData({
+                notification_id:e.notification_id
+            })
+        }
+        this.getQuestionContent(this.data.id,this.data.question_id,this.data.notification_id);
     },
     onShow(){
         if(a){
@@ -48,7 +53,7 @@ Page({
         })
     },
     //请求提问详情页接口
-    getQuestionContent(coterie_id,content_id){
+    getQuestionContent(coterie_id,content_id,notification_id){
         wx.showLoading({
             title: '加载中',
             mask: true
@@ -61,7 +66,8 @@ Page({
             },
             data:{
                 coterie_id:coterie_id,
-                question_id:content_id
+                question_id:content_id,
+                notification_id:notification_id
             },
         }).then(res =>{
             if(res.statusCode==200){

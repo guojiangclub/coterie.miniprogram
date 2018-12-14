@@ -16,7 +16,8 @@ Page({
         to_meta:{},
         replyType:'',
         comment_id:'',//从消息通知带来的id
-        content_url:''
+        content_url:'',
+        notification_id:''
 
     },
     onLoad(e){
@@ -29,13 +30,18 @@ Page({
                 comment_id:e.comment_id
             })
         }
+        if(e.notification_id){
+            this.setData({
+                notification_id:e.notification_id
+            })
+        }
     },
     onShow(){
         if(a){
             a = false;
             return
         }
-        this.postContent(this.data.id,this.data.content_id);
+        this.postContent(this.data.id,this.data.content_id,this.data.notification_id);
         var comment_id = this.data.comment_id || '';
         this.getcomment(this.data.content_id,comment_id,1);
     },
@@ -155,7 +161,7 @@ Page({
         })
     },
     //请求数据圈动态详情页接口
-    postContent(coterie_id,content_id){
+    postContent(coterie_id,content_id,notification_id){
         wx.showLoading({
             title: '加载中',
             mask: true
@@ -168,7 +174,9 @@ Page({
             },
             data:{
                 coterie_id:coterie_id,
-                content_id:content_id
+                content_id:content_id,
+                notification_id:notification_id
+
             },
         }).then(res =>{
             if(res.statusCode==200){
@@ -418,7 +426,7 @@ Page({
         })
     },
     shareSome(e){
-        this.postContentUrl(this.data.itemdetail.invite_user_code,this.data.content_id)
+        this.postContentUrl(this.data.itemdetail.invite_user_code,this.data.content_id,this.data.notification_id)
     },
     //请求content图片的url
     postContentUrl(code,content_id) {

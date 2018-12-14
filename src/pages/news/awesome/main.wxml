@@ -4,7 +4,7 @@
             <view wx:for="{{contentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
                 <view class="item-li mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
                     <!--第一种情况  点赞动态  type = PraiseContent 用户对某个动态点赞后，需要通知发表动态的用户 -->
-                    <view class="list-li" wx:if="{{item.data.type == 'PraiseContent'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}">
+                    <view class="list-li" wx:if="{{item.data.type == 'PraiseContent'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}" data-nid="{{item.id}}">
                         <view class="avatar">
                             <image src="{{item.data.praise.user_meta_info.avatar}}"></image>
                         </view>

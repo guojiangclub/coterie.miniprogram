@@ -27,11 +27,17 @@ Page({
             is_recommend:''
         },//举报标记精华选中的item
         activeItem:'',//分享选中的item
+        notification_id:''
     },
     onLoad(e){
       this.setData({
           id:e.id
       })
+        if(e.notification_id){
+          this.setData({
+              notification_id:e.notification_id
+          })
+        }
         wx.hideShareMenu();
     },
     onShow(){
@@ -39,8 +45,9 @@ Page({
             a = false;
             return
         }
+        var notification_id = this.data.notification_id || '';
         this.getTags(this.data.id,1);
-        this.getDetail(this.data.id);
+        this.getDetail(this.data.id,notification_id);
         this.getStick(this.data.id);
         this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
     },
@@ -256,7 +263,7 @@ Page({
         })
     },
     // 获取圈子详情
-    getDetail(id) {
+    getDetail(id,notification_id) {
         wx.showLoading({
             title: '加载中',
             mask: true
@@ -268,7 +275,8 @@ Page({
                 Authorization: token
             },
             data:{
-                coterie_id: id
+                coterie_id: id,
+                notification_id:notification_id
             },
         }).then(res =>{
             if(res.statusCode==200){

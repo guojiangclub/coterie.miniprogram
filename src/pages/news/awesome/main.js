@@ -30,8 +30,13 @@ Page({
         } else {
             comment_id = ''
         }
+        if(e.currentTarget.dataset.nid){
+            notification_id = e.currentTarget.dataset.nid
+        } else {
+            notification_id = ''
+        }
         wx.navigateTo({
-            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id
+            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id+ '&notification_id'+notification_id
         })
     },
     //获取除了点赞以外的消息通知列表
