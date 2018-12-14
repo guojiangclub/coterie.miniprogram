@@ -14,6 +14,7 @@ Page({
             id:e.id
         })
         this.getmeInfo();
+        wx.hideShareMenu()
     },
     onShow(){
         this.getDetail(this.data.id);
@@ -46,6 +47,7 @@ Page({
         this.setData({
             show_share:!this.data.show_share
         })
+        wx.hideShareMenu()
     },
     //跳到邀请嘉宾页面去
     jumpInvite(){
@@ -79,6 +81,7 @@ Page({
                         show_share:!this.data.show_share,
                         coterie_url:res.data.url
                     })
+                    wx.showShareMenu();
 
                 } else {
                     wx.showModal({

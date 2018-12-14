@@ -29,6 +29,7 @@ Page({
                 comment_id:e.comment_id
             })
         }
+        wx.hideShareMenu()
     },
     onShow(){
         if(a){
@@ -135,6 +136,7 @@ Page({
             show_share: !this.data.show_share,
             content_url:''
         })
+        wx.hideShareMenu()
     },
     //跳到朋友圈生成海报
     getShearImg(){
@@ -445,6 +447,7 @@ Page({
                         show_share:!this.data.show_share,
                         content_url:res.data.url
                     })
+                    wx.showShareMenu()
 
                 } else {
                     wx.showModal({
