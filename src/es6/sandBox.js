@@ -166,6 +166,9 @@ export const sandBox = {
                 header,
                 filePath,
                 name,
+                formData: {
+                    client_id: gbConfig.appid
+                },
                 success:res => {
                     resolve(res)
                 },

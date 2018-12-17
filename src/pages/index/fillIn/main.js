@@ -96,15 +96,14 @@ Page({
         })
         var token=cookieStorage.get('user_token');
         sandBox.uploadFile({
-            api: 'api/upload/image',
+            api: 'cdn/upload',
             filePath: path[0],
             header: {
                 Authorization:token
             },
-            name: 'image',
+            name: 'upload_file',
         }).then(res => {
             var result = JSON.parse(res.data);
-            console.log(result);
             if (result.status) {
                 this.setData({
                     'knowObj.avatar': result.data.url
