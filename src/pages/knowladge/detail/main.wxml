@@ -50,7 +50,7 @@
                 <view>筛选</view>
             </view>
         </view>
-        <view class="topping-item mx-1px-top" wx:if="{{sticknews.description}}">
+        <view class="topping-item mx-1px-top" wx:if="{{sticknews.description}}" bindtap="jumpItemDetail" data-id="{{sticknews.id}}">
             <view class="tag">
                 置顶
             </view>

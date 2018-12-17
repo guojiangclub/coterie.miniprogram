@@ -147,11 +147,11 @@
                     <!--第7种情况  @某人  type = AtUser  在发表内容，回复时，@了某个用户后，主动通知。-->
                     <view class="list-li"  wx:if="{{item.data.type == 'AtUser'}}" bindtap="jumpItem" data-id="{{item.data.coterie.id}}" data-cid="{{item.data.content.id}}" data-nid="{{item.id}}">
                         <view class="avatar">
-                            <image src="{{item.data.at_user.avatar}}"></image>
+                            <image src="{{item.data.user.avatar}}"></image>
                         </view>
                         <view class="infor">
                             <view class="metion">
-                                {{item.data.at_user.nick_name}}
+                                {{item.data.user.nick_name}}
                                 <span>提到了我</span>
                             </view>
                             <view class="describe">{{item.data.content.description}}</view>

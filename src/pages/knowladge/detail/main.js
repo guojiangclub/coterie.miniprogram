@@ -76,7 +76,6 @@ Page({
             path = '/pages/knowladge/shareItem/main?id='+this.data.id+'&content_id='+this.data.activeItem.id+'&invite_user_code='+this.data.detail.invite_user_code;
             imageUrl = this.data.content_url
         }
-        console.log('这个是路径：', path);
         return{
             title:title,
             path:path,
