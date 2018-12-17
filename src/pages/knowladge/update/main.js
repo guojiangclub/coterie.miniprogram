@@ -69,7 +69,7 @@ Page({
 
         } else {
             //请求修改圈子信息接口
-            this.postUpdate(3,this.data.knowObj.name,this.data.knowObj.description,this.data.knowObj.avatar)
+            this.postUpdate(this.data.id,this.data.knowObj.name,this.data.knowObj.description,this.data.knowObj.avatar)
         }
     },
     // 上传头像
