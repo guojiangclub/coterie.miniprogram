@@ -119,7 +119,8 @@ Page({
     },
     //跳到点赞列表页
     jumpAwesome(){
-       if(this.data.token){
+        var token = cookieStorage.get('user_token');
+       if(token){
            wx.navigateTo({
                url:'/pages/news/awesome/main'
            })

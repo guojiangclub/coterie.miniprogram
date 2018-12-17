@@ -146,7 +146,8 @@ Page({
             }
         })
         return*/
-        if (this.data.token){
+        var token = cookieStorage.get('user_token');
+        if (token){
             wx.navigateTo({
                 url:'/pages/index/setUp/main'
             })
