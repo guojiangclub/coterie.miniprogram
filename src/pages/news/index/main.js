@@ -95,7 +95,7 @@ Page({
             notification_id = ''
         }
         wx.navigateTo({
-            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id + '&notification_id'+notification_id
+            url:'/pages/knowladge/itemDetail/main?id='+id+'&content_id='+content_id+'&comment_id='+comment_id + '&notification_id='+notification_id
         })
 
     },
@@ -104,7 +104,7 @@ Page({
         var id = e.currentTarget.dataset.id;//圈子id
         var notification_id = e.currentTarget.dataset.nid;
         wx.navigateTo({
-            url:'/pages/knowladge/detail/main?id='+id+'&notification_id'+notification_id
+            url:'/pages/knowladge/detail/main?id='+id+'&notification_id='+notification_id
         })
 
     },
@@ -114,7 +114,7 @@ Page({
         var qid = e.currentTarget.dataset.qid;//问题的id
         var notification_id = e.currentTarget.dataset.nid;
         wx.navigateTo({
-            url:'/pages/knowladge/replyQuestion/main?id='+id+'&question_id='+qid+'&notification_id'+notification_id
+            url:'/pages/knowladge/replyQuestion/main?id='+id+'&question_id='+qid+'&notification_id='+notification_id
         })
     },
     //跳到点赞列表页

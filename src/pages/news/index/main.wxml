@@ -187,6 +187,46 @@
                             <image src="{{item.data.coterie.avatar}}"></image>
                         </view>
                     </view>
+                    <!--第九种情况  回复问题 type= SetupGuest 当设置为嘉宾，当把普通用户设置成嘉宾后，主动通知-->
+                    <view  class="list-li"  wx:if="{{item.data.type == 'SetupGuest'}}" bindtap="jumpDetail" data-id="{{item.data.coterie.id}}"  data-nid="{{item.id}}">
+                        <view class="avatar">
+                            <image src="{{item.data.coterie.user.avatar}}"></image>
+                        </view>
+                        <view class="infor">
+                            <view class="metion">
+                                {{item.data.coterie.user.nick_name}}
+                                <span>已将你设置为嘉宾，快去看看吧</span>
+                            </view>
+                            <view class="author">
+                                {{item.data.coterie.name}}
+                                <span></span>
+                                {{item.created_at}}
+                            </view>
+                        </view>
+                        <view class="logo">
+                            <image src="{{item.data.coterie.avatar}}"></image>
+                        </view>
+                    </view>
+                    <!--第10种情况  回复问题 type= CancelSetupGuest 取消设置为嘉宾后，主动通知用户-->
+                    <view  class="list-li"  wx:if="{{item.data.type == 'CancelSetupGuest'}}" bindtap="jumpDetail" data-id="{{item.data.coterie.id}}" data-nid="{{item.id}}">
+                        <view class="avatar">
+                            <image src="{{item.data.coterie.user.avatar}}"></image>
+                        </view>
+                        <view class="infor">
+                            <view class="metion">
+                                {{item.data.coterie.user.nick_name}}
+                                <span>已取消你的嘉宾身份</span>
+                            </view>
+                            <view class="author">
+                                {{item.data.coterie.name}}
+                                <span></span>
+                                {{item.created_at}}
+                            </view>
+                        </view>
+                        <view class="logo">
+                            <image src="{{item.data.coterie.avatar}}"></image>
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>

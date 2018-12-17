@@ -21,10 +21,12 @@ Page({
             this.getMember(this.data.id,1,this.data.name)
         }
         if(this.data.type == 'news'){
-            wx.setNavigationBarTitle('@')
+            wx.setNavigationBarTitle({
+                title:'@'
+            })
         }
         if(this.data.type == 'question'){
-            wx.setNavigationBarTitle('向TA提问')
+            wx.setNavigationBarTitle({title:'向TA提问'})
         }
     },
     onReachBottom() {

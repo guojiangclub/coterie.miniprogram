@@ -8,10 +8,12 @@ Page({
         detail: '',
         init: false,
         show_desc_btn: false,
-        show_guest_btn: false
+        show_guest_btn: false,
+        code:''
     },
     onLoad(e) {
-      if (e.id && e.code) {
+        console.log('这是带的参数:'+ e.id + e.code);
+        if (e.id && e.code) {
           this.setData({
               id: e.id,
               code: e.code

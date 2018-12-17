@@ -30,11 +30,11 @@ Page({
       })
     },
     onShareAppMessage(){
-        var titel = this.data.detail.user.nick_name;
+        var title = this.data.detail.user.nick_name;
         var name  = this.data.detail.name;
         return{
-            titel:titel + '邀请您成为' + name + '的嘉宾',
-            path:'/pages/knowladge/invite/main?id='+ this.data.id+'&code'+this.data.code
+            title:title + '邀请您成为' + name + '的嘉宾',
+            path:'/pages/knowladge/invite/main?id='+ this.data.id+'&code='+this.data.code
         }
     },
     changeDesc() {

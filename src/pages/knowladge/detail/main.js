@@ -724,6 +724,23 @@ Page({
         var content_id = e.currentTarget.dataset.id;
         this.postPraise(content_id,idx,index);
     },
+    //剪贴板的内容
+    clipBoard(e){
+        var link = e.currentTarget.dataset.link;
+        wx.setClipboardData({
+            data:link,
+            success:res=>{
+                wx.getClipboardData({
+                    success:res=>{
+                        wx.showToast({
+                            title:'复制链接成功'
+                        })
+
+                    }
+                })
+            }
+        })
+    },
     //跳到数据圈动态详情页
     jumpItemDetail(e){
         var content_id =  e.currentTarget.dataset.id;
