@@ -41,6 +41,11 @@ Page({
                 invite_user_code = sceneArr[2];
             }
         }
+        this.setData({
+            id: id,
+            content_id: content_id,
+            invite_user_code: invite_user_code
+        })
         cookieStorage.set('invite_user_code',invite_user_code,'30n');
         this.getContent(id,content_id)
 

@@ -196,7 +196,8 @@ Page({
                             debugger
                             var path = [
                                 'pages/index/index/index',
-                                'pages/user/index/main'
+                                'pages/user/index/main',
+                                'pages/news/index/main'
                             ];
                             var pathIndex = path.indexOf(this.data.orginUrl);
                             if (pathIndex == -1) {

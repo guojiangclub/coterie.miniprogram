@@ -111,7 +111,8 @@ Page({
                     if (this.data.url) {
                         var path = [
                             'pages/index/index/index',
-                            'pages/user/index/main'
+                            'pages/user/index/main',
+                            'pages/news/index/main'
                         ];
                         var pathIndex = path.indexOf(this.data.url);
                         if (pathIndex == -1) {
@@ -177,7 +178,8 @@ Page({
                     if (this.data.url) {
                         var path = [
                             'pages/index/index/index',
-                            'pages/user/index/main'
+                            'pages/user/index/main',
+                            'pages/news/index/main'
                         ];
                         var pathIndex = path.indexOf(this.data.url);
                         if (pathIndex == -1) {

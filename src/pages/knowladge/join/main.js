@@ -24,19 +24,20 @@ Page({
                 this.setData({
                     id:sceneArr[0]
                 })
-
             }
             if(sceneArr.length>1){
                 var invite_user_code = sceneArr[1];
                 cookieStorage.set('invite_user_code',invite_user_code,'30n');
             }
             this.getDetail(this.data.id);
-        } else {
-          wx.showModal({
-              content: '参数错误',
-              showCancel: false
-          })
-      }
+        }
+
+        if (!this.data.id) {
+            wx.showModal({
+                content: '参数错误',
+                showCancel: false
+            })
+        }
       var token = cookieStorage.get('user_token');
       this.setData({
           token: token

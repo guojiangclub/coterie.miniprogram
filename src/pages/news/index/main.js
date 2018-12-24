@@ -7,15 +7,13 @@ Page({
         token:''
 
     },
-    onLoad(){
-      var token = cookieStorage.get('user_token');
-      this.setData({
-          token:token
-
-      })
-    },
     onShow(){
-       if(this.data.token){
+        var token = cookieStorage.get('user_token');
+        this.setData({
+            token:token
+        })
+       if(token){
+           console.log('跑了1');
            this.getnotification(1);
        }
     },
@@ -52,6 +50,8 @@ Page({
             if(res.statusCode==200){
                 res = res.data;
                 if (res.status) {
+
+                    console.log('跑了2');
                     var pages = res.meta.pagination;
                     var current_page = pages.current_page;
                     var total_pages = pages.total_pages;

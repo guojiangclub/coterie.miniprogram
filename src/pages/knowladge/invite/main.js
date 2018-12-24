@@ -18,7 +18,6 @@ Page({
               id: e.id,
               code: e.code
           })
-          this.getDetail(e.id)
       } else {
           wx.showModal({
               content: '参数错误',
@@ -29,6 +28,11 @@ Page({
       this.setData({
           token: token
       })
+    },
+    onShow() {
+        if (this.data.id) {
+            this.getDetail(this.data.id)
+        }
     },
     changeDesc() {
         this.setData({
