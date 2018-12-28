@@ -1,3 +1,6 @@
+#post-news {
+  padding-bottom: 60px;
+}
 #post-news .edit-content {
   background-color: #ffffff;
 }

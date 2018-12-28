@@ -9,7 +9,7 @@
             <view class="item">
                 <checkbox-group>
                     <label class="checkbox">
-                        <checkbox  checked="true"  color="#fff" /> 固定时长
+                        <checkbox disabled checked="true"  color="#fff" /> 固定时长
                     </label>
                 </checkbox-group>
                 <view class="text">有效期：用户的加入日期往后计算1年</view>

@@ -96,7 +96,7 @@ Page({
             if (res.statusCode == 200){
                 res = res.data;
                 if(res.status){
-                    WX.showToast({
+                    wx.showToast({
                         titel:'成功踢出数据圈'
                     })
                     this.getMember(this.data.id,1,this.data.name);

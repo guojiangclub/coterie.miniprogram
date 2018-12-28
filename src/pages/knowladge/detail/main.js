@@ -515,6 +515,10 @@ Page({
                         show_setting:false
                     });
                     this.getContnetList(this.data.id,1,this.data.type,this.data.tagname);
+
+                    if (this.data.sticknews && this.data.sticknews.id == content_id) {
+                        this.getStick(coterie_id);
+                    }
                         wx.showToast({
                             title:'删除动态成功',
                             icon:'success'
