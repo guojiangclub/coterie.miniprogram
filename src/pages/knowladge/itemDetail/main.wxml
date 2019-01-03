@@ -1,24 +1,25 @@
 <view id="itemDetail">
-    <view class="knowladge-item">
-        <view class="theme-item">
-            <view class="avatar-box mx-1px-bottom">
-                <view class="img" bindtap="jumpPersonal">
-                    <image src="{{itemdetail.user.avatar}}"></image>
-                </view>
-                <view class="info">
-                    <view class="name nowrap">
-                        {{itemdetail.user.nick_name}}
+    <block wx:if="{{init}}">
+        <view class="knowladge-item">
+            <view class="theme-item">
+                <view class="avatar-box mx-1px-bottom">
+                    <view class="img" bindtap="jumpPersonal">
+                        <image src="{{itemdetail.user.avatar}}"></image>
                     </view>
-                    <view class="time">
-                        创建于 {{itemdetail.created_at}}
+                    <view class="info">
+                        <view class="name nowrap">
+                            {{itemdetail.user.nick_name}}
+                        </view>
+                        <view class="time">
+                            创建于 {{itemdetail.created_at}}
+                        </view>
                     </view>
-                </view>
-                <view class="option iconfont icon-gengduo1" bindtap="changeSetting">
+                    <view class="option iconfont icon-gengduo1" bindtap="changeSetting">
 
+                    </view>
                 </view>
-            </view>
-            <view class="content-box">
-                <view class="text" wx:if="{{itemdetail.style_type == 'default'}}">
+                <view class="content-box">
+                    <view class="text" wx:if="{{itemdetail.style_type == 'default'}}">
                      <span wx:if="{{itemdetail.meta_info.at_user}}">
                         <span wx:if="{{itemdetail.describeArr.length == 2 && itemdetail.describeArr[0] == ''}}">
                             <span class="aite-name" bindtap="jumpPersonal" data-userid="{{itemdetail.meta_info.at_user.id}}">@{{itemdetail.meta_info.at_user.nick_name}}</span>{{itemdetail.describeArr[1]}}
@@ -32,129 +33,131 @@
                              {{itemdetail.describeArr[1]}}
                         </span>
                     </span>
-                    <span wx:else>
+                        <span wx:else>
                         {{itemdetail.description}}
                     </span>
 
-                </view>
-                <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length != 1 && itemdetail.style_type == 'default'}}">
-                    <view class="item__list more">
-                        <view class="list__li" bindtap="preImage" wx:for="{{itemdetail.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" data-url="{{url}}" data-urlList="{{itemdetail.img_list_info}}">
-                            <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
-                                <span></span>
+                    </view>
+                    <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length != 1 && itemdetail.style_type == 'default'}}">
+                        <view class="item__list more">
+                            <view class="list__li" bindtap="preImage" wx:for="{{itemdetail.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" data-url="{{url}}" data-urlList="{{itemdetail.img_list_info}}">
+                                <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
                             </view>
                         </view>
                     </view>
-                </view>
-                <view class="img"   wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length == 1 && itemdetail.style_type == 'default'}}" >
-                    <image mode="widthFix"   src="{{url}}" wx:for="{{itemdetail.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" bindtap="preImage" data-url="{{url}}" data-urllist="{{itemdetail.img_list_info}}"></image>
-                </view>
-                <view class="url" wx:if="{{itemdetail.content_type == 'link' && itemdetail.style_type == 'default'}}" bindtap="clipBoard" data-link="{{itemdetail.link_info.link}}">
-                    <view class="edit-link">
-                        <view class="link-left">
-                            <view class="title">{{itemdetail.link_info.title}}</view>
-                            <view class="txt">{{itemdetail.link_info.link}}</view>
-                        </view>
-                        <view class="link-right">
-                            <span class="iconfont icon-lianjie"></span>
-                        </view>
+                    <view class="img"   wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length == 1 && itemdetail.style_type == 'default'}}" >
+                        <image mode="widthFix"   src="{{url}}" wx:for="{{itemdetail.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" bindtap="preImage" data-url="{{url}}" data-urllist="{{itemdetail.img_list_info}}"></image>
                     </view>
-                </view>
-                <view class="reply-box" wx:if="{{itemdetail.content_type == 'default' && itemdetail.style_type == 'question'}}">
-                    <view class="ask mx-1px-left">
-                        <view class="text">
-                            {{itemdetail.question.user.nick_name}}提问：{{itemdetail.question.content}}
+                    <view class="url" wx:if="{{itemdetail.content_type == 'link' && itemdetail.style_type == 'default'}}" bindtap="clipBoard" data-link="{{itemdetail.link_info.link}}">
+                        <view class="edit-link">
+                            <view class="link-left">
+                                <view class="title">{{itemdetail.link_info.title}}</view>
+                                <view class="txt">{{itemdetail.link_info.link}}</view>
+                            </view>
+                            <view class="link-right">
+                                <span class="iconfont icon-lianjie"></span>
+                            </view>
                         </view>
                     </view>
-                    <view class="reply">
-                        {{itemdetail.description}}
+                    <view class="reply-box" wx:if="{{itemdetail.content_type == 'default' && itemdetail.style_type == 'question'}}">
+                        <view class="ask mx-1px-left">
+                            <view class="text">
+                                {{itemdetail.question.user.nick_name}}提问：{{itemdetail.question.content}}
+                            </view>
+                        </view>
+                        <view class="reply">
+                            {{itemdetail.description}}
+                        </view>
                     </view>
-                </view>
 
-                <view class="tag-box" wx:if="{{itemdetail.tags_list_info}}">
-                    <span wx:for="{{itemdetail.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
+                    <view class="tag-box" wx:if="{{itemdetail.tags_list_info}}">
+                        <span wx:for="{{itemdetail.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
+                    </view>
+                </view>
+            </view>
+
+            <!--点赞-->
+            <view class="awesome-box" wx:if="{{itemdetail.praise.length != 0}}">
+                <i class="iconfont icon-zan"></i>
+                <view class="text-box" >
+                    <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man" bindtap="jumpPersonal" data-userid="{{man.user_id}}">{{man.user_meta_info.nick_name}}，  </span>
+                </view>
+            </view>
+
+            <!--评论  -->
+            <view class="comment-box">
+                <view wx:for="{{commentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
+                    <view class="comment-item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
+                        <view class="avatar-box">
+                            <view class="img" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
+                                <image src="{{item.user_meta_info.avatar}}"></image>
+                            </view>
+                            <view class="info">
+                                <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
+                                    {{item.user_meta_info.nick_name}}
+                                </view>
+                                <view class="time">
+                                    {{item.created_at}}
+                                </view>
+                            </view>
+                            <view class="option {{item.is_praise_user ? 'active' : ''}}">
+                                <view class="delete" bindtap="deleteComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{itemdetail.coterie_user_type == 'owner' || item.is_comment_user == 1}}">删除
+                                    <span class="dot"></span>
+                                </view>
+                                <view bindtap="praiseComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" >
+                                    赞 <block wx:if="{{item.praise_count != 0}}">({{item.praise_count}})</block>
+                                    <i class="iconfont icon-dianzan">
+
+                                    </i>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="comment-text" bindtap="changeComment" data-id="{{item.id}}" data-type="one">
+                            {{item.content}}
+                        </view>
+                        <!--子评论列表-->
+                        <view class="child-item-box" >
+                            <view class="child-item" wx:for="{{item.reply}}" wx:for-item="onereply" wx:for-index="onekey" wx:key="{{onekey}}" wx:if="{{item.reply}}">
+                                <view class="left" wx:if="{{onereply.to_user_meta_info}}">
+                                    <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span>回复</span> <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.to_user_meta_info.id}}">{{onereply.to_user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
+                                </view>
+                                <view class="left" wx:else>
+                                    <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
 
-        <!--点赞-->
-        <view class="awesome-box" wx:if="{{itemdetail.praise.length != 0}}">
-            <i class="iconfont icon-zan"></i>
-            <view class="text-box" >
-                <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man" bindtap="jumpPersonal" data-userid="{{man.user_id}}">{{man.user_meta_info.nick_name}}，  </span>
+
+        <view class="operating-box">
+            <view class="item {{itemdetail.is_praise_user == 1 ? 'active' : ''}} mx-1px-right" bindtap="praiseStore">
+                <i class="iconfont icon-dianzan"></i>
+                <view>{{itemdetail.praise_count}}</view>
+            </view>
+            <view class="item mx-1px-right" bindtap="changeComment">
+                <i class="iconfont icon-pinglun"></i>
+                <view>{{itemdetail.comment_count}}</view>
+            </view>
+            <!--<view class="item mx-1px-right">
+                <i class="iconfont icon-dashang1"></i>
+                <view>打赏</view>
+            </view>-->
+            <view class="item"  bindtap="shareSome">
+                <i class="iconfont icon-fenxiang"></i>
+                <view>分享</view>
             </view>
         </view>
 
-        <!--评论  -->
-        <view class="comment-box">
-            <view wx:for="{{commentList}}" wx:for-item="items" wx:for-index="idx" wx:key="{{idx}}">
-                <view class="comment-item mx-1px-bottom" wx:for="{{items}}" wx:key="{{index}}">
-                    <view class="avatar-box">
-                        <view class="img" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
-                            <image src="{{item.user_meta_info.avatar}}"></image>
-                        </view>
-                        <view class="info">
-                            <view class="name nowrap" bindtap="jumpPersonal" data-userid="{{item.user_id}}">
-                                {{item.user_meta_info.nick_name}}
-                            </view>
-                            <view class="time">
-                                {{item.created_at}}
-                            </view>
-                        </view>
-                        <view class="option {{item.is_praise_user ? 'active' : ''}}">
-                            <view class="delete" bindtap="deleteComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{itemdetail.coterie_user_type == 'owner' || item.is_comment_user == 1}}">删除
-                            <span class="dot"></span>
-                            </view>
-                            <view bindtap="praiseComment" data-idx="{{idx}}" data-index="{{index}}" data-id="{{item.id}}" >
-                                赞 <block wx:if="{{item.praise_count != 0}}">({{item.praise_count}})</block>
-                                <i class="iconfont icon-dianzan">
-
-                                </i>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="comment-text" bindtap="changeComment" data-id="{{item.id}}" data-type="one">
-                        {{item.content}}
-                    </view>
-                    <!--子评论列表-->
-                    <view class="child-item-box" >
-                        <view class="child-item" wx:for="{{item.reply}}" wx:for-item="onereply" wx:for-index="onekey" wx:key="{{onekey}}" wx:if="{{item.reply}}">
-                            <view class="left" wx:if="{{onereply.to_user_meta_info}}">
-                                <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span>回复</span> <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.to_user_meta_info.id}}">{{onereply.to_user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
-                            </view>
-                            <view class="left" wx:else>
-                                <span class="txt" bindtap="jumpPersonal" data-userid="{{onereply.user_id}}">{{onereply.user_meta_info.nick_name}}:</span> <span bindtap="changeComment" data-type="second" data-nickname="{{onereply.user_meta_info.nick_name}}" data-userid="{{onereply.user_id}}" data-id="{{item.id}}">{{onereply.content}}</span>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
+        <view class="no-more">
+            没有更多了~
         </view>
-    </view>
+    </block>
 
-
-    <view class="operating-box">
-        <view class="item {{itemdetail.is_praise_user == 1 ? 'active' : ''}} mx-1px-right" bindtap="praiseStore">
-            <i class="iconfont icon-dianzan"></i>
-            <view>{{itemdetail.praise_count}}</view>
-        </view>
-        <view class="item mx-1px-right" bindtap="changeComment">
-            <i class="iconfont icon-pinglun"></i>
-            <view>{{itemdetail.comment_count}}</view>
-        </view>
-        <!--<view class="item mx-1px-right">
-            <i class="iconfont icon-dashang1"></i>
-            <view>打赏</view>
-        </view>-->
-        <view class="item"  bindtap="shareSome">
-            <i class="iconfont icon-fenxiang"></i>
-            <view>分享</view>
-        </view>
-    </view>
-
-    <view class="no-more">
-        没有更多了~
-    </view>
 
     <!--分享部分-->
     <block>

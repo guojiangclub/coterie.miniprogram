@@ -2,6 +2,7 @@ import {config,getUrl,pageLogin,sandBox,cookieStorage} from '../../../lib/myapp.
 var a;
 Page({
     data: {
+        init: false,
         show_share: false,  // 分享
         show_setting: false, // 设置
         show_comment:false,//评论
@@ -189,7 +190,8 @@ Page({
                         detail.describeArr = describeArr;
                     }
                     this.setData({
-                        itemdetail:detail
+                        itemdetail:detail,
+                        init: true
                     })
                 } else {
                     wx.showModal({
@@ -309,6 +311,13 @@ Page({
                     var pages = res.meta.pagination;
                     var current_page = pages.current_page;
                     var total_pages = pages.total_pages;
+                    if (res.meta.comment && res.data) {
+                        res.data.forEach((item, index) => {
+                            if (item.id == res.meta.comment.id) {
+                                res.data.splice(index, 1)
+                            }
+                        })
+                    }
                     if (res.meta.comment && current_page == '1') {
                         res.data.unshift(res.meta.comment)
                     }
