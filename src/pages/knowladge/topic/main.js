@@ -54,6 +54,12 @@ Page({
     },
     //确认添加标签
     addTags(){
+        if (!this.data.title) {
+            wx.showModal({
+                content: '请输入标签',
+                showCancel: false
+            })
+        }
         var topic_list = cookieStorage.get('topic_list');
         var list = [];
         if(topic_list){

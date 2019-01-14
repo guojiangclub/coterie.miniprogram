@@ -71,7 +71,8 @@ Page({
                 Authorization: token
             },
             data:{
-                invite_user_code:code
+                invite_user_code:code,
+                pages: 'pages/knowladge/join/main'
             },
         }).then(res =>{
             if(res.statusCode==200){

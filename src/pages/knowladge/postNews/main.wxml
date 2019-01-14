@@ -28,7 +28,7 @@
                     # {{item}}
                     <span class="iconfont icon-close-circle" bindtap="deleteTag" data-index="{{index}}"></span>
                 </view>
-                <view class="add-item" bindtap="jumpTopic" wx:if="{{tags_list.length < 3}}">#添加话题</view>
+                <view class="add-item" bindtap="jumpTopic" wx:if="{{tags_list.length < 3}}">#添加标签</view>
             </view>
         </view>
         <view class="add-content">

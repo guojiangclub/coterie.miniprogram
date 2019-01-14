@@ -74,6 +74,10 @@
             </view>
         </view>
     </view>
+    <view class="back-home" bindtap="backHome">
+        <i class="iconfont icon-Home"></i>
+        <view>首页</view>
+    </view>
 
 
     <view class="operating-box" bindtap="jumpJoin">

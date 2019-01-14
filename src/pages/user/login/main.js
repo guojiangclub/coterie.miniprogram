@@ -56,6 +56,7 @@ Page({
         wx.login({
             success: res => {
                 if (res.code) {
+
                     this.autoLogin(res.code);
                 } else {
                     wx.showToast({
@@ -202,7 +203,7 @@ Page({
 
             } else {
                 wx.showModal({
-                    content:'请求失败，请重试',
+                    content:res.message || '请求失败，请重试',
                     showCancel: false,
                     success: res=>{
                         if (res.confirm || (!res.cancel && !res.confirm)) {
@@ -210,6 +211,7 @@ Page({
                         }
                     }
                 })
+                wx.hideLoading();
             }
         }).catch(rej => {
             wx.showModal({
@@ -221,6 +223,7 @@ Page({
                     }
                 }
             })
+            wx.hideLoading();
         })
     }
 })

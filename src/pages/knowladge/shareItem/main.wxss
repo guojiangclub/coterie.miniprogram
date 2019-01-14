@@ -274,6 +274,17 @@
   color: #004E9D;
   margin-right: 5px;
 }
+#shareItem .back-home {
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 165px;
+  font-size: 10px;
+  background: #004E9D;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
 #shareItem .operating-box {
   position: fixed;
   z-index: 3;

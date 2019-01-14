@@ -56,6 +56,15 @@ Page({
             return
         }
     },
+
+    //回到首页
+    backHome(){
+        wx.switchTab({
+            url:'/pages/index/index/index'
+        })
+
+    },
+
     //预览图
     preImage(e){
         a = true;

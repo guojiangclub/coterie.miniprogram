@@ -7,8 +7,10 @@ import  { getUrl }  from "./myapp.js"
 // const {Http} = weapp(wx);
 // const http = Http(config.GLOBAL.baseUrl);
 var gbConfig = {
-    appid: 'LZBArz5DGgxwoa1',
-    wechatappid:'wx6f54b9a50feda087'
+   /* appid: 'LZBArz5DGgxwoa1',
+    wechatappid:'wx6f54b9a50feda087'*/
+    appid: 'deve2nova2jdbz',
+    wechatappid:'wx927d992cbca841e8'
 };
 export const sandBox = {
     get({api, data, header}){

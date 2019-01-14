@@ -126,7 +126,8 @@ Page({
                 Authorization: token
             },
             data:{
-                invite_user_code:code
+                invite_user_code:code,
+                pages: 'pages/knowladge/join/main'
             },
         }).then(res =>{
             if(res.statusCode==200){
@@ -168,7 +169,8 @@ Page({
             },
             data:{
                 invite_user_code:code,
-                content_id:content_id
+                content_id:content_id,
+                pages: 'pages/knowladge/shareItem/main'
             },
         }).then(res =>{
             if(res.statusCode==200){

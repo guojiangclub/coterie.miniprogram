@@ -451,7 +451,8 @@ Page({
             },
             data:{
                 invite_user_code:code,
-                content_id:content_id
+                content_id:content_id,
+                pages: 'pages/knowladge/shareItem/main'
             },
         }).then(res =>{
             if(res.statusCode==200){
