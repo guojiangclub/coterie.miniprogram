@@ -75,7 +75,7 @@ Page({
             urls:urlList
         })
     },
-    //请求数据圈动态详情页接口
+    //请求知识圈动态详情页接口
     getContent(coterie_id,content_id){
         wx.showLoading({
             title: '加载中',

@@ -1,7 +1,7 @@
 export default  {
 
     BRAND: {
-        name: '数据圈',
+        name: '知识圈',
         logo: 'http://ibrand-miniprogram.oss-cn-hangzhou.aliyuncs.com/19-1-3/67807153.jpg'
     },
     GLOBAL: {

@@ -262,7 +262,7 @@ Page({
     },
     //邀请嘉宾
 
-    //点击数据圈设置更新信息
+    //点击知识圈设置更新信息
     jumpchangeSet(){
         wx.navigateTo({
             url:'/pages/knowladge/update/main?id='+this.data.id

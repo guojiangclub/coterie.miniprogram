@@ -746,7 +746,7 @@ Page({
             }
         })
     },
-    //跳到数据圈动态详情页
+    //跳到知识圈动态详情页
     jumpItemDetail(e){
         var content_id =  e.currentTarget.dataset.id;
         wx.navigateTo({

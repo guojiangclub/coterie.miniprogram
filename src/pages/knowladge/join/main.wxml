@@ -277,7 +277,7 @@
 
         </view>
         <view class="buy-btn" bindtap="freeJoin">
-            ￥<block wx:if="{{detail.price != 0}}">{{detail.price/100}}</block> <block wx:else>免费</block> 加入数据圈
+            ￥<block wx:if="{{detail.price != 0}}">{{detail.price/100}}</block> <block wx:else>免费</block> 加入知识圈
 
             <button wx:if="{{!detail.is_perfect_user_info && token}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="button">
 

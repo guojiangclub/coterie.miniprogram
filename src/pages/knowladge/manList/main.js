@@ -50,7 +50,7 @@ Page({
     sureSearch(){
         this.getMember(this.data.id,1,this.data.name) ;
     },
-    //请求获取数据圈会员接口
+    //请求获取知识圈会员接口
     getMember(id,page,name){
         wx.showLoading({
             title:'加载中',

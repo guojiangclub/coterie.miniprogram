@@ -21,7 +21,7 @@
             </view>
         </view>
         <view class="foot-btn">
-            <view bindtap="jumpSet">创建数据圈</view>
+            <view bindtap="jumpSet">创建知识圈</view>
             <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="btn" wx:if="{{!is_perfect_user_info && token}}"> </button>
         </view>
     </block>

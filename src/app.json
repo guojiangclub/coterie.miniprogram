@@ -31,7 +31,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#004E9D",
-    "navigationBarTitleText": "数据圈",
+    "navigationBarTitleText": "知识圈",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F3F3F3"
   },
@@ -43,7 +43,7 @@
     "list": [
       {
         "pagePath": "pages/index/index/index",
-        "text": "数据圈",
+        "text": "知识圈",
         "iconPath": "assets/image/index.png",
         "selectedIconPath": "assets/image/index-b.png"
       },

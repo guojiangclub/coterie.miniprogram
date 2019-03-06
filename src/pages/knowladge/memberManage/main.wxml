@@ -56,7 +56,7 @@
             <view class="item mx-1px-bottom" bindtap="setGuest" wx:if="{{activeItem.user_type == 'normal'}}">设为嘉宾</view>
             <view class="item mx-1px-bottom" bindtap="cancleGuest" wx:if="{{activeItem.user_type == 'guest'}}">取消嘉宾</view>
            <!-- <view class="item mx-1px-bottom">禁言</view>-->
-            <view class="item bor" bindtap="delete">踢出数据圈</view>
+            <view class="item bor" bindtap="delete">踢出知识圈</view>
             <view class="item mx-1px-bottom cancel" bindtap="cancle">取消</view>
         </view>
     </block>

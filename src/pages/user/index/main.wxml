@@ -14,11 +14,6 @@
         <view class="header" bindtap="jumpLogin" wx:if="{{!token}}">
             <view class="txt">注册/登录</view>
         </view>
-        <!--<view class="content">
-            <view class="item">
-                <view class="iconfont icon-dashang1"></view>
-                <view class="txt">我的余额</view>
-            </view>
-        </view>-->
+
     </block>
 </view>
