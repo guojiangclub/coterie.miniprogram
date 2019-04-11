@@ -6,10 +6,11 @@ export default  {
     },
     GLOBAL: {
 
+        // https://hellobi-beta-admin.ibrand.cc/
         // https://ibrand-admin.beta.ibrand.cc/
         // https://admin-dev.ibrand.cc/
         // https://miniprogram-proxy.ibrand.cc/  第三方平台请求接口
-        baseUrl: process.env.NODE_ENV === 'development' ? 'https://hellobi-quanzi-dev-admin.ibrand.cc/' : 'https://saas-api-dev.ibrand.cc/', // 运行时自动替换变量
+        baseUrl: process.env.NODE_ENV === 'development' ? 'https://hellobi-beta-admin.ibrand.cc/' : 'https://miniprogram-proxy.ibrand.cc/', // 运行时自动替换变量
     },
     VERSION:'1.0.0'
 

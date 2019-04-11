@@ -93,13 +93,14 @@ Page({
             mask: true
         })
         sandBox.post({
-            api: 'api/oauth/MiniProgramMobileLogin',
+            api: 'api/oauth/miniprogram/mobile',
             data: {
                 open_type:'miniprogram',
                 code: this.data.code,
                 encryptedData: e.detail.encryptedData,
                 iv: e.detail.iv,
-                open_id: this.data.open_id
+                open_id: this.data.open_id,
+                app: 'coterie'
             }
         }).then(res => {
             if (res.statusCode == 200) {
@@ -156,10 +157,11 @@ Page({
     },
     autoLogin(code) {
         sandBox.post({
-            api: 'api/oauth/MiniProgramLogin',
+            api: 'api/oauth/miniprogram/login',
             data: {
                 code: code,
-                open_type:'miniprogram'
+                open_type:'miniprogram',
+                app: 'coterie'
             },
         }).then(res => {
             if (res.statusCode == 200) {

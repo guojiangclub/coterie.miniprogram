@@ -177,7 +177,9 @@ Page({
         var data={
             mobile:that.data.tellphone,
             code:that.data.identifyingcode,
-            open_id: this.data.open_id
+            open_id: this.data.open_id,
+            environment: 'mini_program',
+            app: 'coterie'
         };
         sandBox.post({
             api:"api/oauth/sms",

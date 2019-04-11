@@ -249,7 +249,8 @@ Page({
                     sandBox.get({
                         api: 'api/oauth/miniprogram/openid',
                         data: {
-                            code: res.code
+                            code: res.code,
+                            app: 'coterie'
                         }
 
                     }).then((res) => {
