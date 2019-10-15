@@ -1,0 +1,19 @@
+#share_coterie .img-box {
+  padding: 30px 15px 65px 30px;
+}
+#share_coterie .img-box image {
+  width: 100%;
+}
+#share_coterie .btn {
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  background-color: #004E9D;
+}
