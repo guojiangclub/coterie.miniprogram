@@ -38,6 +38,9 @@
   background: #ffffff;
   padding: 15px;
 }
+#itemDetail .knowladge-item .theme-item .content-box .img image {
+  width: 100%;
+}
 #itemDetail .knowladge-item .theme-item .content-box .img .item__list {
   display: flex;
   flex-wrap: wrap;

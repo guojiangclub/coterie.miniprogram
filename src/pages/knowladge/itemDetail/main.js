@@ -43,8 +43,6 @@ Page({
             return
         }
         this.postContent(this.data.id,this.data.content_id,this.data.notification_id);
-        var comment_id = this.data.comment_id || '';
-        this.getcomment(this.data.content_id,comment_id,1);
     },
     onReachBottom() {
         if (this.data.hasMore) {
@@ -193,6 +191,10 @@ Page({
                         itemdetail:detail,
                         init: true
                     })
+                    if(detail){
+                        var comment_id = this.data.comment_id || '';
+                        this.getcomment(this.data.content_id,comment_id,1);
+                    }
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",

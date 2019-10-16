@@ -47,8 +47,20 @@
                             </view>
                         </view>
                     </view>
+                    <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.question.img_list_info.length != 1 && itemdetail.style_type == 'question'}}">
+                        <view class="item__list more">
+                            <view class="list__li" bindtap="preImage" wx:for="{{itemdetail.question.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" data-url="{{url}}" data-urlList="{{itemdetail.question.img_list_info}}">
+                                <view style="background: url({{url}}); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                                    <span></span>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
                     <view class="img"   wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length == 1 && itemdetail.style_type == 'default'}}" >
                         <image mode="widthFix"   src="{{url}}" wx:for="{{itemdetail.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" bindtap="preImage" data-url="{{url}}" data-urllist="{{itemdetail.img_list_info}}"></image>
+                    </view>
+                    <view class="img"   wx:if="{{itemdetail.content_type == 'default' && itemdetail.question.img_list_info.length == 1 && itemdetail.style_type == 'question'}}" >
+                        <image mode="widthFix"   src="{{url}}" wx:for="{{itemdetail.question.img_list_info}}" wx:for-item="url" wx:for-index="key" wx:key="{{key}}" bindtap="preImage" data-url="{{url}}" data-urllist="{{itemdetail.question.img_list_info}}"></image>
                     </view>
                     <view class="url" wx:if="{{itemdetail.content_type == 'link' && itemdetail.style_type == 'default'}}" bindtap="clipBoard" data-link="{{itemdetail.link_info.link}}">
                         <view class="edit-link">

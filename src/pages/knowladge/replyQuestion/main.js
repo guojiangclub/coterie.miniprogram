@@ -76,6 +76,11 @@ Page({
                     this.setData({
                         itemdetail:res.data
                     })
+                    if(res.data.is_reply){
+                        wx.redirectTo({
+                            url:'/pages/knowladge/itemDetail/main?id='+coterie_id+'&content_id='+res.data.content_id
+                        })
+                    }
                 } else {
                     wx.showModal({
                         content:res.message ||  "请求失败",
