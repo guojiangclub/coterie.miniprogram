@@ -231,4 +231,5 @@
             </view>
         </view>
     </block>
+    <view class="black-mask {{is_black ? 'cur' : ''}}"></view>
 </view>

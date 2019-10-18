@@ -9,7 +9,7 @@
             <view class="container">
                 <view class="share" bindtap="shareSome">
                     <span class="iconfont icon-fenxiang"></span>
-                    分享知识圈
+                    分享果酱圈
                 </view>
                 <view class="nick-name">{{detail.name}}</view>
                 <view class="describle">
@@ -25,7 +25,7 @@
                 <view class="iconfont icon-jiantou"></view>
             </view>
             <view class="data-set set-item" wx:if="{{detail.coterie_user_type == 'owner'}}" bindtap="jumpchangeSet">
-                <view class="title">知识圈设置</view>
+                <view class="title">果酱圈设置</view>
                 <view class="iconfont icon-jiantou"></view>
             </view>
             <view class="drop-out set-item" wx:if="{{detail.coterie_user_type != 'owner'}}" bindtap="dropOut">退出圈子</view>

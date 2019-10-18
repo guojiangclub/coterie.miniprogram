@@ -10,7 +10,7 @@ export default  {
         // https://ibrand-admin.beta.ibrand.cc/
         // https://admin-dev.ibrand.cc/
         // https://miniprogram-proxy.ibrand.cc/  第三方平台请求接口
-        baseUrl: process.env.NODE_ENV === 'development' ? 'https://guojiang-coterie-demo.ibrand.cc/' : 'https://miniprogram-proxy.ibrand.cc/', // 运行时自动替换变量
+        baseUrl: process.env.NODE_ENV === 'development' ? 'https://guojiang-coterie-demo.ibrand.cc/' : 'https://guojiang-coterie-demo.ibrand.cc/', // 运行时自动替换变量
     },
     VERSION:'1.0.0'
 

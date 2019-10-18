@@ -8,14 +8,33 @@ Page({
 
     },
     onShow(){
-        var token = cookieStorage.get('user_token');
-        this.setData({
-            token:token
-        })
-       if(token){
-           console.log('跑了1');
-           this.getnotification(1);
-       }
+        wx.getSystemInfo({
+                success:res=>{
+
+                    if(res.system.indexOf('iOS') != -1){
+                        wx.showModal({
+                            content:'十分抱歉，由于相关规范，暂不支持IOS。',
+                            showCancel:false
+                        })
+                        this.setData({
+                            is_black:true
+                        })
+
+                    } else {
+                        var token = cookieStorage.get('user_token');
+                        this.setData({
+                            token:token
+                        })
+                        if(token){
+                            this.getnotification(1);
+                        }
+                    }
+                }
+            }
+
+
+        )
+
     },
     onReachBottom() {
         if (this.data.hasMore) {

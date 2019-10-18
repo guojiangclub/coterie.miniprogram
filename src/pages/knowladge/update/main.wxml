@@ -2,16 +2,16 @@
    <block>
       <view class="avatar" bindtap="changeImage">
          <view class="iconfont icon-shujuquantouxiang"></view>
-         <view class="title">知识圈头像</view>
+         <view class="title">果酱圈头像</view>
          <image src="{{knowObj.avatar}}" wx:if="{{knowObj.avatar}}"></image>
       </view>
 
       <view class="name">
-         <view class="title">知识圈名称</view>
+         <view class="title">果酱圈名称</view>
          <input type="text" bindinput="changeName" value="{{knowObj.name}}"/>
       </view>
       <view class="Introduction">
-         <view class="title">知识圈简介</view>
+         <view class="title">果酱圈简介</view>
          <textarea name="" id="" bindinput="changeIntroduction" value="{{knowObj.description}}"></textarea>
       </view>
       <view class="next-step" bindtap="sure">确定</view>

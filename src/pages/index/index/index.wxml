@@ -3,7 +3,7 @@
         <view class="head">
             <view class="search" bindtap="jumpSearch">
                 <span class="iconfont icon-sousuo"></span>
-                搜索知识圈
+                搜索果酱圈
             </view>
         </view>
         <view class="content">
@@ -21,9 +21,10 @@
             </view>
         </view>
         <view class="foot-btn">
-            <view bindtap="jumpSet">创建知识圈</view>
+            <view bindtap="jumpSet">创建果酱圈</view>
             <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="btn" wx:if="{{!is_perfect_user_info && token}}"> </button>
         </view>
     </block>
+    <view class="black-mask {{is_black ? 'cur' : ''}}"></view>
 
 </view>

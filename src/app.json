@@ -43,7 +43,7 @@
     "list": [
       {
         "pagePath": "pages/index/index/index",
-        "text": "知识圈",
+        "text": "果酱圈",
         "iconPath": "assets/image/index.png",
         "selectedIconPath": "assets/image/index-b.png"
       },

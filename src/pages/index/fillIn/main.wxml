@@ -2,26 +2,27 @@
    <block>
       <view class="avatar" bindtap="changeImage">
          <view class="iconfont icon-shujuquantouxiang"></view>
-         <view class="title">知识圈头像</view>
+         <view class="title">果酱圈头像</view>
          <image src="{{knowObj.avatar}}" wx:if="{{knowObj.avatar}}"></image>
       </view>
 
       <view class="name">
-         <view class="title">知识圈名称</view>
+         <view class="title">果酱圈名称</view>
          <input type="text" bindinput="changeName"/>
       </view>
       <view class="Introduction">
-         <view class="title">知识圈简介</view>
+         <view class="title">果酱圈简介</view>
          <textarea name="" id="" bindinput="changeIntroduction"></textarea>
       </view>
       <view class="pay">
          <checkbox-group bindchange="changePay">
             <label class="checkbox">
-               <checkbox  color="#fff" /> 用户加入知识圈需要付费
+               <checkbox  color="#fff" /> 用户加入果酱圈需要付费
             </label>
          </checkbox-group>
          <view class="text">创建后不可以更改圈子属性</view>
       </view>
       <view class="next-step" bindtap="nextStep">下一步</view>
    </block>
+   <view class="black-mask {{is_black ? 'cur' : ''}}"></view>
 </view>

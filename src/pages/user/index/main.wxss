@@ -60,3 +60,16 @@
   line-height: 20px;
   padding-left: 10px;
 }
+#personal-center .black-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000000;
+  z-index: 100;
+  display: none;
+}
+#personal-center .black-mask.cur {
+  display: block;
+}

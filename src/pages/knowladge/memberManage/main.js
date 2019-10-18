@@ -60,7 +60,7 @@ Page({
     },
     //邀请嘉宾
 
-    //踢出知识圈数据
+    //踢出果酱圈数据
     delete(){
         this.postDelete(this.data.activeItem.id,this.data.activeItem.coterie_id)
     },
@@ -73,7 +73,7 @@ Page({
             return
         }
     },
-    //请求踢出知识圈接口
+    //请求踢出果酱圈接口
     postDelete(id,coterie_id){
         wx.showLoading({
             title:'加载中',
@@ -97,7 +97,7 @@ Page({
                 res = res.data;
                 if(res.status){
                     wx.showToast({
-                        titel:'成功踢出知识圈'
+                        titel:'成功踢出果酱圈'
                     })
                     this.getMember(this.data.id,1,this.data.name);
                 } else {
@@ -193,7 +193,7 @@ Page({
     sureSearch(){
        this.getMember(this.data.id,1,this.data.name) ;
     },
-    //请求获取知识圈会员接口
+    //请求获取果酱圈会员接口
     getMember(id,page,name){
         wx.showLoading({
             title:'加载中',

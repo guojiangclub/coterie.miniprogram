@@ -4,11 +4,33 @@ Page({
     data:{
         knowObj:{
             avatar:"",//头像url
-            name:"",//知识圈名称
-            description:"",//知识圈简介
+            name:"",//果酱圈名称
+            description:"",//果酱圈简介
             isPay: false,//是否付费
-            cost_type: 'free'
+            cost_type: 'free',
+            is_black:false
         }
+    },
+    onShow(){
+        wx.getSystemInfo({
+                success:res=>{
+
+                    if(res.system.indexOf('iOS') != -1){
+                        wx.showModal({
+                            content:'十分抱歉，由于相关规范，暂不支持IOS。',
+                            showCancel:false
+                        })
+                        this.setData({
+                            is_black:true
+                        })
+
+                    }
+                }
+            }
+
+
+        )
+
     },
     //是否选择付费
     changePay(){
@@ -16,14 +38,14 @@ Page({
             'knowObj.isPay':!this.data.knowObj.isPay
         })
     },
-    //知识圈名称
+    //果酱圈名称
     changeName(e){
         /*console.log(e.detail.value);*/
         this.setData({
             'knowObj.name':e.detail.value
         })
     },
-    //知识圈简介
+    //果酱圈简介
     changeIntroduction(e){
         this.setData({
             'knowObj.description':e.detail.value
@@ -33,32 +55,32 @@ Page({
     nextStep(){
         var message = "";
         if(!this.data.knowObj.avatar){
-            message = "请上传知识圈头像";
+            message = "请上传果酱圈头像";
             wx.showModal({
                 content:message,
                 showCancel:false
             })
         } else if(!this.data.knowObj.name){
-            message = "请填写知识圈名称";
+            message = "请填写果酱圈名称";
             wx.showModal({
                 content:message,
                 showCancel:false
             })
 
         }  else if(this.data.knowObj.name && this.data.knowObj.name.length > 20){
-            message = "知识圈名称不能超过20个字";
+            message = "果酱圈名称不能超过20个字";
             wx.showModal({
                 content:message,
                 showCancel:false
             })
         } else if (!this.data.knowObj.description){
-            message = "请填写知识圈简介";
+            message = "请填写果酱圈简介";
             wx.showModal({
                 content:message,
                 showCancel:false
             })
         } else if(this.data.knowObj.description && this.data.knowObj.description.length > 500){
-            message = "知识圈简介不能超过500个字";
+            message = "果酱圈简介不能超过500个字";
             wx.showModal({
                 content:message,
                 showCancel:false
