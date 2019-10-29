@@ -159,6 +159,12 @@ Page({
             urls:urlList
         })
     },
+    report(){
+        wx.showModal({
+            content:'举报成功，待管理员审核',
+            showCancel:false
+        })
+    },
     //请求果酱圈动态详情页接口
     postContent(coterie_id,content_id,notification_id){
         wx.showLoading({

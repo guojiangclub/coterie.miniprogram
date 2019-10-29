@@ -206,7 +206,7 @@
 
         </view>
         <view class="share-box setting {{show_setting ? 'cur' : ''}}">
-            <view class="shaer-item mx-1px-top">
+            <view class="shaer-item mx-1px-top" bindtap="report">
                 举报动态
             </view>
             <view class="shaer-item mx-1px-top" wx:if="{{itemdetail.coterie_user_type == 'owner' && itemdetail.is_stick == 0}}" bindtap="setStick">

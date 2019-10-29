@@ -746,6 +746,12 @@ Page({
             }
         })
     },
+    report(){
+      wx.showModal({
+          content:'举报成功，待管理员审核',
+          showCancel:false
+      })
+    },
     //跳到果酱圈动态详情页
     jumpItemDetail(e){
         var content_id =  e.currentTarget.dataset.id;
