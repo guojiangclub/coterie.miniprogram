@@ -8,7 +8,7 @@ Page({
 
     },
     onShow(){
-        wx.getSystemInfo({
+       /* wx.getSystemInfo({
                 success:res=>{
 
                     if(res.system.indexOf('iOS') != -1){
@@ -21,19 +21,20 @@ Page({
                         })
 
                     } else {
-                        var token = cookieStorage.get('user_token');
-                        this.setData({
-                            token:token
-                        })
-                        if(token){
-                            this.getnotification(1);
-                        }
+
                     }
                 }
             }
 
 
-        )
+        )*/
+        var token = cookieStorage.get('user_token');
+        this.setData({
+            token:token
+        })
+        if(token){
+            this.getnotification(1);
+        }
 
     },
     onReachBottom() {

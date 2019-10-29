@@ -14,7 +14,7 @@
          <view class="title">果酱圈简介</view>
          <textarea name="" id="" bindinput="changeIntroduction"></textarea>
       </view>
-      <view class="pay">
+      <view class="pay" wx:if="{{!is_black}}">
          <checkbox-group bindchange="changePay">
             <label class="checkbox">
                <checkbox  color="#fff" /> 用户加入果酱圈需要付费
@@ -24,5 +24,5 @@
       </view>
       <view class="next-step" bindtap="nextStep">下一步</view>
    </block>
-   <view class="black-mask {{is_black ? 'cur' : ''}}"></view>
+   <!--<view class="black-mask {{is_black ? 'cur' : ''}}"></view>-->
 </view>

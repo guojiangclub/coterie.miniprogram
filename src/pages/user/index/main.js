@@ -9,7 +9,7 @@ Page({
 
     },
     onShow(){
-        wx.getSystemInfo({
+        /*wx.getSystemInfo({
                 success:res=>{
 
                     if(res.system.indexOf('iOS') != -1){
@@ -22,19 +22,20 @@ Page({
                         })
 
                     } else {
-                        var token = cookieStorage.get('user_token');
-                        this.setData({
-                            token :token
-                        })
-                        if(this.data.token){
-                            this.getmeInfo();
-                        }
+
                     }
                 }
             }
 
 
-        )
+        )*/
+        var token = cookieStorage.get('user_token');
+        this.setData({
+            token :token
+        })
+        if(this.data.token){
+            this.getmeInfo();
+        }
 
 
     },

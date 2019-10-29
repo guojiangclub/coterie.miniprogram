@@ -16,10 +16,10 @@ Page({
                 success:res=>{
 
                     if(res.system.indexOf('iOS') != -1){
-                        wx.showModal({
+                        /*wx.showModal({
                             content:'十分抱歉，由于相关规范，暂不支持IOS。',
                             showCancel:false
-                        })
+                        })*/
                         this.setData({
                             is_black:true
                         })

@@ -8,10 +8,11 @@ Page({
         detail: '',
         init: false,
         show_desc_btn: false,
-        show_guest_btn: false
+        show_guest_btn: false,
+        is_black:false
     },
     onLoad(e) {
-        console.log('这个是参数', e);
+
         if (e.id) {
           this.setData({
               id: e.id
@@ -42,6 +43,25 @@ Page({
       this.setData({
           token: token
       })
+    },
+    onShow(){
+        wx.getSystemInfo({
+            success:res=>{
+
+                if(res.system.indexOf('iOS') != -1){
+                    /*wx.showModal({
+                     content:'十分抱歉，由于相关规范，暂不支持IOS。',
+                     showCancel:false
+                     })*/
+                    this.setData({
+                        is_black:true
+                    })
+
+                }
+            }
+        })
+
+
     },
     changeDesc() {
         this.setData({
@@ -280,7 +300,7 @@ Page({
             api:'api/order/store',
             data:{
                 coterie_id:id,
-
+                is_ios:this.data.is_black
             },
             header:{
                 Authorization:token
@@ -288,7 +308,6 @@ Page({
         }).then(res=>{
             if (res.statusCode == 200){
                 res = res.data;
-                console.log(res);
                 if (res.status){
                     this.getOpenid().then(ret => {
                         var invite_user_code = cookieStorage.get('invite_user_code') || '';

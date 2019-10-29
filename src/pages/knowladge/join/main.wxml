@@ -95,17 +95,19 @@
                 </view>
             </view>
         </view>
-        <view class="notice block" v-if="{{detail.cost_type == 'charge'}}">
-            <view class="title mx-1px-bottom">
-                <view class="text">
-                    付费须知
+        <view wx:if="{{!is_black}}">
+            <view class="notice block" v-if="{{detail.cost_type == 'charge'}}">
+                <view class="title mx-1px-bottom">
+                    <view class="text">
+                        付费须知
+                    </view>
+                    <view class="price">
+                        ￥ {{detail.price/100 || 0}}
+                    </view>
                 </view>
-                <view class="price">
-                    ￥ {{detail.price/100 || 0}}
+                <view class="tips">
+                    帮你积累经验、完善作品集。
                 </view>
-            </view>
-            <view class="tips">
-                帮你积累经验、完善作品集。
             </view>
         </view>
         <view class="preview block" wx:if="{{detail.content && detail.content.length}}">
@@ -277,7 +279,10 @@
 
         </view>
         <view class="buy-btn" bindtap="freeJoin">
-            ￥<block wx:if="{{detail.price != 0}}">{{detail.price/100}}</block> <block wx:else>免费</block> 加入果酱圈
+            <view wx:if="{{!is_black}}">
+                <block wx:if="{{detail.price != 0}}">￥{{detail.price/100}}</block> <block wx:else>免费</block>
+            </view>
+            加入果酱圈
 
             <button wx:if="{{!detail.is_perfect_user_info && token}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="button">
 
