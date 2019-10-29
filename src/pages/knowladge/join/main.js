@@ -246,7 +246,7 @@ Page({
         return new Promise((resolve, reject) => {
             wx.login({
                 success: (res) => {
-                    sandBox.get({
+                    sandBox.post({
                         api: 'api/oauth/miniprogram/openid',
                         data: {
                             code: res.code,
