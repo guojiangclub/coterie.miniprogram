@@ -12,9 +12,9 @@
             </view>
             <view class="desc-box mx-1px-bottom">
                 <view class="desc">
-                    <view class="text js_desc {{descAll ? 'all' : ''}}">
-                       {{detail.description}}
-                    </view>
+                    <text class="text js_desc {{descAll ? 'all' : ''}}">
+                        {{detail.description}}
+                    </text>
                     <view class="all-btn" wx:if="{{show_desc_btn}}" bindtap="changeDesc">
                         <block wx:if="{{!descAll}}">展开全部</block>
                         <block wx:else>收起</block>
