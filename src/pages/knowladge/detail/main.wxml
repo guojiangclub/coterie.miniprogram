@@ -94,9 +94,11 @@
                              {{item.describeArr[1]}}
                         </span>
                     </span>
-                    <text wx:else>
-                        {{item.description}}
-                    </text>
+                    <view class="btn-area" wx:else>
+                        <view class="body-view">
+                            <text>{{item.description}}</text>
+                        </view>
+                    </view>
                 </view>
 
                 <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1 && item.style_type == 'default'}}">
@@ -140,9 +142,12 @@
                             {{item.question.user.nick_name}}提问：{{item.question.content}}
                         </view>
                     </view>
-                    <text class="reply">
-                        {{item.description}}
-                    </text>
+                    <view class="btn-area reply">
+                        <view class="body-view">
+                            <text>{{item.description}}</text>
+                        </view>
+                    </view>
+
                 </view>
                 <view class="tag-box" wx:if="{{item.tags_list_info}}">
                     <span wx:for="{{item.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>

@@ -33,9 +33,11 @@
                              {{itemdetail.describeArr[1]}}
                         </span>
                     </span>
-                        <text wx:else>
-                        {{itemdetail.description}}
-                    </text>
+                        <view class="btn-area" wx:else>
+                            <view class="body-view">
+                                <text>{{itemdetail.description}}</text>
+                            </view>
+                        </view>
 
                     </view>
                     <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length != 1 && itemdetail.style_type == 'default'}}">
@@ -79,9 +81,11 @@
                                 {{itemdetail.question.user.nick_name}}提问：{{itemdetail.question.content}}
                             </view>
                         </view>
-                        <text class="reply">
-                            {{itemdetail.description}}
-                        </text>
+                        <view class="btn-area reply">
+                            <view class="body-view">
+                                <text>{{itemdetail.description}}</text>
+                            </view>
+                        </view>
                     </view>
 
                     <view class="tag-box" wx:if="{{itemdetail.tags_list_info}}">

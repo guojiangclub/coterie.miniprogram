@@ -12,8 +12,13 @@
                     分享果酱圈
                 </view>
                 <view class="nick-name">{{detail.name}}</view>
-                <view class="describle">
+                <!--<text class="describle">
                     {{detail.description}}
+                </text>-->
+                <view class="btn-area">
+                    <view class="body-view">
+                        <text>{{detail.description}}</text>
+                    </view>
                 </view>
                 <view class="check-information" bindtap="jumpAll">
                     查看详细信息
