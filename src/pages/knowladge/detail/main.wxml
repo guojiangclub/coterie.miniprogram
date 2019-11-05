@@ -94,9 +94,9 @@
                              {{item.describeArr[1]}}
                         </span>
                     </span>
-                    <span wx:else>
+                    <text wx:else>
                         {{item.description}}
-                    </span>
+                    </text>
                 </view>
 
                 <view class="img" wx:if="{{item.content_type == 'default' && item.img_list_info.length != 1 && item.style_type == 'default'}}">
@@ -140,9 +140,9 @@
                             {{item.question.user.nick_name}}提问：{{item.question.content}}
                         </view>
                     </view>
-                    <view class="reply">
+                    <text class="reply">
                         {{item.description}}
-                    </view>
+                    </text>
                 </view>
                 <view class="tag-box" wx:if="{{item.tags_list_info}}">
                     <span wx:for="{{item.tags_list_info}}" wx:for-item="tag" wx:for-index="tkey" wx:key="{{tkey}}"># {{tag}} # </span>
@@ -170,7 +170,7 @@
                 <!--点赞-->
                 <view class="awesome-box nowrap" wx:if="{{item.praise.length != 0}}">
                     <i class="iconfont icon-zan"></i>
-                    <span class="awesome-item" bindtap="jumpPersonal" data-userid="{{praise.user_id}}" wx:for="{{item.praise}}" wx:for-item="praise" wx:for-index="pkey" wx:key="{{pkey}}">{{praise.user_meta_info.nick_name}}，   </span>
+                    <span class="awesome-item" bindtap="jumpPersonal" data-userid="{{praise.user_id}}" wx:for="{{item.praise}}" wx:for-item="praise" wx:for-index="pkey" wx:key="{{pkey}}">{{praise.user_meta_info.nick_name}} <span wx:if="{{pkey != item.praise.length - 1}}">，</span> </span>
                 </view>
 
                 <!--评论-->

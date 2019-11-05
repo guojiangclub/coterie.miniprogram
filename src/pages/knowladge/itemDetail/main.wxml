@@ -33,9 +33,9 @@
                              {{itemdetail.describeArr[1]}}
                         </span>
                     </span>
-                        <span wx:else>
+                        <text wx:else>
                         {{itemdetail.description}}
-                    </span>
+                    </text>
 
                     </view>
                     <view class="img" wx:if="{{itemdetail.content_type == 'default' && itemdetail.img_list_info.length != 1 && itemdetail.style_type == 'default'}}">
@@ -79,9 +79,9 @@
                                 {{itemdetail.question.user.nick_name}}提问：{{itemdetail.question.content}}
                             </view>
                         </view>
-                        <view class="reply">
+                        <text class="reply">
                             {{itemdetail.description}}
-                        </view>
+                        </text>
                     </view>
 
                     <view class="tag-box" wx:if="{{itemdetail.tags_list_info}}">
@@ -94,7 +94,7 @@
             <view class="awesome-box" wx:if="{{itemdetail.praise.length != 0}}">
                 <i class="iconfont icon-zan"></i>
                 <view class="text-box" >
-                    <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man" bindtap="jumpPersonal" data-userid="{{man.user_id}}">{{man.user_meta_info.nick_name}}，  </span>
+                    <span class="awesome-item" wx:for="{{itemdetail.praise}}" wx:key="{{index}}" wx:for-item="man" bindtap="jumpPersonal" data-userid="{{man.user_id}}">{{man.user_meta_info.nick_name}} <span wx:if="{{index != itemdetail.praise.length-1}}">，</span>  </span>
                 </view>
             </view>
 
