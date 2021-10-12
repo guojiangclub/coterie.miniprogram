@@ -24,7 +24,7 @@
 
 ## API
 
-API源码地址：[果酱圈子API源码](https://github.com/guojiangclub/coterie)
+API源码地址：[果酱圈子API源码](https://gitee.com/guojiangclub/coterie)
 
 ## 交流
 
