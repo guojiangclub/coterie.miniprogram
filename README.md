@@ -24,8 +24,10 @@
 
 ## API
 
-API源码地址：[果酱圈子API源码](https://gitee.com/guojiangclub/coterie)
+API源码地址：[果酱圈子API源码](https://github.com/guojiangclub/coterie)
 
 ## 交流
 
-扫码添加[陈彼得小助]，可获得“陈彼得”绝密编程资源以及25个副业赚钱思维。
+扫码添加[玖玖|彼得助理]，可获得“陈彼得”绝密编程资源以及25个副业赚钱思维。
+
+![玖玖|彼得助理 微信二维码](https://cdn.guojiang.club/xiaojunjunqyewx2.jpg)
